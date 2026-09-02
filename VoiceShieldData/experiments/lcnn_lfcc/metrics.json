@@ -1,0 +1,55 @@
+{
+  "model_name": "lcnn_lfcc",
+  "in_domain_eval": {
+    "accuracy": 0.736,
+    "balanced_accuracy": 0.6756,
+    "precision": 0.4014,
+    "recall": 0.5728,
+    "f1": 0.472,
+    "roc_auc": 0.7522,
+    "pr_auc": 0.3886,
+    "eer": 0.3029,
+    "far_at_eer": 0.3048,
+    "frr_at_eer": 0.301,
+    "optimal_threshold": 0.4612,
+    "confusion_matrix": [
+      [
+        309,
+        88
+      ],
+      [
+        44,
+        59
+      ]
+    ],
+    "predicted_bonafide": 147,
+    "predicted_spoof": 353
+  },
+  "out_of_domain_itw_eval": {
+    "accuracy": 0.59,
+    "balanced_accuracy": 0.6188,
+    "precision": 0.7619,
+    "recall": 0.5079,
+    "f1": 0.6095,
+    "roc_auc": 0.7,
+    "pr_auc": 0.7923,
+    "eer": 0.3836,
+    "far_at_eer": 0.3784,
+    "frr_at_eer": 0.3889,
+    "optimal_threshold": 0.4805,
+    "confusion_matrix": [
+      [
+        54,
+        20
+      ],
+      [
+        62,
+        64
+      ]
+    ],
+    "predicted_bonafide": 84,
+    "predicted_spoof": 116
+  },
+  "training_time_seconds": 241.07,
+  "parameters_count": 244625
+}

@@ -1,0 +1,9 @@
+{
+  "model_name": "wavlm",
+  "parameters": 414274,
+  "epochs": 2,
+  "batch_size": 32,
+  "lr": 0.001,
+  "loss_type": "focal",
+  "training_time_seconds": 85.27
+}

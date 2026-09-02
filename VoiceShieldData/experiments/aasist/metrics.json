@@ -1,0 +1,55 @@
+{
+  "model_name": "aasist",
+  "in_domain_eval": {
+    "accuracy": 0.2067,
+    "balanced_accuracy": 0.5,
+    "precision": 0.2067,
+    "recall": 1.0,
+    "f1": 0.3425,
+    "roc_auc": 0.5297,
+    "pr_auc": 0.2267,
+    "eer": 0.4569,
+    "far_at_eer": 0.4622,
+    "frr_at_eer": 0.4516,
+    "optimal_threshold": 0.5323,
+    "confusion_matrix": [
+      [
+        0,
+        119
+      ],
+      [
+        0,
+        31
+      ]
+    ],
+    "predicted_bonafide": 150,
+    "predicted_spoof": 0
+  },
+  "out_of_domain_itw_eval": {
+    "accuracy": 0.63,
+    "balanced_accuracy": 0.5,
+    "precision": 0.63,
+    "recall": 1.0,
+    "f1": 0.773,
+    "roc_auc": 0.4424,
+    "pr_auc": 0.6219,
+    "eer": 0.5401,
+    "far_at_eer": 0.5405,
+    "frr_at_eer": 0.5397,
+    "optimal_threshold": 0.5405,
+    "confusion_matrix": [
+      [
+        0,
+        74
+      ],
+      [
+        0,
+        126
+      ]
+    ],
+    "predicted_bonafide": 200,
+    "predicted_spoof": 0
+  },
+  "training_time_seconds": 94.37,
+  "parameters_count": 208323
+}

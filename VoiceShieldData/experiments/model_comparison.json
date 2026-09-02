@@ -1,0 +1,175 @@
+{
+  "metrics_comparison": {
+    "Accuracy": {
+      "BASELINE": 0.87875,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.791,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.8
+    },
+    "Balanced Accuracy": {
+      "BASELINE": 0.5,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.7604,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.7628
+    },
+    "Precision": {
+      "BASELINE": 0.0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.3824,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.3946
+    },
+    "Recall": {
+      "BASELINE": 0.0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.7172,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.7103
+    },
+    "F1 Score": {
+      "BASELINE": 0.0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.4988,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.5074
+    },
+    "ROC-AUC": {
+      "BASELINE": 0.5,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.8333,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.8356
+    },
+    "Equal Error Rate (EER)": {
+      "BASELINE": "NOT IMPLEMENTED (Majority Class Collapse)",
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.2433,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.2407
+    },
+    "FAR at EER": {
+      "BASELINE": 1.0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.2175,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.1918
+    },
+    "FRR at EER": {
+      "BASELINE": 0.0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 0.269,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 0.2897
+    },
+    "Predicted Bona-Fide Count": {
+      "BASELINE": 0,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 272,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 261
+    },
+    "Predicted Spoof Count": {
+      "BASELINE": 800,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 728,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 739
+    },
+    "Training Time (s)": {
+      "BASELINE": 127.03594589233398,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 896.76,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 906.5
+    },
+    "Inference Latency (ms)": {
+      "BASELINE": 55.68,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 8.8,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 22.24
+    },
+    "Parameters": {
+      "BASELINE": 167329,
+      "EXPERIMENT_A_WEIGHTED_LOSS": 1593697,
+      "EXPERIMENT_B_BALANCED_SAMPLER": 1593697
+    }
+  },
+  "selected_champion_model": "improved_v1",
+  "evaluation_summary": {
+    "improved_v1": {
+      "experiment_name": "improved_v1",
+      "imbalance_strategy": "balanced_sampler",
+      "training_samples": 5000,
+      "validation_samples": 1000,
+      "epochs": 4,
+      "total_training_time_seconds": 906.5,
+      "inference_latency_ms": 22.24,
+      "parameters_count": 1593697,
+      "default_threshold_0.5": {
+        "accuracy": 0.8,
+        "balanced_accuracy": 0.757,
+        "precision": 0.393,
+        "recall": 0.6966,
+        "f1": 0.5025,
+        "predicted_bonafide": 257,
+        "predicted_spoof": 743
+      },
+      "optimal_threshold": {
+        "threshold": 0.49,
+        "accuracy": 0.8,
+        "balanced_accuracy": 0.7628,
+        "precision": 0.3946,
+        "recall": 0.7103,
+        "f1": 0.5074,
+        "roc_auc": 0.8356,
+        "eer": 0.2407,
+        "far_at_eer": 0.1918,
+        "frr_at_eer": 0.2897,
+        "confusion_matrix": [
+          [
+            697,
+            158
+          ],
+          [
+            42,
+            103
+          ]
+        ],
+        "predicted_bonafide": 261,
+        "predicted_spoof": 739
+      },
+      "robustness_telephony_evaluation": {
+        "clean_eer": 0.2407,
+        "telephony_eer": 0.2407,
+        "generalization_gap_eer": 0.0,
+        "telephony_f1": 0.5074
+      }
+    },
+    "improved_v2": {
+      "experiment_name": "improved_v2",
+      "imbalance_strategy": "weighted_loss",
+      "training_samples": 5000,
+      "validation_samples": 1000,
+      "epochs": 4,
+      "total_training_time_seconds": 896.76,
+      "inference_latency_ms": 8.8,
+      "parameters_count": 1593697,
+      "default_threshold_0.5": {
+        "accuracy": 0.779,
+        "balanced_accuracy": 0.7591,
+        "precision": 0.3681,
+        "recall": 0.731,
+        "f1": 0.4896,
+        "predicted_bonafide": 288,
+        "predicted_spoof": 712
+      },
+      "optimal_threshold": {
+        "threshold": 0.55,
+        "accuracy": 0.791,
+        "balanced_accuracy": 0.7604,
+        "precision": 0.3824,
+        "recall": 0.7172,
+        "f1": 0.4988,
+        "roc_auc": 0.8333,
+        "eer": 0.2433,
+        "far_at_eer": 0.2175,
+        "frr_at_eer": 0.269,
+        "confusion_matrix": [
+          [
+            687,
+            168
+          ],
+          [
+            41,
+            104
+          ]
+        ],
+        "predicted_bonafide": 272,
+        "predicted_spoof": 728
+      },
+      "robustness_telephony_evaluation": {
+        "clean_eer": 0.2433,
+        "telephony_eer": 0.2433,
+        "generalization_gap_eer": 0.0,
+        "telephony_f1": 0.4988
+      }
+    }
+  }
+}

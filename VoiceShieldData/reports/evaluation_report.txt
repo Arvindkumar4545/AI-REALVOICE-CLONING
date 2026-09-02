@@ -1,0 +1,6 @@
+VoiceShield evaluation report
+Accuracy: 0.7600
+Precision: 0.3907
+Recall: 0.2750
+F1: 0.3228
+Held-out samples: 237746

@@ -1,0 +1,55 @@
+{
+  "model_name": "bilstm_prosody",
+  "in_domain_eval": {
+    "accuracy": 0.2067,
+    "balanced_accuracy": 0.5,
+    "precision": 0.2067,
+    "recall": 1.0,
+    "f1": 0.3425,
+    "roc_auc": 0.485,
+    "pr_auc": 0.2001,
+    "eer": 0.5186,
+    "far_at_eer": 0.521,
+    "frr_at_eer": 0.5161,
+    "optimal_threshold": 0.5202,
+    "confusion_matrix": [
+      [
+        0,
+        119
+      ],
+      [
+        0,
+        31
+      ]
+    ],
+    "predicted_bonafide": 150,
+    "predicted_spoof": 0
+  },
+  "out_of_domain_itw_eval": {
+    "accuracy": 0.63,
+    "balanced_accuracy": 0.5,
+    "precision": 0.63,
+    "recall": 1.0,
+    "f1": 0.773,
+    "roc_auc": 0.6489,
+    "pr_auc": 0.7503,
+    "eer": 0.3836,
+    "far_at_eer": 0.3784,
+    "frr_at_eer": 0.3889,
+    "optimal_threshold": 0.5193,
+    "confusion_matrix": [
+      [
+        0,
+        74
+      ],
+      [
+        0,
+        126
+      ]
+    ],
+    "predicted_bonafide": 200,
+    "predicted_spoof": 0
+  },
+  "training_time_seconds": 210.59,
+  "parameters_count": 185474
+}

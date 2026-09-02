@@ -1,0 +1,5 @@
+{
+  "model": "ECAPA-TDNN",
+  "embedding_dim": 192,
+  "purpose": "Speaker Consistency & Enrollment Verification"
+}

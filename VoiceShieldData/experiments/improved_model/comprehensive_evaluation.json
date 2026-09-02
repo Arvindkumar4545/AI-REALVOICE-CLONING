@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-30 16:19:40",
+  "model_version": "VoiceShield-v2.0.0-Ensemble",
+  "evaluation_results": {
+    "in_the_wild": {
+      "dataset": "In-The-Wild Speaker-Disjoint Test",
+      "total_samples": 300,
+      "total_human_samples": 227,
+      "total_spoof_samples": 73,
+      "accuracy": 0.7567,
+      "balanced_accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "roc_auc": 0.887,
+      "eer": 0.1928,
+      "human_false_positive_rate": 0.0,
+      "human_false_positive_count": 0,
+      "spoof_recall": 0.0,
+      "uncertain_breakdown": {
+        "human_uncertain_count": 18,
+        "spoof_uncertain_count": 45
+      },
+      "confusion_matrix": {
+        "true_bonafide": 227,
+        "false_spoof_fp": 0,
+        "false_bonafide_fn": 73,
+        "true_spoof_tp": 0
+      },
+      "avg_latency_ms": 221.61
+    },
+    "asvspoof_in_domain": {
+      "dataset": "ASVspoof 2019 In-Domain Test",
+      "total_samples": 300,
+      "total_human_samples": 57,
+      "total_spoof_samples": 243,
+      "accuracy": 0.32,
+      "balanced_accuracy": 0.5467,
+      "precision": 0.898,
+      "recall": 0.1811,
+      "f1_score": 0.3014,
+      "roc_auc": 0.6011,
+      "eer": 0.3864,
+      "human_false_positive_rate": 0.0877,
+      "human_false_positive_count": 5,
+      "spoof_recall": 0.1811,
+      "uncertain_breakdown": {
+        "human_uncertain_count": 18,
+        "spoof_uncertain_count": 110
+      },
+      "confusion_matrix": {
+        "true_bonafide": 52,
+        "false_spoof_fp": 5,
+        "false_bonafide_fn": 199,
+        "true_spoof_tp": 44
+      },
+      "avg_latency_ms": 169.63
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "total_samples_in_manifest": 371670,
+  "train_split_total": 79380,
+  "dev_split_total": 54544,
+  "train_used": 3000,
+  "dev_used": 800,
+  "train_label_distribution": {
+    "bonafide": 7980,
+    "spoof": 71400
+  },
+  "dev_label_distribution": {
+    "bonafide": 7948,
+    "spoof": 46596
+  }
+}

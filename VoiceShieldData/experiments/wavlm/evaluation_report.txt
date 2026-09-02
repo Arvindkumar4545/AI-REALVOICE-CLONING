@@ -1,0 +1,26 @@
+======================================================================
+        VOICE SHIELD MODEL EVALUATION REPORT: WAVLM
+======================================================================
+Model Parameters:     414,274
+Training Duration:    85.27s (2 epochs)
+Loss Configuration:   focal
+
+IN-DOMAIN (ASVspoof Eval Split) METRICS:
+  • Accuracy:           79.33%
+  • Balanced Accuracy:  50.00%
+  • Precision:          0.00%
+  • Recall:             0.00%
+  • F1 Score:           0.0000
+  • ROC-AUC:            0.3429
+  • EER:                66.71%
+  • FAR at EER:         68.91%
+  • FRR at EER:         64.52%
+  • Optimal Threshold:  0.4370
+  • Predictions:        0 bona-fide, 150 spoof
+
+OUT-OF-DOMAIN (In-The-Wild Generalization) METRICS:
+  • Accuracy:           37.00%
+  • F1 Score:           0.0000
+  • ROC-AUC:            0.5884
+  • EER:                44.92%
+======================================================================

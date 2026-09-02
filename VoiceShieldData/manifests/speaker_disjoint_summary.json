@@ -1,0 +1,79 @@
+{
+  "total_records": 403449,
+  "in_the_wild_speakers": {
+    "train": [
+      "2Pac",
+      "Robert Kardashian",
+      "Ayn Rand",
+      "Kanye West",
+      "Christopher Hitchens",
+      "Alexandria Ocasio-Cortez",
+      "Jerry Seinfeld",
+      "Louis C.K.",
+      "The Notorious B.I.G.",
+      "Harry Truman",
+      "Lyndon Johnson",
+      "Orson Welles",
+      "William F. Buckley",
+      "FDR",
+      "Bernie Sanders",
+      "Donald Trump",
+      "Billie Eilish",
+      "Arnold Schwarzenegger",
+      "Queen Elizabeth II",
+      "Ronald Reagan",
+      "Louis Farrakhan",
+      "JFK",
+      "Jeff Goldblum",
+      "Scarlett Johansson",
+      "Boris Johnson",
+      "Dave Chappelle",
+      "Mark Zuckerberg",
+      "Bob Ross",
+      "Alec Guinness",
+      "Martin Luther King",
+      "Kamala Harris",
+      "Bill Burr"
+    ],
+    "dev": [
+      "Alan Watts",
+      "Adam Driver",
+      "Gilbert Gottfried",
+      "George Carlin",
+      "John Cleese",
+      "Nelson Mandela",
+      "Malcolm X",
+      "Mr. Rogers",
+      "Mitch Hedberg",
+      "Richard Nixon"
+    ],
+    "test": [
+      "Frank Sinatra",
+      "Dwight Eisenhower",
+      "Milton Friedman",
+      "Winston Churchill",
+      "Barack Obama",
+      "Nick Offerman",
+      "Jimmy Carter",
+      "Norm MacDonald",
+      "George W. Bush",
+      "Calvin Coolidge",
+      "Bill Clinton",
+      "Tucker Carlson"
+    ]
+  },
+  "breakdown": {
+    "train": {
+      "bonafide": 21053,
+      "spoof": 79859
+    },
+    "dev": {
+      "bonafide": 8915,
+      "spoof": 47886
+    },
+    "test": {
+      "bonafide": 51331,
+      "spoof": 194405
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "lcnn": {
+    "accuracy": 0.5975,
+    "balanced_accuracy": 0.5975,
+    "precision": 0.5809,
+    "recall": 0.7,
+    "f1": 0.6349,
+    "roc_auc": 0.6459,
+    "eer": 0.3525,
+    "optimal_threshold": 0.6391,
+    "human_fpr": 0.3,
+    "confusion_matrix": {
+      "tn": 198,
+      "fp": 202,
+      "fn": 120,
+      "tp": 280
+    }
+  },
+  "wavlm": {
+    "accuracy": 0.5487,
+    "balanced_accuracy": 0.5488,
+    "precision": 0.6127,
+    "recall": 0.265,
+    "f1": 0.37,
+    "roc_auc": 0.5967,
+    "eer": 0.4325,
+    "optimal_threshold": 0.2571,
+    "human_fpr": 0.735,
+    "confusion_matrix": {
+      "tn": 333,
+      "fp": 67,
+      "fn": 294,
+      "tp": 106
+    }
+  },
+  "bilstm": {
+    "accuracy": 0.6512,
+    "balanced_accuracy": 0.6512,
+    "precision": 0.6494,
+    "recall": 0.6575,
+    "f1": 0.6534,
+    "roc_auc": 0.679,
+    "eer": 0.335,
+    "optimal_threshold": 0.5057,
+    "human_fpr": 0.3425,
+    "confusion_matrix": {
+      "tn": 258,
+      "fp": 142,
+      "fn": 137,
+      "tp": 263
+    }
+  }
+}

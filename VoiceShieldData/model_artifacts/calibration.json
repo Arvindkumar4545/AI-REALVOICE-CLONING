@@ -1,0 +1,42 @@
+{
+  "threshold": 0.5,
+  "threshold_lower": 0.35,
+  "threshold_upper": 0.65,
+  "method": "isotonic",
+  "temperature": 0.8814,
+  "platt_intercept": -0.3623,
+  "platt_coef": 1.2859,
+  "brier_score_raw": 0.1535,
+  "brier_score_calibrated": 0.1312,
+  "ensemble_weights": {
+    "lcnn": 0.4813,
+    "wavlm": 0.015,
+    "bilstm": 0.4545,
+    "rawnet2": 0.0491,
+    "aasist": 0.0
+  },
+  "logistic_stacker": {
+    "intercept": -3.0778,
+    "coefs": {
+      "lcnn": 2.7059,
+      "wavlm": 0.0845,
+      "bilstm": 2.5555,
+      "rawnet2": 0.2761,
+      "aasist": -0.031
+    }
+  },
+  "risk_tiers": {
+    "bonafide": [
+      0.0,
+      35.0
+    ],
+    "uncertain": [
+      35.0,
+      65.0
+    ],
+    "spoof": [
+      65.0,
+      100.0
+    ]
+  }
+}

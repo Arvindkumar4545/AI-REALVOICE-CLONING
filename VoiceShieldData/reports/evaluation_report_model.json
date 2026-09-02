@@ -1,0 +1,35 @@
+{
+  "model_path": "F:\\AI-REALVOICE-CLONING\\VoiceShieldData\\checkpoints\\voiceshield_improved\\model.pt",
+  "total_eval_samples": 1500,
+  "accuracy_threshold_0.5": 0.54,
+  "precision_threshold_0.5": 0.2408,
+  "recall_threshold_0.5": 0.5659,
+  "f1_threshold_0.5": 0.3378,
+  "roc_auc": 0.6105,
+  "eer": 0.455,
+  "optimal_threshold": 0.5615,
+  "far_at_eer": 0.455,
+  "frr_at_eer": 0.4534,
+  "optimal_accuracy": 0.5453,
+  "optimal_f1": 0.3327,
+  "confusion_matrix_0.5": [
+    [
+      634,
+      555
+    ],
+    [
+      135,
+      176
+    ]
+  ],
+  "confusion_matrix_optimal": [
+    [
+      648,
+      541
+    ],
+    [
+      141,
+      170
+    ]
+  ]
+}

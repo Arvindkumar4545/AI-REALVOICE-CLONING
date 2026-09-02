@@ -1,0 +1,26 @@
+======================================================================
+        VOICE SHIELD MODEL EVALUATION REPORT: BILSTM_PROSODY
+======================================================================
+Model Parameters:     185,474
+Training Duration:    210.59s (2 epochs)
+Loss Configuration:   focal
+
+IN-DOMAIN (ASVspoof Eval Split) METRICS:
+  • Accuracy:           20.67%
+  • Balanced Accuracy:  50.00%
+  • Precision:          20.67%
+  • Recall:             100.00%
+  • F1 Score:           0.3425
+  • ROC-AUC:            0.4850
+  • EER:                51.86%
+  • FAR at EER:         52.10%
+  • FRR at EER:         51.61%
+  • Optimal Threshold:  0.5202
+  • Predictions:        150 bona-fide, 0 spoof
+
+OUT-OF-DOMAIN (In-The-Wild Generalization) METRICS:
+  • Accuracy:           63.00%
+  • F1 Score:           0.7730
+  • ROC-AUC:            0.6489
+  • EER:                38.36%
+======================================================================

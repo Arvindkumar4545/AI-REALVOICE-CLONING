@@ -1,0 +1,26 @@
+======================================================================
+        VOICE SHIELD MODEL EVALUATION REPORT: RAWNET2
+======================================================================
+Model Parameters:     660,945
+Training Duration:    438.07s (3 epochs)
+Loss Configuration:   focal
+
+IN-DOMAIN (ASVspoof Eval Split) METRICS:
+  • Accuracy:           77.00%
+  • Balanced Accuracy:  51.56%
+  • Precision:          25.00%
+  • Recall:             10.53%
+  • F1 Score:           0.1481
+  • ROC-AUC:            0.4994
+  • EER:                52.24%
+  • FAR at EER:         51.85%
+  • FRR at EER:         52.63%
+  • Optimal Threshold:  0.4183
+  • Predictions:        16 bona-fide, 184 spoof
+
+OUT-OF-DOMAIN (In-The-Wild Generalization) METRICS:
+  • Accuracy:           38.00%
+  • F1 Score:           0.0312
+  • ROC-AUC:            0.5207
+  • EER:                48.93%
+======================================================================

@@ -1,0 +1,20 @@
+{
+  "ASVspoof2019_LA": {
+    "is_strictly_speaker_disjoint": true,
+    "train_speakers_count": 20,
+    "dev_speakers_count": 20,
+    "eval_speakers_count": 67,
+    "overlap_train_dev": [],
+    "overlap_train_eval": [],
+    "overlap_dev_eval": []
+  },
+  "ASVspoof2019_PA": {
+    "is_strictly_speaker_disjoint": true,
+    "train_speakers_count": 20,
+    "dev_speakers_count": 20,
+    "eval_speakers_count": 67,
+    "overlap_train_dev": [],
+    "overlap_train_eval": [],
+    "overlap_dev_eval": []
+  }
+}

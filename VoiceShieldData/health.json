@@ -1,0 +1,1 @@
+{"status":"degraded","service":"VoiceShield API Gateway","version":"1.0.0","timestamp":"2026-09-01T10:37:44.003Z","uptime_ms":3433502,"dependencies":{"database":{"status":"degraded","mode":"embedded_resilient_store"},"redis":{"status":"disabled","enabled":false},"ml_service":{"status":"healthy","url":"http://localhost:8000"},"queue":{"status":"healthy","depth":0}}}

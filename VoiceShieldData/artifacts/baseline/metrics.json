@@ -1,0 +1,13 @@
+{
+  "training_samples": 3000,
+  "validation_samples": 800,
+  "epochs": 3,
+  "final_train_accuracy": 0.893,
+  "final_val_accuracy": 0.87875,
+  "final_val_precision": 0.0,
+  "final_val_recall": 0.0,
+  "final_val_f1": 0.0,
+  "eer": "NOT IMPLEMENTED",
+  "total_training_time": 127.03594589233398,
+  "best_model_f1": 0.0
+}

@@ -1,0 +1,49 @@
+{
+  "experiment_name": "improved_v1",
+  "imbalance_strategy": "balanced_sampler",
+  "training_samples": 5000,
+  "validation_samples": 1000,
+  "epochs": 4,
+  "total_training_time_seconds": 906.5,
+  "inference_latency_ms": 22.24,
+  "parameters_count": 1593697,
+  "default_threshold_0.5": {
+    "accuracy": 0.8,
+    "balanced_accuracy": 0.757,
+    "precision": 0.393,
+    "recall": 0.6966,
+    "f1": 0.5025,
+    "predicted_bonafide": 257,
+    "predicted_spoof": 743
+  },
+  "optimal_threshold": {
+    "threshold": 0.49,
+    "accuracy": 0.8,
+    "balanced_accuracy": 0.7628,
+    "precision": 0.3946,
+    "recall": 0.7103,
+    "f1": 0.5074,
+    "roc_auc": 0.8356,
+    "eer": 0.2407,
+    "far_at_eer": 0.1918,
+    "frr_at_eer": 0.2897,
+    "confusion_matrix": [
+      [
+        697,
+        158
+      ],
+      [
+        42,
+        103
+      ]
+    ],
+    "predicted_bonafide": 261,
+    "predicted_spoof": 739
+  },
+  "robustness_telephony_evaluation": {
+    "clean_eer": 0.2407,
+    "telephony_eer": 0.2407,
+    "generalization_gap_eer": 0.0,
+    "telephony_f1": 0.5074
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "total_human_tested": 30,
+  "valid_human_speech": 29,
+  "insufficient_human_audio": 1,
+  "human_correctly_identified_bonafide": 29,
+  "human_false_positives": 0,
+  "false_positive_rate_pct": 0.0,
+  "avg_human_risk_score": 29.02,
+  "avg_human_spoof_prob": 0.2404,
+  "total_spoof_tested": 30,
+  "valid_spoof_speech": 30,
+  "spoof_correctly_identified_spoof": 23,
+  "spoof_false_negatives": 7,
+  "false_negative_rate_pct": 23.33,
+  "avg_spoof_risk_score": 40.88,
+  "avg_spoof_spoof_prob": 0.3921
+}

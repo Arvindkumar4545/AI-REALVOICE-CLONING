@@ -1,0 +1,26 @@
+======================================================================
+        VOICE SHIELD MODEL EVALUATION REPORT: AASIST
+======================================================================
+Model Parameters:     208,323
+Training Duration:    94.37s (2 epochs)
+Loss Configuration:   focal
+
+IN-DOMAIN (ASVspoof Eval Split) METRICS:
+  • Accuracy:           20.67%
+  • Balanced Accuracy:  50.00%
+  • Precision:          20.67%
+  • Recall:             100.00%
+  • F1 Score:           0.3425
+  • ROC-AUC:            0.5297
+  • EER:                45.69%
+  • FAR at EER:         46.22%
+  • FRR at EER:         45.16%
+  • Optimal Threshold:  0.5323
+  • Predictions:        150 bona-fide, 0 spoof
+
+OUT-OF-DOMAIN (In-The-Wild Generalization) METRICS:
+  • Accuracy:           63.00%
+  • F1 Score:           0.7730
+  • ROC-AUC:            0.4424
+  • EER:                54.01%
+======================================================================

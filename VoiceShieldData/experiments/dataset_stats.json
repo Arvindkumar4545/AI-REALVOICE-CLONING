@@ -1,0 +1,51 @@
+{
+  "total_records": 371670,
+  "split_counts": {
+    "eval": 237746,
+    "train": 79380,
+    "dev": 54544
+  },
+  "distribution_by_split": {
+    "train": {
+      "total": 79380,
+      "bonafide": 7980,
+      "spoof": 71400,
+      "bonafide_percentage": 10.05,
+      "spoof_percentage": 89.95
+    },
+    "dev": {
+      "total": 54544,
+      "bonafide": 7948,
+      "spoof": 46596,
+      "bonafide_percentage": 14.57,
+      "spoof_percentage": 85.43
+    },
+    "eval": {
+      "total": 237746,
+      "bonafide": 45408,
+      "spoof": 192338,
+      "bonafide_percentage": 19.1,
+      "spoof_percentage": 80.9
+    }
+  },
+  "source_counts": {
+    "PA": 218430,
+    "LA": 121461,
+    "in_the_wild": 31779
+  },
+  "speaker_stats": {
+    "train_unique_speakers": 40,
+    "dev_unique_speakers": 40,
+    "eval_unique_speakers": 188,
+    "is_speaker_disjoint": true,
+    "train_dev_overlap_count": 0,
+    "train_eval_overlap_count": 0,
+    "dev_eval_overlap_count": 0
+  },
+  "duplicate_file_paths": 0,
+  "path_sample_check": {
+    "tested_sample_size": 1000,
+    "missing_files_in_sample": 0,
+    "sample_path_validity_percent": 100.0
+  }
+}

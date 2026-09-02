@@ -1,0 +1,60 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 0.0831952028455553,
+    "val_metrics": {
+      "accuracy": 0.8667,
+      "balanced_accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.5723,
+      "pr_auc": 0.1579,
+      "eer": 0.4481,
+      "far_at_eer": 0.4462,
+      "frr_at_eer": 0.45,
+      "optimal_threshold": 0.4381,
+      "confusion_matrix": [
+        [
+          130,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "predicted_bonafide": 0,
+      "predicted_spoof": 150
+    }
+  },
+  {
+    "epoch": 2,
+    "train_loss": 0.06779610405560352,
+    "val_metrics": {
+      "accuracy": 0.8667,
+      "balanced_accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "roc_auc": 0.4219,
+      "pr_auc": 0.1141,
+      "eer": 0.5519,
+      "far_at_eer": 0.5538,
+      "frr_at_eer": 0.55,
+      "optimal_threshold": 0.468,
+      "confusion_matrix": [
+        [
+          130,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "predicted_bonafide": 0,
+      "predicted_spoof": 150
+    }
+  }
+]

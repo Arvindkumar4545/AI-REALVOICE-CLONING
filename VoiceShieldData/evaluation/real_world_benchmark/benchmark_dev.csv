@@ -1,0 +1,401 @@
+path,label,speaker,split,source
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004876.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002608.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\3615.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001931.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26278.wav,bonafide,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\8143.wav,bonafide,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0022674.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25536.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004811.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30797.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21486.wav,bonafide,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0015864.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\14911.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22662.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\28506.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1457.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004581.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020830.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001803.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7459580.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25706.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26905.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0013264.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000375.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7703.wav,bonafide,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3628282.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26034.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_9897081.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001369.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1480.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3123903.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25616.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005266.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25838.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003526.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11613.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1627.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0009369.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16372.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22231.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0029565.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2100.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\24801.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\849.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9224.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0013592.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\23255.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11647.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16682.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11518.wav,spoof,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\27239.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0024573.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3763099.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\10049.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0025615.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25258.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4475626.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17238.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17999.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\31378.wav,spoof,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30916.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2688414.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5823706.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11080.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\29162.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22936.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020971.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005257.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0008454.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22538.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1347517.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\6751.wav,spoof,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9850.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4527.wav,bonafide,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2879784.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005300.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000523.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0026878.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5570.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2035158.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17289.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17973.wav,bonafide,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000756.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004917.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_9035942.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2388.wav,bonafide,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002985.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0006794.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16407.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\24328.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003015.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0028224.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22341.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8103476.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16779.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0017923.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0012684.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0019732.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005060.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9326.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000637.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16976.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1052.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26974.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1302.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25378.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11207.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7193.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3406031.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0021376.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7898.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011722.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8942125.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2692089.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005362.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9518.wav,bonafide,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21510.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6963411.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011876.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8116083.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\24364.wav,spoof,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1161.wav,spoof,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2431.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7659039.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\29355.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4141.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_9661014.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0010811.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\8378.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001928.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1725101.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1598.wav,spoof,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002247.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\853.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11293.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12436.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5349132.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004778.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002610.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7155652.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22266.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26536.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002784.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1148.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\31524.wav,spoof,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003734.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\20726.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7609.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13833.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0024174.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30324.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5470298.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000518.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\514.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2679.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13735.wav,spoof,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1708.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\28234.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8151925.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2957996.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011160.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003705.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001706.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5565.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0018267.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13364.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2692895.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\20836.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2259.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3977034.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9623.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25651.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\23594.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\14851.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9410.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0016600.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7404.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1434598.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2261.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26736.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\19867.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16111.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26964.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5046.wav,spoof,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16522.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4906.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020851.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003386.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6707130.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9924.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26938.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25208.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5985635.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\10391.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005788.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0008430.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020212.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011271.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0027506.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4214532.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12511.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6465138.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5261984.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000100.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002835.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11789.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\8909.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13017.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5545363.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15591.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002395.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15201.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\18693.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2839838.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001668.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15186.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2984362.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6818564.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5868191.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005377.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6993181.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\24399.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3170420.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21822.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7674.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21146.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4381.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005999.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26755.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000751.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13835.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000208.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002013.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16099.wav,bonafide,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\13303.wav,spoof,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3171047.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001100.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0007107.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0024344.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8422079.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6502735.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\27785.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\10875.wav,bonafide,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0024819.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\14168.wav,bonafide,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\3261.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5182485.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\25734.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004441.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2946958.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\24562.wav,spoof,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004473.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26426.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003337.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\31632.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4736704.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\28158.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5096.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6211330.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4993.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7904.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11124.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\27612.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30603.wav,bonafide,John Cleese,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\29556.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30989.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5770428.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7822260.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5266850.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\28973.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30250.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002359.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003755.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0028667.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\30125.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\20608.wav,bonafide,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8690110.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1710314.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002391.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1566401.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2499.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005268.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_3643347.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\27643.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005052.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_9537226.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004563.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9622.wav,spoof,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5638.wav,bonafide,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002999.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\6740.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\27510.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4554.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_9764499.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8976620.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1971495.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15994.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0017788.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7560590.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002157.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002613.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21312.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6995410.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\1493.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\18174.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7079.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\8136.wav,spoof,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2989.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\9725.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4984754.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16326.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16698.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2922.wav,bonafide,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0008062.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011840.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_2593161.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002148.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0008446.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4608449.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000616.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004689.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7612426.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0016902.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6288751.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1192014.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0015550.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020187.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5508177.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8986360.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12877.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\31401.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002146.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7102.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0028042.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4807296.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\2836.wav,spoof,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7927.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\14527.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15246.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\26817.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1024892.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\29941.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0005100.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17921.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_8030557.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\15040.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0017241.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003951.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0002170.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\20851.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0026451.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\19841.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0004025.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\4845.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_1192985.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0013045.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\21582.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0023908.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0025891.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011303.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001235.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22377.wav,bonafide,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5404.wav,bonafide,Malcolm X,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\20974.wav,spoof,Mr. Rogers,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\8582.wav,spoof,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0024531.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5122.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12021.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\7758.wav,bonafide,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\6288.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5642763.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000830.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001285.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12123.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6252373.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\16147.wav,spoof,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000103.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\5955.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003639.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_6206483.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0003903.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0015766.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\6144.wav,spoof,Adam Driver,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\11864.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\12834.wav,spoof,Alan Watts,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_5247869.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17227.wav,bonafide,Richard Nixon,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_4228555.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\19864.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0020921.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0000298.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\14700.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\LA\LA\ASVspoof2019_LA_dev\flac\LA_D_7641950.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\29844.wav,bonafide,George Carlin,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\22984.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\17985.wav,bonafide,Gilbert Gottfried,dev,in_the_wild
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\10418.wav,spoof,Nelson Mandela,dev,in_the_wild
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0001594.flac,bonafide,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\asvspoof2019\PA\PA\ASVspoof2019_PA_dev\flac\PA_D_0011805.flac,spoof,ASV_SPK,dev,asvspoof2019
+F:\VoiceShieldData\datasets\in_the_wild\EXTRACTED\release_in_the_wild\10814.wav,spoof,Richard Nixon,dev,in_the_wild

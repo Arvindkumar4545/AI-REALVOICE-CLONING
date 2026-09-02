@@ -1,0 +1,20 @@
+{
+  "model_champion": "VoiceShield-v2.1.0-Ensemble",
+  "submodels": [
+    "LCNN+LFCC",
+    "WavLM Head",
+    "BiLSTM Prosody"
+  ],
+  "training_samples": 1600,
+  "validation_samples": 800,
+  "test_samples": 800,
+  "threshold_calibration": {
+    "bonafide_upper_threshold": 0.35,
+    "uncertain_zone": [
+      0.35,
+      0.65
+    ],
+    "spoof_lower_threshold": 0.65
+  },
+  "device": "cpu"
+}

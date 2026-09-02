@@ -1,0 +1,55 @@
+{
+  "model_name": "wavlm",
+  "in_domain_eval": {
+    "accuracy": 0.7933,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.3429,
+    "pr_auc": 0.1524,
+    "eer": 0.6671,
+    "far_at_eer": 0.6891,
+    "frr_at_eer": 0.6452,
+    "optimal_threshold": 0.437,
+    "confusion_matrix": [
+      [
+        119,
+        0
+      ],
+      [
+        31,
+        0
+      ]
+    ],
+    "predicted_bonafide": 0,
+    "predicted_spoof": 150
+  },
+  "out_of_domain_itw_eval": {
+    "accuracy": 0.37,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.5884,
+    "pr_auc": 0.7536,
+    "eer": 0.4492,
+    "far_at_eer": 0.4459,
+    "frr_at_eer": 0.4524,
+    "optimal_threshold": 0.4362,
+    "confusion_matrix": [
+      [
+        74,
+        0
+      ],
+      [
+        126,
+        0
+      ]
+    ],
+    "predicted_bonafide": 0,
+    "predicted_spoof": 200
+  },
+  "training_time_seconds": 85.27,
+  "parameters_count": 414274
+}

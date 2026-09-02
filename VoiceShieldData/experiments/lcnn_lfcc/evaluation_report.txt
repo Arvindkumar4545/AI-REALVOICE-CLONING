@@ -1,0 +1,26 @@
+======================================================================
+        VOICE SHIELD MODEL EVALUATION REPORT: LCNN_LFCC
+======================================================================
+Model Parameters:     244,625
+Training Duration:    241.07s (3 epochs)
+Loss Configuration:   focal
+
+IN-DOMAIN (ASVspoof Eval Split) METRICS:
+  • Accuracy:           73.60%
+  • Balanced Accuracy:  67.56%
+  • Precision:          40.14%
+  • Recall:             57.28%
+  • F1 Score:           0.4720
+  • ROC-AUC:            0.7522
+  • EER:                30.29%
+  • FAR at EER:         30.48%
+  • FRR at EER:         30.10%
+  • Optimal Threshold:  0.4612
+  • Predictions:        147 bona-fide, 353 spoof
+
+OUT-OF-DOMAIN (In-The-Wild Generalization) METRICS:
+  • Accuracy:           59.00%
+  • F1 Score:           0.6095
+  • ROC-AUC:            0.7000
+  • EER:                38.36%
+======================================================================

@@ -1,0 +1,55 @@
+{
+  "model_name": "rawnet2",
+  "in_domain_eval": {
+    "accuracy": 0.77,
+    "balanced_accuracy": 0.5156,
+    "precision": 0.25,
+    "recall": 0.1053,
+    "f1": 0.1481,
+    "roc_auc": 0.4994,
+    "pr_auc": 0.202,
+    "eer": 0.5224,
+    "far_at_eer": 0.5185,
+    "frr_at_eer": 0.5263,
+    "optimal_threshold": 0.4183,
+    "confusion_matrix": [
+      [
+        150,
+        12
+      ],
+      [
+        34,
+        4
+      ]
+    ],
+    "predicted_bonafide": 16,
+    "predicted_spoof": 184
+  },
+  "out_of_domain_itw_eval": {
+    "accuracy": 0.38,
+    "balanced_accuracy": 0.5079,
+    "precision": 1.0,
+    "recall": 0.0159,
+    "f1": 0.0312,
+    "roc_auc": 0.5207,
+    "pr_auc": 0.6709,
+    "eer": 0.4893,
+    "far_at_eer": 0.4865,
+    "frr_at_eer": 0.4921,
+    "optimal_threshold": 0.4189,
+    "confusion_matrix": [
+      [
+        74,
+        0
+      ],
+      [
+        124,
+        2
+      ]
+    ],
+    "predicted_bonafide": 2,
+    "predicted_spoof": 198
+  },
+  "training_time_seconds": 438.07,
+  "parameters_count": 660945
+}

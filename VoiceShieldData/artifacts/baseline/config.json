@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "max_train_samples": 3000,
+  "max_dev_samples": 800,
+  "epochs": 3,
+  "batch_size_train": 32,
+  "batch_size_dev": 64,
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "loss_function": "BCELoss",
+  "model": "AudioSpoofNet",
+  "device": "cpu",
+  "timestamp": "2026-08-29T17:08:26.013960"
+}

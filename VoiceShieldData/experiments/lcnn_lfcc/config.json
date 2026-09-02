@@ -1,0 +1,9 @@
+{
+  "model_name": "lcnn_lfcc",
+  "parameters": 244625,
+  "epochs": 3,
+  "batch_size": 32,
+  "lr": 0.001,
+  "loss_type": "focal",
+  "training_time_seconds": 241.07
+}

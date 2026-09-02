@@ -1,0 +1,14 @@
+{
+  "fusion_type": "logistic_regression",
+  "train_accuracy": 1.0,
+  "train_f1": 1.0,
+  "calibration": {
+    "best_calibration_method": "isotonic",
+    "brier_score_raw": 0.0005639266514507708,
+    "brier_score_calibrated": 1.000000000000001e-06,
+    "brier_platt": 1.0175577322540431e-05,
+    "brier_temperature": 0.00012343485678123516,
+    "brier_isotonic": 1.000000000000001e-06,
+    "temperature_scalar": 0.7971246242523193
+  }
+}

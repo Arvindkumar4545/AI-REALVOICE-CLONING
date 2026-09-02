@@ -1,0 +1,67 @@
+================================================================================
+                   VOICE SHIELD — DATASET AUDIT REPORT
+================================================================================
+Generated: 2026-08-29 23:17:37
+Total Discovered Audio Files: 371,670
+Audit Duration: 20.36s
+
+1. DATASET BREAKDOWN:
+--------------------------------------------------------------------------------
+• Dataset: ASVspoof2019_LA
+  - Total Files:     121,461
+  - Bona-fide Count: 12,483
+  - Spoof Count:     108,978
+  - Speakers Count:  107
+    * Split [TRAIN]: 25,380 files (Bona-fide: 2,580, Spoof: 22,800, Speakers: 20)
+    * Split [DEV]: 24,844 files (Bona-fide: 2,548, Spoof: 22,296, Speakers: 20)
+    * Split [EVAL]: 71,237 files (Bona-fide: 7,355, Spoof: 63,882, Speakers: 67)
+
+• Dataset: ASVspoof2019_PA
+  - Total Files:     218,430
+  - Bona-fide Count: 28,890
+  - Spoof Count:     189,540
+  - Speakers Count:  107
+    * Split [TRAIN]: 54,000 files (Bona-fide: 5,400, Spoof: 48,600, Speakers: 20)
+    * Split [DEV]: 29,700 files (Bona-fide: 5,400, Spoof: 24,300, Speakers: 20)
+    * Split [EVAL]: 134,730 files (Bona-fide: 18,090, Spoof: 116,640, Speakers: 67)
+
+• Dataset: In_The_Wild
+  - Total Files:     31,779
+  - Bona-fide Count: 19,963
+  - Spoof Count:     11,816
+  - Speakers Count:  54
+
+• Dataset: mlaad
+  - Total Files:     0
+  - Bona-fide Count: 0
+  - Spoof Count:     0
+  - Speakers Count:  N/A
+
+• Dataset: additional
+  - Total Files:     0
+  - Bona-fide Count: 0
+  - Spoof Count:     0
+  - Speakers Count:  N/A
+
+2. DATA LEAKAGE & SPEAKER OVERLAP VERIFICATION:
+--------------------------------------------------------------------------------
+• ASVspoof2019_LA:
+  - Strictly Speaker Disjoint: True [PASS]
+  - Overlap Train-Dev:         0 speakers
+  - Overlap Train-Eval:        0 speakers
+  - Overlap Dev-Eval:          0 speakers
+
+• ASVspoof2019_PA:
+  - Strictly Speaker Disjoint: True [PASS]
+  - Overlap Train-Dev:         0 speakers
+  - Overlap Train-Eval:        0 speakers
+  - Overlap Dev-Eval:          0 speakers
+
+3. AUDIO INTEGRITY & PROFILING:
+--------------------------------------------------------------------------------
+• Spot-checked files:    500
+• Corrupted files:       0
+• Mean duration:         3.86s
+• Duration range:        [0.76s, 11.56s]
+• Sample rates:          [16000]
+================================================================================

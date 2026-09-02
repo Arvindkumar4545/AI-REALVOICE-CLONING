@@ -1,0 +1,14 @@
+{
+  "model_architecture": "AudioSpoofNetV2",
+  "parameters_count": 1593697,
+  "input_shape": [
+    1,
+    40,
+    96
+  ],
+  "sample_rate": 16000,
+  "imbalance_strategy": "balanced_sampler",
+  "selected_f1_threshold": 0.49,
+  "eer_threshold": 0.455,
+  "warm_inference_latency_ms": 22.24
+}
