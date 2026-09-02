@@ -13,7 +13,12 @@ import {
   Lock,
   Search,
   Database,
-  Shield
+  Shield,
+  Network,
+  Banknote,
+  Gavel,
+  Briefcase,
+  CheckCircle2
 } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 
@@ -28,6 +33,8 @@ export const CaseDetailsPage: React.FC = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [requestingLoc, setRequestingLoc] = useState(false);
   const [requestingEvd, setRequestingEvd] = useState(false);
+  const [escalatingBank, setEscalatingBank] = useState(false);
+  const [escalatingLe, setEscalatingLe] = useState(false);
 
   const { addAlert } = useAlert();
 
@@ -139,6 +146,38 @@ export const CaseDetailsPage: React.FC = () => {
        fetchDetails(); // Refresh to show EXPORT event in timeline
     } catch (err: any) {
        addAlert({ type: 'error', title: 'Error', message: 'Failed to generate report.' });
+    }
+  };
+
+  const handleEscalateBank = async () => {
+    if (!caseData) return;
+    setEscalatingBank(true);
+    try {
+      const res = await investigationApi.escalateToBank(caseData.case_id);
+      if (res.success) {
+        addAlert({ type: 'success', title: 'Escalated', message: res.message });
+        fetchDetails();
+      }
+    } catch (err: any) {
+      addAlert({ type: 'error', title: 'Error', message: err.response?.data?.error?.message || 'Failed to escalate to bank.' });
+    } finally {
+      setEscalatingBank(false);
+    }
+  };
+
+  const handleEscalateCybercrime = async () => {
+    if (!caseData) return;
+    setEscalatingLe(true);
+    try {
+      const res = await investigationApi.escalateToCybercrime(caseData.case_id);
+      if (res.success) {
+        addAlert({ type: 'success', title: 'Filed with Authority', message: res.message });
+        fetchDetails();
+      }
+    } catch (err: any) {
+      addAlert({ type: 'error', title: 'Error', message: err.response?.data?.error?.message || 'Failed to file with cybercrime.' });
+    } finally {
+      setEscalatingLe(false);
     }
   };
 
@@ -268,6 +307,83 @@ export const CaseDetailsPage: React.FC = () => {
                        </button>
                     </div>
                 </div>
+            </div>
+
+            {/* Network Attribution Card */}
+            {caseData.network_metadata && (
+                <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                    <h3 className="text-sm font-bold text-gray-900 font-mono mb-4 border-b pb-2 flex items-center gap-2">
+                       <Network className="w-4 h-4 text-purple-600" /> Network Attribution
+                    </h3>
+                    <div className="grid grid-cols-2 gap-4 text-xs">
+                        <div className="p-3 bg-gray-50 border border-gray-100 rounded">
+                            <span className="text-gray-500 font-bold block mb-1">Carrier ISP / Trunk</span>
+                            <span className="font-mono text-gray-900">{caseData.network_metadata.carrier || 'Unknown'}</span>
+                        </div>
+                        <div className="p-3 bg-gray-50 border border-gray-100 rounded">
+                            <span className="text-gray-500 font-bold block mb-1">IP Address / ASN</span>
+                            <span className="font-mono text-gray-900">{caseData.network_metadata.ip_address || 'N/A'}</span>
+                        </div>
+                    </div>
+                    <div className="mt-3 p-3 bg-gray-50 border border-gray-100 rounded">
+                        <span className="text-gray-500 font-bold block mb-1">SIP Headers (Intercepted)</span>
+                        <div className="font-mono text-[10px] text-gray-800 break-all bg-gray-200 p-2 rounded">
+                            {caseData.network_metadata.sip_headers || 'No SIP metadata captured.'}
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Case Packaging & Escalation */}
+            <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                <h3 className="text-sm font-bold text-gray-900 font-mono mb-4 border-b pb-2 flex items-center justify-between">
+                   <div className="flex items-center gap-2">
+                      <Briefcase className="w-4 h-4 text-indigo-600" /> Case Packaging & Escalation
+                   </div>
+                   <span className="px-2 py-1 bg-gray-100 text-gray-800 border border-gray-200 rounded text-[10px] font-bold">
+                       Status: {caseData.escalation_status || 'Draft'}
+                   </span>
+                </h3>
+                
+                <p className="text-xs text-gray-600 mb-4">
+                  Compile evidence and request external institutional action. <strong className="text-red-600">Note:</strong> VoiceShield AI does not unilaterally freeze accounts; final action rests with the financial institution.
+                </p>
+
+                <div className="flex flex-col gap-3">
+                   <button 
+                     onClick={generatePDF}
+                     className="px-4 py-2.5 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors w-full sm:w-auto"
+                   >
+                     <FileText className="w-4 h-4" /> Generate Incident Packet (PDF/JSON Bundle)
+                   </button>
+                   
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-2">
+                       <button 
+                         onClick={handleEscalateBank}
+                         disabled={escalatingBank}
+                         className="px-4 py-2.5 bg-orange-100 hover:bg-orange-200 text-orange-900 border border-orange-300 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                       >
+                         <Banknote className="w-4 h-4" /> 
+                         {escalatingBank ? 'Requesting...' : 'Request Account Freeze Review'}
+                       </button>
+
+                       <button 
+                         onClick={handleEscalateCybercrime}
+                         disabled={escalatingLe}
+                         className="px-4 py-2.5 bg-blue-100 hover:bg-blue-200 text-blue-900 border border-blue-300 rounded-lg text-xs font-bold flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                       >
+                         <Gavel className="w-4 h-4" /> 
+                         {escalatingLe ? 'Filing...' : 'File with Cybercrime Authority'}
+                       </button>
+                   </div>
+                </div>
+
+                {caseData.law_enforcement_ref && (
+                    <div className="mt-4 p-3 bg-green-50 border border-green-200 rounded text-xs text-green-800 font-mono flex items-center gap-2">
+                       <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+                       <span>Filed successfully. External Reference: <strong>{caseData.law_enforcement_ref}</strong></span>
+                    </div>
+                )}
             </div>
 
             {/* Evidence List */}

@@ -11,6 +11,9 @@ import {
   Lock,
   RefreshCw,
   Send,
+  Upload,
+  Camera,
+  FileCheck
 } from 'lucide-react';
 
 export const ReportScamPage: React.FC = () => {
@@ -34,6 +37,10 @@ export const ReportScamPage: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+
+  // Evidence state
+  const [evidenceFiles, setEvidenceFiles] = useState<{name: string, hash: string, timestamp: string}[]>([]);
+  const [consentGiven, setConsentGiven] = useState(false);
 
   // Read requestId passed from DetectionPage
   useEffect(() => {
@@ -66,6 +73,19 @@ export const ReportScamPage: React.FC = () => {
     );
   };
 
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      // Mock SHA-256 for the demo
+      const mockHash = Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+      setEvidenceFiles(prev => [...prev, {
+        name: file.name,
+        hash: mockHash,
+        timestamp: new Date().toISOString()
+      }]);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -87,10 +107,22 @@ export const ReportScamPage: React.FC = () => {
         payload.accuracy_meters = accuracy || undefined;
       }
 
+      if (evidenceFiles.length > 0) {
+        payload.evidence_files = evidenceFiles;
+        payload.consent_given = consentGiven;
+        payload.network_metadata = {
+            carrier: 'Unknown ISP',
+            sip_headers: 'SIP/2.0 200 OK',
+            ip_address: '203.0.113.45'
+        }; // Mock network attribution generated on report creation
+      }
+
       await reportsApi.submitReport(payload);
       setSuccessMsg('Incident report successfully dispatched to Threat Intelligence registry.');
       setDescription('');
       setPhoneNumber('');
+      setEvidenceFiles([]);
+      setConsentGiven(false);
     } catch (err: any) {
       const msg =
         err.response?.data?.error?.message ||
@@ -200,6 +232,58 @@ export const ReportScamPage: React.FC = () => {
               />
             </div>
           </div>
+        </div>
+
+        {/* Evidence Capture Panel */}
+        <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-4 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-gray-100 pb-2">
+            <Lock className="w-4 h-4 text-gray-900" />
+            <span className="text-xs font-mono text-gray-900 font-bold">Consented Evidence Capture</span>
+          </div>
+          
+          <div className="flex flex-wrap gap-3">
+             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors">
+                <Upload className="w-4 h-4" /> Attach Screenshot
+                <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
+             </label>
+             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors">
+                <Camera className="w-4 h-4" /> Take Photo
+                <input type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileChange} />
+             </label>
+          </div>
+
+          {evidenceFiles.length > 0 && (
+             <div className="space-y-2 mt-4">
+               {evidenceFiles.map((ev, idx) => (
+                  <div key={idx} className="bg-gray-50 border border-gray-200 p-3 rounded-lg flex flex-col gap-1">
+                     <div className="flex items-center gap-2">
+                       <FileCheck className="w-4 h-4 text-green-600" />
+                       <span className="text-xs font-bold text-gray-900">{ev.name}</span>
+                     </div>
+                     <div className="text-[10px] font-mono text-gray-500 truncate mt-1 bg-gray-900 text-gray-300 p-1.5 rounded">
+                       SHA-256: {ev.hash}
+                     </div>
+                  </div>
+               ))}
+             </div>
+          )}
+
+          {evidenceFiles.length > 0 && (
+            <div className="mt-4 pt-3 border-t border-gray-100">
+               <label className="flex items-start gap-3 cursor-pointer">
+                 <input 
+                    type="checkbox" 
+                    required
+                    checked={consentGiven}
+                    onChange={(e) => setConsentGiven(e.target.checked)}
+                    className="mt-1 flex-shrink-0" 
+                  />
+                 <span className="text-[11px] text-gray-600 leading-relaxed font-mono">
+                   <strong>Recording Consent & Authorization:</strong> I voluntarily submit this evidence from my own device. I confirm I have the legal right to share this recording/screenshot, and grant authorization per local wiretap and electronic communication laws to utilize this for fraud investigation.
+                 </span>
+               </label>
+            </div>
+          )}
         </div>
 
         {/* Incident Narrative */}

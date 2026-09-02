@@ -159,3 +159,74 @@ export const generatePoliceReport = async (req: AuthenticatedRequest, res: Respo
     res.status(500).json({ success: false, error: { message: error.message } });
   }
 };
+
+export const escalateToBank = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+    const caseData = await InvestigationRepository.getCaseById(id);
+    
+    if (!caseData) {
+      return res.status(404).json({ success: false, error: { message: "Case not found" } });
+    }
+
+    // Mock API call to bank fraud desk webhook
+    // In reality, this would use axios to hit a configured endpoint
+
+    // Update status
+    const updatedCase = await InvestigationRepository.updateCaseEscalation(id, 'Under Review');
+
+    // Log the escalation action
+    await ChainOfCustodyRepository.logEvent({
+      case_id: id,
+      action: 'STATUS_CHANGED',
+      actor_id: req.user?.id || 'UNKNOWN',
+      reason: 'Escalated to Bank for Account Freeze Review',
+      ip_address: req.ip
+    });
+
+    res.json({
+      success: true,
+      message: 'Escalation request sent to financial institution successfully.',
+      case: updatedCase
+    });
+
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};
+
+export const escalateToCybercrime = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+    const caseData = await InvestigationRepository.getCaseById(id);
+    
+    if (!caseData) {
+      return res.status(404).json({ success: false, error: { message: "Case not found" } });
+    }
+
+    // Mock API call to Cybercrime Authority portal
+    // In reality, this would integrate with IC3 or Action Fraud API
+    const mockRef = `CYBER-${Math.floor(Math.random() * 1000000)}`;
+
+    // Update status
+    const updatedCase = await InvestigationRepository.updateCaseEscalation(id, 'Submitted to Authority', mockRef);
+
+    // Log the escalation action
+    await ChainOfCustodyRepository.logEvent({
+      case_id: id,
+      action: 'STATUS_CHANGED',
+      actor_id: req.user?.id || 'UNKNOWN',
+      reason: `Filed with Cybercrime Authority. Ref: ${mockRef}`,
+      ip_address: req.ip
+    });
+
+    res.json({
+      success: true,
+      message: `Successfully filed with Cybercrime Authority. Reference: ${mockRef}`,
+      case: updatedCase
+    });
+
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};

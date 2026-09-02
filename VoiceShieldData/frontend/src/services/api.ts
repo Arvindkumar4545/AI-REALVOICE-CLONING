@@ -213,4 +213,12 @@ export const investigationApi = {
     const res = await apiClient.post<{ success: boolean; message: string; case: any }>(`/investigation/${id}/report`);
     return res.data;
   },
+  escalateToBank: async (id: string) => {
+    const res = await apiClient.post<{ success: boolean; message: string; case: any }>(`/investigation/${id}/escalate/bank`);
+    return res.data;
+  },
+  escalateToCybercrime: async (id: string) => {
+    const res = await apiClient.post<{ success: boolean; message: string; case: any }>(`/investigation/${id}/escalate/le`);
+    return res.data;
+  },
 };
