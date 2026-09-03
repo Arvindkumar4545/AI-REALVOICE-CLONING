@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: voiceshield-ml
+    env: python
+    buildCommand: "cd VoiceShieldData/ml-service && pip install -r requirements.txt"
+    startCommand: "cd VoiceShieldData/ml-service && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+    autoDeploy: true
+
+  - type: web
+    name: voiceshield-backend
+    env: node
+    buildCommand: "cd VoiceShieldData/backend && npm install && npm run build"
+    startCommand: "cd VoiceShieldData/backend && npm start"
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: ML_SERVICE_URL
+        fromService:
+          type: web
+          name: voiceshield-ml
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: DATABASE_URL
+        value: "postgres://placeholder-db-url" # Update in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+    autoDeploy: true
