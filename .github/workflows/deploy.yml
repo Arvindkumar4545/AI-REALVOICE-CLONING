@@ -41,7 +41,7 @@ jobs:
       - name: Build Project
         run: npm run build
         env:
-          VITE_API_URL: ${{ secrets.VITE_API_URL || 'https://voiceshield-backend.onrender.com/api/v1' }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL || 'https://ai-realvoice-cloning.onrender.com/api/v1' }}
           VITE_ML_API_URL: ${{ secrets.VITE_ML_API_URL || 'https://voiceshield-ml.onrender.com' }}
 
       - name: Upload Artifact
