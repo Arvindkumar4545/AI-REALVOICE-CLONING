@@ -248,7 +248,7 @@ export const verifyEvidenceIntegrity = async (req: AuthenticatedRequest, res: Re
     await ChainOfCustodyRepository.logEvent({
       case_id: id,
       evidence_id,
-      action: 'HASH_VERIFICATION',
+      action: 'HASH_VERIFIED',
       actor_id: req.user?.id || 'UNKNOWN',
       reason: matches ? 'SHA-256 integrity verified' : 'SHA-256 hash mismatch alert',
       metadata_json: { verified: matches, hash: calculated_hash },

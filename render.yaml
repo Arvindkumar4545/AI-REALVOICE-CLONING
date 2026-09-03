@@ -23,7 +23,15 @@ services:
           name: voiceshield-ml
           envVarKey: RENDER_EXTERNAL_URL
       - key: DATABASE_URL
-        value: "postgres://placeholder-db-url" # Update in Render dashboard
+        fromDatabase:
+          name: voiceshield-db
+          property: connectionString
       - key: JWT_SECRET
         generateValue: true
     autoDeploy: true
+
+databases:
+  - name: voiceshield-db
+    plan: free
+    databaseName: voiceshield
+    user: voiceshield

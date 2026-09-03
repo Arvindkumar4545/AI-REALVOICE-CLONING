@@ -114,6 +114,11 @@ export interface ScamReport {
   city?: string | null;
   status: 'pending' | 'verified' | 'dismissed';
   notes?: string | null;
+  evidence_files?: Record<string, any>[] | null;
+  consent_given?: boolean;
+  network_metadata?: Record<string, any> | null;
+  escalation_status?: string | null;
+  law_enforcement_ref?: string | null;
   created_at: Date;
   updated_at: Date;
 }

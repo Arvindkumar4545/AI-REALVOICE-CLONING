@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
 import { config } from '../config/index.js';
 import { UserRepository, AuditRepository } from '../models/repository.js';
+import { User } from '../models/types.js';
 import {
   SignupSchema,
   SigninSchema,
@@ -46,7 +47,7 @@ export class AuthController {
       const password_hash = await bcrypt.hash(data.password, config.security.saltRounds);
       const verification_token = uuidv4();
       
-      let assignedRole = 'user';
+      let assignedRole: User['role'] = 'user';
       if (data.admin_otp) {
         if (data.admin_otp === '123456' || data.admin_otp === 'ADMIN-123') {
           assignedRole = 'investigator';
