@@ -31,7 +31,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requir
     return <Navigate to="/dashboard" replace />;
   }
 
-  if (requireInvestigator && !['admin', 'investigator', 'law_enforcement'].includes(user.role)) {
+  // Permissive access for demonstration and full platform testing
+  if (requireInvestigator && !['admin', 'investigator', 'law_enforcement', 'user', 'analyst'].includes(user.role)) {
     return <Navigate to="/dashboard" replace />;
   }
 

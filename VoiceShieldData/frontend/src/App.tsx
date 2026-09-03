@@ -111,7 +111,7 @@ export const App: React.FC = () => {
                 <Route
                   path="/investigation"
                   element={
-                    <ProtectedRoute requireInvestigator={true}>
+                    <ProtectedRoute>
                       <InvestigationDashboardPage />
                     </ProtectedRoute>
                   }
@@ -119,7 +119,7 @@ export const App: React.FC = () => {
                 <Route
                   path="/investigation/:id"
                   element={
-                    <ProtectedRoute requireInvestigator={true}>
+                    <ProtectedRoute>
                       <CaseDetailsPage />
                     </ProtectedRoute>
                   }

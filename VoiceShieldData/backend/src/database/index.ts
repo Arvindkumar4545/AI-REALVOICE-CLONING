@@ -74,6 +74,66 @@ function seedFallbackStore() {
       updated_at: new Date(),
     });
   }
+
+  // Seed a sample high-risk investigation case if empty
+  const sampleCaseId = 'cas_9941a82f3c0b4e2e88a011';
+  if (!fallbackDb.investigation_cases.has(sampleCaseId)) {
+    fallbackDb.investigation_cases.set(sampleCaseId, {
+      case_id: sampleCaseId,
+      incident_id: 'inc_84219',
+      caller_identifier: '+1 (555) 019-2834',
+      session_id: 'sess_call_902',
+      timestamp: new Date(),
+      risk_score: 94,
+      voice_ai_probability: 98.4,
+      voice_clone_probability: 96.2,
+      fraud_indicators: ['VOICE_CLONE_DETECTED', 'WIRE_TRANSFER_DEMAND', 'SYNTHETIC_VOCAL_TRACT', 'UNREGISTERED_VOIP_TRUNK'],
+      status: 'OPEN',
+      investigator_id: 'usr_admin_default_01',
+      authorization_reference: 'WARRANT-2026-991A',
+      escalation_status: 'Draft',
+      law_enforcement_ref: null,
+      network_metadata: {
+        carrier: 'Tata Teleservices / Level 3 VoIP',
+        ip_address: '198.51.100.24',
+        sip_headers: 'SIP/2.0 200 OK; User-Agent: Asterisk PBX 18.9; Via: SIP/2.0/UDP 198.51.100.24:5060'
+      },
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+
+    // Seed initial evidence
+    const sampleEvId = 'evd_audio_clone_01';
+    fallbackDb.evidence.set(sampleEvId, {
+      evidence_id: sampleEvId,
+      case_id: sampleCaseId,
+      source: 'TELEPHONY_SIP_INTERCEPT',
+      timestamp: new Date(),
+      collector: 'SYSTEM_AUTOMATION',
+      authorization_reference: 'WARRANT-2026-991A',
+      sha256_hash: '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',
+      mime_type: 'audio/wav',
+      size_bytes: 482030,
+      storage_reference: 's3://voiceshield-vault/evidence/sample_intercept.wav',
+      chain_of_custody_id: 'coc_init_01',
+      evidence_type: 'AUDIO',
+      created_at: new Date()
+    });
+
+    // Seed initial chain of custody
+    fallbackDb.chain_of_custody.set('coc_init_01', {
+      id: 'coc_init_01',
+      case_id: sampleCaseId,
+      evidence_id: sampleEvId,
+      action: 'EVIDENCE_CREATED',
+      actor_id: 'SYSTEM_AGENT',
+      reason: 'Automated cryptographic ingest of high-threat deepfake call session',
+      authorization_reference: 'WARRANT-2026-991A',
+      ip_address: '127.0.0.1',
+      metadata_json: { verified: true },
+      timestamp: new Date()
+    });
+  }
 }
 
 export async function query<T = any>(text: string, params: any[] = []): Promise<any> {

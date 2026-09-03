@@ -241,3 +241,6 @@ logs/*
 frontend/dist/
 frontend/.next/
 backend/dist/
+backend/uploads/*
+test_audio/
+*.wav

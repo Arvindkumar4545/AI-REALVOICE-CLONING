@@ -120,15 +120,14 @@ export const Navbar: React.FC = () => {
 
               {isAuthenticated ? (
                 <div className="flex items-center gap-2">
-                  {user && ['admin', 'investigator', 'law_enforcement'].includes(user.role) && (
-                    <Link
-                      to="/investigation"
-                      className="p-2 rounded-lg hover:bg-red-50 text-red-600 transition-colors"
-                      title="Investigation Center"
-                    >
-                      <ShieldAlert className="w-5 h-5" />
-                    </Link>
-                  )}
+                  <Link
+                    to="/investigation"
+                    className="p-2 rounded-lg hover:bg-red-50 text-red-600 transition-colors flex items-center gap-1.5 font-mono text-xs font-bold"
+                    title="Investigation Center"
+                  >
+                    <ShieldAlert className="w-5 h-5" />
+                    <span className="hidden sm:inline">Investigation</span>
+                  </Link>
                   <Link
                     to="/profile"
                     className="p-2 rounded-lg hover:bg-slate-100 text-slate-600 hover:text-slate-900 transition-colors"
@@ -213,15 +212,14 @@ export const Navbar: React.FC = () => {
             <div className="pt-4 mt-4 border-t border-slate-200 space-y-2">
               {isAuthenticated ? (
                 <>
-                  {user && ['admin', 'investigator', 'law_enforcement'].includes(user.role) && (
-                    <Link
-                      to="/investigation"
-                      className="flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 hover:bg-red-50 transition-all"
-                    >
-                      <ShieldAlert className="w-5 h-5" />
-                      <span>Investigation Center</span>
-                    </Link>
-                  )}
+                  <Link
+                    to="/investigation"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 flex items-center gap-2"
+                  >
+                    <ShieldAlert className="w-4 h-4" />
+                    Investigation Center
+                  </Link>
                   <Link
                     to="/profile"
                     className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-all"

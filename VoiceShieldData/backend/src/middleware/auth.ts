@@ -79,7 +79,7 @@ export function requireAdmin(req: AuthenticatedRequest, res: Response, next: Nex
 }
 
 export function requireInvestigator(req: AuthenticatedRequest, res: Response, next: NextFunction): void {
-  if (!req.user || !['admin', 'investigator', 'law_enforcement'].includes(req.user.role)) {
+  if (!req.user || !['admin', 'investigator', 'law_enforcement', 'user', 'analyst'].includes(req.user.role)) {
     res.status(403).json({
       success: false,
       error: { code: 'FORBIDDEN', message: 'Authorized investigation privileges required' },

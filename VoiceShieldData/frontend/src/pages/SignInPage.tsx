@@ -24,8 +24,8 @@ export const SignInPage: React.FC = () => {
 
     try {
       await login(email, password, isAdminAccess ? adminOtp : undefined);
-      // If it's an admin login, we can forcefully redirect to investigation or let the route redirect handle it
-      navigate(isAdminAccess ? '/investigation' : from, { replace: true });
+      const targetRoute = isAdminAccess || from === '/investigation' ? '/investigation' : from;
+      navigate(targetRoute, { replace: true });
     } catch (err: any) {
       // Extract field-level validation errors if available
       const errorDetails = err.response?.data?.error?.details;
