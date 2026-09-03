@@ -42,7 +42,7 @@ EXPOSE 4000
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start application
-CMD ["node", "dist/server.js"]
+CMD ["node", "dist/src/server.js"]
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
