@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Mic,
@@ -28,6 +28,8 @@ import { AudioWaveform3D } from '../three/AudioWaveform3D';
 import { SecurityCore3D } from '../three/SecurityCore3D';
 import { ForensicRadar } from '../components/ForensicRadar';
 import { ExplainableAiCard } from '../components/ExplainableAiCard';
+import { ModelConsensusCard } from '../components/ModelConsensusCard';
+import { VoiceContinuityTimeline } from '../components/VoiceContinuityTimeline';
 import { Button } from '../components/ui/Button';
 import { Card, CardBody, CardHeader } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
@@ -590,6 +592,20 @@ export const DetectPage: React.FC = () => {
 
               {/* Acoustic Forensics Radar */}
               {result.forensics_json && <ForensicRadar forensics={result.forensics_json as any} />}
+
+              {/* Model Consensus & Voting */}
+              <ModelConsensusCard
+                scores={(result as any).model_scores}
+                modelAgreement={result.model_agreement}
+                uncertainty={(result as any).uncertainty}
+                decisionReason={result.decision_reason}
+                classification={result.classification || result.prediction}
+              />
+
+              {/* Voice Continuity Timeline */}
+              {result.voice_continuity && (
+                <VoiceContinuityTimeline continuity={result.voice_continuity} />
+              )}
 
               {/* Explainable AI */}
               {result.explainability_json && (

@@ -35,6 +35,7 @@ export const CaseDetailsPage: React.FC = () => {
   const [requestingEvd, setRequestingEvd] = useState(false);
   const [escalatingBank, setEscalatingBank] = useState(false);
   const [escalatingLe, setEscalatingLe] = useState(false);
+  const [verifyingEvidenceId, setVerifyingEvidenceId] = useState<string | null>(null);
 
   const { addAlert } = useAlert();
 
@@ -159,9 +160,26 @@ export const CaseDetailsPage: React.FC = () => {
         fetchDetails();
       }
     } catch (err: any) {
-      addAlert({ type: 'error', title: 'Error', message: err.response?.data?.error?.message || 'Failed to escalate to bank.' });
+      addAlert({ type: 'error', title: 'Error', message: err.response?.data?.error?.message || 'Failed to escalate to bank' });
     } finally {
       setEscalatingBank(false);
+    }
+  };
+
+  const handleVerifyEvidence = async (ev: any) => {
+    setVerifyingEvidenceId(ev.evidence_id);
+    try {
+      const res = await investigationApi.verifyEvidence(id!, ev.evidence_id, ev.sha256_hash);
+      if (res.success && res.verified) {
+        addAlert({ type: 'success', title: 'Cryptographic Match', message: 'SHA-256 fingerprint verified against vault master register.' });
+        fetchDetails();
+      } else {
+        addAlert({ type: 'error', title: 'Tamper Alert', message: 'Cryptographic hash mismatch detected!' });
+      }
+    } catch (err: any) {
+      addAlert({ type: 'error', title: 'Error', message: 'Verification query failed' });
+    } finally {
+      setVerifyingEvidenceId(null);
     }
   };
 
@@ -415,6 +433,17 @@ export const CaseDetailsPage: React.FC = () => {
 
                              <div className="mt-2 text-[10px] font-mono text-gray-500 bg-gray-900 text-gray-300 p-2 rounded overflow-hidden text-ellipsis whitespace-nowrap">
                                 SHA256: {ev.sha256_hash}
+                             </div>
+
+                             <div className="flex justify-end pt-1">
+                               <button
+                                 onClick={() => handleVerifyEvidence(ev)}
+                                 disabled={verifyingEvidenceId === ev.evidence_id}
+                                 className="px-2.5 py-1 rounded bg-white hover:bg-gray-100 border border-gray-300 text-[11px] font-mono font-bold text-gray-700 flex items-center gap-1 transition-colors"
+                               >
+                                 <CheckCircle2 className="w-3.5 h-3.5 text-green-600" />
+                                 {verifyingEvidenceId === ev.evidence_id ? 'Verifying...' : 'Verify Cryptographic Integrity'}
+                               </button>
                              </div>
                          </div>
                       ))}

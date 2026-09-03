@@ -120,6 +120,12 @@ class MultiModelDetectResponse(BaseModel):
     probability: Optional[float] = None
     audio_quality: Optional[Dict[str, Any]] = None
     windows_analyzed: Optional[int] = 1
+    uncertainty: Optional[float] = None
+    model_agreement: Optional[float] = None
+    decision_reason: Optional[str] = None
+    replay_analysis: Optional[Dict[str, Any]] = None
+    voice_continuity: Optional[Dict[str, Any]] = None
+    copilot_analysis: Optional[Dict[str, Any]] = None
     model_scores: Dict[str, Optional[float]]
     explanation: List[Dict[str, Any]]
     processing_time_ms: float

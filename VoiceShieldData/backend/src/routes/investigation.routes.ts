@@ -7,7 +7,9 @@ import {
   getAuthorizedEvidence,
   generatePoliceReport,
   escalateToBank,
-  escalateToCybercrime
+  escalateToCybercrime,
+  verifyEvidenceIntegrity,
+  getCampaignIntelligence,
 } from '../controllers/investigation.controller.js';
 
 const router = Router();
@@ -16,11 +18,13 @@ const router = Router();
 router.use(authenticate, requireInvestigator);
 
 router.get('/', getCases);
+router.get('/campaigns', getCampaignIntelligence);
 router.get('/:id', getCaseDetails);
 router.post('/location', getAuthorizedLocation);
 router.post('/evidence', getAuthorizedEvidence);
 router.post('/:id/report', generatePoliceReport);
 router.post('/:id/escalate/bank', escalateToBank);
 router.post('/:id/escalate/le', escalateToCybercrime);
+router.post('/:id/verify-evidence', verifyEvidenceIntegrity);
 
 export default router;

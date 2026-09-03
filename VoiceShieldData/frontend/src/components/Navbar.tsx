@@ -42,6 +42,7 @@ export const Navbar: React.FC = () => {
 
   const PRIMARY_NAV = [
     { label: 'Detection', path: '/detect', icon: Mic },
+    { label: 'Red Team Lab', path: '/red-team', icon: Sliders },
     { label: 'Technology', path: '/features', icon: Cpu },
     { label: 'How It Works', path: '/how-it-works', icon: Activity },
     { label: 'Security', path: '/security', icon: Lock },

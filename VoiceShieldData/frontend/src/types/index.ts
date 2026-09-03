@@ -66,6 +66,28 @@ export interface DetectionResult {
   created_at?: string;
   status?: string;
   classification?: string;
+  replay_analysis?: {
+    replay_probability: number;
+    is_replay_detected: boolean;
+    indicators: string[];
+    metrics?: Record<string, number>;
+  };
+  voice_continuity?: {
+    segments: Array<{
+      segment_index: number;
+      time_range: string;
+      start_sec: number;
+      end_sec: number;
+      spoof_score: number;
+      status: string;
+      quality_tag: string;
+    }>;
+    has_transition: boolean;
+    transition_timestamp?: number | null;
+    continuity_score: number;
+    summary: string;
+  };
+  copilot_analysis?: any;
 }
 
 export interface DetectionRequestStatus {

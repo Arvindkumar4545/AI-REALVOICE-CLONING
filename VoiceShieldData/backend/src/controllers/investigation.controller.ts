@@ -230,3 +230,68 @@ export const escalateToCybercrime = async (req: AuthenticatedRequest, res: Respo
     res.status(500).json({ success: false, error: { message: error.message } });
   }
 };
+
+export const verifyEvidenceIntegrity = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { evidence_id, calculated_hash } = req.body;
+
+    const evidenceList = await EvidenceRepository.getEvidenceByCase(id);
+    const item = evidenceList.find(e => e.evidence_id === evidence_id);
+
+    if (!item) {
+      return res.status(404).json({ success: false, error: { message: "Evidence item not found in case" } });
+    }
+
+    const matches = item.sha256_hash.toLowerCase() === (calculated_hash || '').toLowerCase();
+
+    await ChainOfCustodyRepository.logEvent({
+      case_id: id,
+      evidence_id,
+      action: 'HASH_VERIFICATION',
+      actor_id: req.user?.id || 'UNKNOWN',
+      reason: matches ? 'SHA-256 integrity verified' : 'SHA-256 hash mismatch alert',
+      metadata_json: { verified: matches, hash: calculated_hash },
+      ip_address: req.ip,
+    });
+
+    res.json({
+      success: true,
+      verified: matches,
+      expected_hash: item.sha256_hash,
+      provided_hash: calculated_hash,
+      status: matches ? 'INTEGRITY_VERIFIED' : 'TAMPER_ALERT',
+    });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};
+
+export const getCampaignIntelligence = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const { cases } = await InvestigationRepository.getAllCases(100, 0);
+
+    // Group cases by caller_identifier or fraud_indicators
+    const clusters: Record<string, any[]> = {};
+    for (const c of cases) {
+      const key = c.caller_identifier ? c.caller_identifier.slice(0, 8) : 'Unknown Caller Group';
+      if (!clusters[key]) clusters[key] = [];
+      clusters[key].push(c);
+    }
+
+    const campaigns = Object.entries(clusters).map(([key, group], idx) => ({
+      campaign_id: `CMP-${1000 + idx}`,
+      name: `Syndicate Operation ${key}`,
+      pattern_key: key,
+      total_incidents: group.length,
+      average_risk_score: Math.round(group.reduce((acc, x) => acc + Number(x.risk_score || 0), 0) / group.length),
+      active_status: group.some(x => x.status === 'OPEN') ? 'ACTIVE' : 'CONTAINED',
+      case_ids: group.map(x => x.case_id),
+      associated_carrier: 'Trunk Tier-1 Gateway',
+    }));
+
+    res.json({ success: true, total_campaigns: campaigns.length, campaigns });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};

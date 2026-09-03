@@ -36,6 +36,7 @@ import { ResetPasswordPage } from './pages/ResetPasswordPage';
 import { VerifyEmailPage } from './pages/VerifyEmailPage';
 import { InvestigationDashboardPage } from './pages/InvestigationDashboardPage';
 import { CaseDetailsPage } from './pages/CaseDetailsPage';
+import { RedTeamLabPage } from './pages/RedTeamLabPage';
 
 export const App: React.FC = () => {
   const [showOnboarding, setShowOnboarding] = useState(() => {
@@ -67,6 +68,7 @@ export const App: React.FC = () => {
                 <Route path="/audit-log" element={<AuditLogPage />} />
                 <Route path="/policies" element={<PoliciesPage />} />
                 <Route path="/models" element={<ModelsPage />} />
+                <Route path="/red-team" element={<RedTeamLabPage />} />
                 <Route path="/features" element={<FeaturesPage />} />
                 <Route path="/how-it-works" element={<HowItWorksPage />} />
                 <Route path="/security" element={<SecurityPage />} />

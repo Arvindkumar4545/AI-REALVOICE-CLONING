@@ -414,6 +414,12 @@ async def api_v1_detect(
             probability=float(result.get("spoof_probability", 0.0)),
             audio_quality=result.get("audio_quality"),
             windows_analyzed=result.get("windows_analyzed", 1),
+            uncertainty=result.get("uncertainty", 0.15),
+            model_agreement=result.get("model_agreement", 1.0),
+            decision_reason=result.get("decision_reason"),
+            replay_analysis=result.get("replay_analysis"),
+            voice_continuity=result.get("voice_continuity"),
+            copilot_analysis=result.get("copilot_analysis"),
             model_scores=result.get("model_scores", {}),
             explanation=result.get("explanation", []),
             processing_time_ms=result.get("latency_ms", 0.0),
@@ -431,6 +437,27 @@ async def api_v1_batch_detect(
     x_request_id: Optional[str] = Header(None, alias="X-Request-ID"),
 ):
     return await batch_predict(files=files, x_request_id=x_request_id)
+
+
+@app.post("/api/v1/copilot/analyze", tags=["Copilot"])
+async def api_v1_copilot_analyze(request: Request):
+    """
+    Multilingual Fraud Copilot (Feature 7, 8, 10).
+    Analyzes conversation transcript segments (English, Hindi, Hinglish),
+    detects social engineering intents, computes fraud risk, and builds the attack chain storyline.
+    """
+    try:
+        body = await request.json()
+        transcript = body.get("transcript", "")
+        base_ai_risk = float(body.get("base_ai_risk", 0.0))
+
+        from voice_shield.copilot import FraudCopilotEngine
+        engine = FraudCopilotEngine()
+        result = engine.analyze_conversation(transcript, base_ai_risk=base_ai_risk)
+        return {"success": True, "copilot": result}
+    except Exception as e:
+        logger.error(f"Error in /api/v1/copilot/analyze: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # --------------------------------------------------------------------------

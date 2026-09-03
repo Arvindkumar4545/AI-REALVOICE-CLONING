@@ -70,6 +70,9 @@ export function normalizeMLResult(payload: any): MLPredictResponse {
     bona_fide_probability: Number.isFinite(bonaFideProbability) ? bonaFideProbability : 100,
     raw_probability: Number(payload.raw_probability ?? payload.rawProbability ?? spoofProbability ?? 0),
     decision_reason: payload.decision_reason ?? payload.decisionReason ?? 'Forensic evaluation completed.',
+    replay_analysis: payload.replay_analysis ?? null,
+    voice_continuity: payload.voice_continuity ?? null,
+    copilot_analysis: payload.copilot_analysis ?? null,
   } as MLPredictResponse;
 }
 
@@ -98,6 +101,9 @@ export interface MLPredictResponse {
   suspicious_windows?: number;
   model_scores?: Record<string, number | null>;
   audio_quality?: any;
+  replay_analysis?: any;
+  voice_continuity?: any;
+  copilot_analysis?: any;
   forensics: any;
   explainability: any[];
   model_explanation_note?: string;

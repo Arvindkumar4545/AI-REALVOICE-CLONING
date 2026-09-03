@@ -1,4 +1,4 @@
-﻿"""
+"""
 VoiceShield Production Multi-Model Inference Engine (Phases 6, 7, 13)
 Executes:
 1. Voice Activity Detection (VAD) & Audio Quality Gating
@@ -39,6 +39,8 @@ from .models import (
     VoiceShieldRiskClassifier,
     compute_speaker_consistency_score,
 )
+from .models.replay import detect_replay_attack
+from .models.continuity import analyze_voice_continuity
 
 logger = logging.getLogger("voiceshield.inference")
 
@@ -278,11 +280,22 @@ class VoiceShieldInferenceEngine:
             "bilstm": round(float(np.clip(agg_bilstm, 0.001, 0.999)), 4),
         }
 
-        # 5. Consensus Risk Score & Explainability Calculation
+        # 5. Acoustic Replay Attack Analysis (Feature 5)
+        replay_result = detect_replay_attack(raw_wave, sr=TARGET_SR)
+
+        # 6. Voice Continuity & Window-by-Window Consistency (Feature 4)
+        continuity_result = analyze_voice_continuity(
+            window_scores=window_scores_lcnn,
+            window_sec=DEFAULT_WINDOW_SEC,
+            hop_sec=DEFAULT_HOP_SEC,
+        )
+
+        # 7. Consensus Risk Score & Explainability Calculation
         risk_result = self.risk_classifier.compute_risk(
             model_scores=model_scores,
             speaker_consistency=speaker_sim,
             audio_quality=quality_metrics,
+            replay_metrics=replay_result,
         )
 
         suspicious_windows = sum(1 for s in window_scores_lcnn if s > 0.50)
@@ -309,7 +322,10 @@ class VoiceShieldInferenceEngine:
             "model_scores": {
                 **model_scores,
                 "ecapa_speaker_similarity": round(speaker_sim, 4) if speaker_sim is not None else None,
+                "replay_probability": replay_result["replay_probability"],
             },
+            "replay_analysis": replay_result,
+            "voice_continuity": continuity_result,
             "explanation": risk_result["explanation"],
             "latency_ms": round(elapsed_ms, 2),
             "model_version": self.model_version,

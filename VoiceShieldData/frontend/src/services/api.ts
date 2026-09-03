@@ -221,4 +221,15 @@ export const investigationApi = {
     const res = await apiClient.post<{ success: boolean; message: string; case: any }>(`/investigation/${id}/escalate/le`);
     return res.data;
   },
+  getCampaigns: async () => {
+    const res = await apiClient.get<{ success: boolean; total_campaigns: number; campaigns: any[] }>('/investigation/campaigns');
+    return res.data;
+  },
+  verifyEvidence: async (id: string, evidence_id: string, calculated_hash: string) => {
+    const res = await apiClient.post<{ success: boolean; verified: boolean; status: string; expected_hash: string; provided_hash: string }>(`/investigation/${id}/verify-evidence`, {
+      evidence_id,
+      calculated_hash,
+    });
+    return res.data;
+  },
 };

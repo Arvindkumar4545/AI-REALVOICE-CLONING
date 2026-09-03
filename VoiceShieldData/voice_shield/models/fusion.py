@@ -1,4 +1,4 @@
-﻿"""
+"""
 VoiceShield Calibrated Consensus Fusion & Risk Engine (Steps 3 & 4 Fixed)
 Combines predictions from LCNN, RawNet2, AASIST, WavLM, BiLSTM, and ECAPA.
 Features:
@@ -18,6 +18,9 @@ import numpy as np
 from ..constants import (
     CLASS_BONAFIDE,
     CLASS_SPOOF,
+    CLASS_CLONE,
+    CLASS_REPLAY,
+    CLASS_MANIPULATED,
     CLASS_UNCERTAIN,
     CLASS_INSUFFICIENT,
     RISK_TIER_LOW,
@@ -119,6 +122,7 @@ class VoiceShieldRiskClassifier:
         model_scores: Dict[str, float],
         speaker_consistency: float | None = None,
         audio_quality: Dict[str, Any] | None = None,
+        replay_metrics: Dict[str, Any] | None = None,
     ) -> Dict[str, Any]:
         """
         Calculates calibrated VoiceShield Risk Score, second-pass analysis, uncertainty, and forensics.
@@ -208,7 +212,10 @@ class VoiceShieldRiskClassifier:
         else:
             risk_score = round(float(calibrated_spoof_prob * 100.0), 1)
 
-        # 6. 3-State Calibrated Classification Policy
+        # 6. 6-Class Fine-Grained Calibrated Classification Policy (Feature 1)
+        replay_p = float(replay_metrics.get("replay_probability", 0.0)) if replay_metrics else 0.0
+        is_replay = bool(replay_metrics.get("is_replay_detected", False)) if replay_metrics else False
+
         champion_concurrence_spoof = (lcnn_p >= 0.70 and bilstm_p >= 0.50) or (bilstm_p >= 0.70 and lcnn_p >= 0.50) or (lcnn_p >= 0.55 and bilstm_p >= 0.55 and calibrated_spoof_prob >= 0.55)
         champion_concurrence_bonafide = (lcnn_p <= 0.35 and bilstm_p <= 0.35)
 
@@ -217,15 +224,25 @@ class VoiceShieldRiskClassifier:
             classification = CLASS_UNCERTAIN
             prediction = "uncertain"
             decision_reason = "Acoustic sub-models show divergence across spectral, waveform, and prosodic detectors."
+        elif is_replay or replay_p >= 0.70:
+            risk_tier = RISK_TIER_CRITICAL if risk_score >= 80.0 else RISK_TIER_HIGH
+            classification = CLASS_REPLAY
+            prediction = "replay_attack"
+            decision_reason = "Acoustic room impulse response and high-frequency transducer rolloff confirm physical audio replay."
+        elif speaker_consistency is not None and speaker_consistency < 0.30 and (champion_concurrence_spoof or calibrated_spoof_prob >= 0.60):
+            risk_tier = RISK_TIER_CRITICAL
+            classification = CLASS_CLONE
+            prediction = "voice_clone"
+            decision_reason = "Severe speaker identity mismatch combined with neural synthesis artifacts indicates targeted voice cloning."
         elif champion_concurrence_spoof or calibrated_spoof_prob >= (self.threshold_high / 100.0):
             risk_tier = RISK_TIER_CRITICAL if risk_score >= 80.0 else RISK_TIER_HIGH
             classification = CLASS_SPOOF
-            prediction = "spoof"
+            prediction = "ai_generated_tts"
             decision_reason = "Forensic consensus verifies artificial synthesis phase artifacts and prosodic anomalies."
         elif champion_concurrence_bonafide or calibrated_spoof_prob < (self.threshold_low / 100.0):
             risk_tier = RISK_TIER_LOW
             classification = CLASS_BONAFIDE
-            prediction = "bonafide"
+            prediction = "genuine_human"
             decision_reason = "Authentic vocal cord harmonics and natural human prosodic dynamics verified."
         else:
             risk_tier = RISK_TIER_MODERATE

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Wifi, WifiOff } from 'lucide-react';
 import { useStreamingDetection, SessionEndedMessage } from '../hooks/useStreamingDetection';
 import { useAudioWorklet, AudioChunk } from '../hooks/useAudioWorklet';
@@ -6,6 +6,7 @@ import { LiveAnalysisPanel } from '../components/LiveAnalysisPanel';
 import { LiveShield3D } from '../components/LiveShield3D';
 import { RiskTimeline } from '../components/RiskTimeline';
 import { ExplainableAiCard } from '../components/ExplainableAiCard';
+import { FraudCopilotPanel } from '../components/FraudCopilotPanel';
 
 export const StreamingDetectionExample: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
@@ -132,6 +133,9 @@ export const StreamingDetectionExample: React.FC = () => {
           (s) => 'classification' in s && 'modelBreakdown' in s
         ) as any[]}
       />
+
+      {/* Real-Time Multilingual Fraud Copilot & Attack Chain */}
+      <FraudCopilotPanel currentAiRisk={streamingDetection.lastConsensus?.riskScore ?? 45} />
 
       {streamingDetection.lastConsensus && (
         <ExplainableAiCard
