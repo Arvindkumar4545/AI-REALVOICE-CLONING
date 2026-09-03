@@ -12,7 +12,8 @@ class RealtimeService {
       return;
     }
 
-    const wsUrl = import.meta.env.VITE_WS_URL || `ws://${window.location.hostname}:4000/ws`;
+    const apiUrl = import.meta.env.VITE_API_URL || `${window.location.protocol}//${window.location.host}/api/v1`;
+    const wsUrl = import.meta.env.VITE_WS_URL || `${apiUrl.replace(/^http/, 'ws').replace(/\/api\/v1\/?$/, '')}/ws`;
     this.isConnecting = true;
 
     try {
