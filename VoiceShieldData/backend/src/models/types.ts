@@ -171,6 +171,7 @@ export interface InvestigationCase {
   escalation_status?: 'Draft' | 'Ready for Submission' | 'Submitted to Authority' | 'Case Reference Received' | 'Sent' | 'Acknowledged' | 'Under Review' | 'Action Taken';
   law_enforcement_ref?: string | null;
   network_metadata?: Record<string, any>;
+  campaign_id?: string | null;
   created_at: Date;
   updated_at: Date;
 }

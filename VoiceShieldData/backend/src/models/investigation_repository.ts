@@ -11,8 +11,8 @@ export class InvestigationRepository {
       `INSERT INTO investigation_cases (
         case_id, incident_id, caller_identifier, session_id, timestamp,
         risk_score, voice_ai_probability, voice_clone_probability, fraud_indicators,
-        status, investigator_id, authorization_reference
-      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`,
+        status, investigator_id, authorization_reference, campaign_id
+      ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) RETURNING *`,
       [
         caseId,
         caseData.incident_id || null,
@@ -25,7 +25,8 @@ export class InvestigationRepository {
         JSON.stringify(caseData.fraud_indicators || []),
         caseData.status || 'OPEN',
         caseData.investigator_id || null,
-        caseData.authorization_reference || null
+        caseData.authorization_reference || null,
+        caseData.campaign_id || null
       ]
     );
     return res.rows[0];
@@ -113,6 +114,15 @@ export class EvidenceRepository {
       [caseId]
     );
     return res.rows;
+  }
+
+  static async verifyEvidence(evidenceId: string, providedHash: string): Promise<boolean> {
+    const res = await query<Evidence>(
+      'SELECT sha256_hash FROM evidence WHERE evidence_id = $1 LIMIT 1',
+      [evidenceId]
+    );
+    if (res.rows.length === 0) return false;
+    return res.rows[0].sha256_hash === providedHash;
   }
 }
 
