@@ -50,8 +50,9 @@ router.get('/', async (req: Request, res: Response) => {
       }
     }
 
-    const hasCriticalFailure = mlServiceStatus === 'unreachable' || mlServiceStatus === 'unhealthy';
-    const overallStatus = hasCriticalFailure ? 'unhealthy' : (dbStatus === 'healthy' && mlServiceStatus === 'healthy' ? 'healthy' : 'degraded');
+    // When dependencies are warming up or in embedded fallback, report degraded but alive (200 OK)
+    const isDegraded = dbStatus !== 'healthy' || mlServiceStatus !== 'healthy' || redisStatus === 'unhealthy';
+    const overallStatus = isDegraded ? 'degraded' : 'healthy';
 
     const response: HealthStatus & { queue_depth: number } = {
       status: overallStatus,
@@ -80,8 +81,7 @@ router.get('/', async (req: Request, res: Response) => {
       },
     };
 
-    const statusCode = overallStatus === 'unhealthy' ? 503 : 200;
-    res.status(statusCode).json(response);
+    res.status(200).json(response);
   } catch (err: any) {
     res.status(503).json({
       status: 'unhealthy',

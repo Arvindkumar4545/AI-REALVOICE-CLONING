@@ -2,7 +2,7 @@ services:
   - type: web
     name: voiceshield-ml
     env: python
-    buildCommand: "cd VoiceShieldData/ml-service && pip install -r requirements.txt"
+    buildCommand: "cd VoiceShieldData/ml-service && pip install --no-cache-dir -r requirements.txt"
     startCommand: "cd VoiceShieldData/ml-service && uvicorn app.main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: PYTHON_VERSION

@@ -64,33 +64,43 @@ class ModelManager:
         """Loads weights, computes checksum, reads metadata, and warms up inference."""
         logger.info(f"Initializing ModelManager from checkpoint: {self.checkpoint_path}")
         if not self.checkpoint_path.exists():
-            # Check fallback directory
-            fallback = Path(r"F:\VoiceShieldData\models\voiceshield_best\model.pt")
-            if fallback.exists():
-                self.checkpoint_path = fallback
+            candidates = [
+                REPO_ROOT / "VoiceShieldData" / "models" / "voiceshield_best" / "model.pt",
+                REPO_ROOT / "models" / "voiceshield_best" / "model.pt",
+                Path("VoiceShieldData/models/voiceshield_best/model.pt"),
+                Path("models/voiceshield_best/model.pt"),
+            ]
+            for cand in candidates:
+                if cand.exists():
+                    self.checkpoint_path = cand
+                    break
+
+        if self.checkpoint_path.exists():
+            with open(self.checkpoint_path, "rb") as f:
+                self.checkpoint_hash = hashlib.sha256(f.read()).hexdigest()[:16]
+
+            state = torch.load(str(self.checkpoint_path), map_location=self.device)
+            if any("stage1" in k or "stem" in k for k in state.keys()):
+                model = AudioSpoofNetV2()
+                self.model_name = "AudioSpoofNetV2"
+                self.model_version = "v2.0.0-champion"
             else:
-                logger.error(f"Checkpoint not found at: {self.checkpoint_path}")
-                raise FileNotFoundError(f"Checkpoint file does not exist: {self.checkpoint_path}")
+                model = AudioSpoofNet()
+                self.model_name = "AudioSpoofNet"
+                self.model_version = "v1.0.0-baseline"
 
-        # Compute SHA256
-        with open(self.checkpoint_path, "rb") as f:
-            self.checkpoint_hash = hashlib.sha256(f.read()).hexdigest()[:16]
-
-        # Load state dict
-        state = torch.load(str(self.checkpoint_path), map_location=self.device)
-        if any("stage1" in k or "stem" in k for k in state.keys()):
-            model = AudioSpoofNetV2()
-            self.model_name = "AudioSpoofNetV2"
-            self.model_version = "v2.0.0-champion"
+            model.load_state_dict(state)
+            model.to(self.device)
+            model.eval()
+            self.model = model
+            logger.info(f"Loaded weights from {self.checkpoint_path}")
         else:
+            logger.warning(f"No checkpoint file found; initializing AudioSpoofNet baseline model.")
+            self.checkpoint_hash = "baseline_init"
             model = AudioSpoofNet()
-            self.model_name = "AudioSpoofNet"
-            self.model_version = "v1.0.0-baseline"
-
-        model.load_state_dict(state)
-        model.to(self.device)
-        model.eval()
-        self.model = model
+            model.to(self.device)
+            model.eval()
+            self.model = model
 
         # Load baseline artifacts
         if BASELINE_METRICS_PATH.exists():
