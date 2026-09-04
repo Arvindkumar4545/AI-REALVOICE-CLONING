@@ -72,18 +72,18 @@ export const Pipeline3DVisualizer: React.FC = () => {
             <button
               key={item.step}
               onClick={() => setActiveStep(item.step)}
-              className={`p-4 rounded-2xl text-left transition-all duration-300 relative overflow-hidden ${
+              className={`p-4 rounded-2xl text-left transition-all duration-300 relative overflow-hidden outline-none ${
                 isSelected
-                  ? 'bg-[#101F35] border-2 border-[#22D3EE] shadow-[0_0_20px_rgba(34,211,238,0.25)]'
-                  : 'bg-[#0B1628] border border-[rgba(56,189,248,0.12)] hover:border-[#22D3EE]/40 hover:bg-[#101F35]'
+                  ? 'bg-white border-2 border-blue-400 hover:bg-[#F8FAFF] shadow-[0_0_0_1px_rgba(96,165,250,0.5),0_8px_24px_rgba(59,130,246,0.12)] ring-1 ring-blue-400/20'
+                  : 'bg-white border border-gray-200 hover:border-blue-300 hover:bg-[#F8FAFC] shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono font-bold uppercase text-[#94A3B8]">Step 0{item.step}</span>
-                <Icon className={`w-4 h-4 ${isSelected ? 'text-[#22D3EE]' : 'text-[#94A3B8]'}`} />
+                <span className="text-[10px] font-mono font-bold uppercase text-[#64748B]">Step 0{item.step}</span>
+                <Icon className={`w-4 h-4 ${isSelected ? 'text-blue-500' : 'text-[#64748B]'}`} />
               </div>
-              <h5 className="text-xs font-bold text-[#F8FAFC] mb-0.5">{item.title.split('. ')[1]}</h5>
-              <p className="text-[10px] font-mono text-[#CBD5E1] truncate">{item.subtitle}</p>
+              <h5 className="text-xs font-bold text-gray-900 mb-0.5">{item.title.split('. ')[1]}</h5>
+              <p className="text-[10px] font-mono text-gray-600 truncate">{item.subtitle}</p>
             </button>
           );
         })}
@@ -94,19 +94,19 @@ export const Pipeline3DVisualizer: React.FC = () => {
         const current = PIPELINE_STEPS.find((s) => s.step === activeStep) || PIPELINE_STEPS[0];
         const Icon = current.icon;
         return (
-          <div className="glass-panel p-6 rounded-2xl border border-[rgba(56,189,248,0.14)] bg-[#0B1628]/90 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="glass-panel p-6 rounded-2xl border border-gray-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
             <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(34,211,238,0.08)] border border-[rgba(34,211,238,0.30)] text-[11px] font-mono text-[#22D3EE] font-semibold">
-                <Icon className="w-3.5 h-3.5 text-[#22D3EE]" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.30)] text-[11px] font-mono text-blue-600 font-semibold">
+                <Icon className="w-3.5 h-3.5 text-blue-600" />
                 <span>Forensic Architecture Flow — {current.title}</span>
               </div>
-              <h4 className="text-lg font-bold text-[#F8FAFC]">{current.subtitle}</h4>
-              <p className="text-xs text-[#CBD5E1] leading-relaxed">{current.desc}</p>
+              <h4 className="text-lg font-bold text-gray-900">{current.subtitle}</h4>
+              <p className="text-xs text-gray-600 leading-relaxed">{current.desc}</p>
             </div>
 
-            <div className="px-5 py-3 rounded-xl bg-[#071426] border border-[rgba(56,189,248,0.12)] font-mono text-xs text-right space-y-1">
-              <span className="text-[10px] uppercase text-[#94A3B8] block font-semibold">Subsystem Stack</span>
-              <span className="text-[#22D3EE] font-bold block">{current.tech}</span>
+            <div className="px-5 py-3 rounded-xl bg-gray-50 border border-gray-200 font-mono text-xs text-right space-y-1">
+              <span className="text-[10px] uppercase text-[#64748B] block font-semibold">Subsystem Stack</span>
+              <span className="text-blue-600 font-bold block">{current.tech}</span>
             </div>
           </div>
         );

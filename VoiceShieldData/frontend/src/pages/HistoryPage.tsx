@@ -146,10 +146,10 @@ export const HistoryPage: React.FC = () => {
                 <th className="py-3.5 px-4 text-right">Details</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#16324A]/60 font-mono">
+            <tbody className="divide-y divide-gray-200 font-mono">
               {filtered.length > 0 ? (
                 filtered.map((row) => (
-                  <tr key={row.id || row.request_id} className="hover:bg-[#0F1C30] transition-colors">
+                  <tr key={row.id || row.request_id} className="hover:bg-[#F8FAFC] transition-colors">
                     <td className="py-3 px-4 font-semibold text-gray-900 truncate max-w-[140px]">
                       {row.request_id || 'N/A'}
                     </td>
@@ -192,7 +192,7 @@ export const HistoryPage: React.FC = () => {
                     <td className="py-3 px-4 text-right">
                       <button
                         onClick={() => setSelectedRecord(row)}
-                        className="p-1.5 rounded-lg bg-gray-50 hover:bg-[#0F1C30] border border-gray-200 hover:border-[#3B82F6] text-gray-900 transition-colors"
+                        className="p-1.5 rounded-lg bg-gray-50 hover:bg-blue-50 border border-gray-200 hover:border-[#3B82F6] text-gray-900 transition-colors shadow-sm"
                       >
                         <Eye className="w-4 h-4" />
                       </button>

@@ -80,6 +80,7 @@ const SAMPLE_CALLS: CallRecord[] = [
 export const CallsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('ALL');
+  const [selectedCallId, setSelectedCallId] = useState<string>(SAMPLE_CALLS[0].callId);
 
   const filteredCalls = SAMPLE_CALLS.filter((call) => {
     const matchesSearch =
@@ -107,7 +108,7 @@ export const CallsPage: React.FC = () => {
           </p>
         </div>
 
-        <button className="px-4 py-2 rounded-xl bg-white hover:bg-[#0F1C30] border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-mono font-semibold flex items-center gap-2 transition-all">
+        <button className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-mono font-semibold flex items-center gap-2 transition-all shadow-sm">
           <Download className="w-4 h-4 text-gray-900" /> Export CSV Report
         </button>
       </div>
@@ -157,57 +158,77 @@ export const CallsPage: React.FC = () => {
                 <th className="p-4">Action Taken</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#16324A]/60 text-gray-900 bg-white">
-              {filteredCalls.map((call) => (
-                <tr key={call.callId} className="hover:bg-[#0F1C30] transition-colors">
-                  <td className="p-4">
-                    <span className="font-bold text-gray-900 block">{call.callId}</span>
-                    <span className="text-[10px] text-[#64748B] block">{call.timestamp}</span>
-                  </td>
-                  <td className="p-4">
-                    <span className="font-bold text-gray-900 block">{call.callerNumber}</span>
-                    <span className="text-[10px] text-gray-600 block">{call.recipient}</span>
-                  </td>
-                  <td className="p-4">
-                    <span className="text-gray-600 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-[#64748B]" />
-                      {call.duration}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <span
-                      className={`font-bold font-mono ${
-                        call.riskScore >= 70
-                          ? 'text-[#EF4444]'
-                          : call.riskScore >= 40
-                          ? 'text-[#F59E0B]'
-                          : 'text-[#10B981]'
-                      }`}
-                    >
-                      {call.riskScore.toFixed(1)}%
-                    </span>
-                    <span className="text-[10px] text-[#64748B] block">
-                      Conf: {Math.round(call.confidence * 100)}%
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <span className="text-gray-900 font-semibold block">{call.threatType}</span>
-                  </td>
-                  <td className="p-4">
-                    <span
-                      className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
-                        call.status === 'BLOCKED'
-                          ? 'bg-[rgba(239,68,68,0.15)] text-[#EF4444] border border-[rgba(239,68,68,0.3)]'
-                          : call.status === 'REVIEWED'
-                          ? 'bg-[rgba(245,158,11,0.15)] text-[#F59E0B] border border-[rgba(245,158,11,0.3)]'
-                          : 'bg-[rgba(16,185,129,0.15)] text-[#10B981] border border-[rgba(16,185,129,0.3)]'
-                      }`}
-                    >
-                      {call.status}
-                    </span>
-                  </td>
-                </tr>
-              ))}
+            <tbody className="divide-y divide-gray-200 text-gray-900 bg-white">
+              {filteredCalls.map((call) => {
+                const isSelected = selectedCallId === call.callId;
+                return (
+                  <tr
+                    key={call.callId}
+                    onClick={() => setSelectedCallId(call.callId)}
+                    tabIndex={0}
+                    role="button"
+                    aria-selected={isSelected}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setSelectedCallId(call.callId);
+                      }
+                    }}
+                    className={`cursor-pointer transition-all outline-none ${
+                      isSelected
+                        ? 'bg-blue-50/60 shadow-[inset_4px_0_0_0_#3B82F6] hover:bg-blue-50/80 focus-visible:ring-2 focus-visible:ring-blue-400'
+                        : 'hover:bg-[#F8FAFC] focus-visible:ring-2 focus-visible:ring-blue-400'
+                    }`}
+                  >
+                    <td className="p-4">
+                      <span className="font-bold text-gray-900 block">{call.callId}</span>
+                      <span className="text-[10px] text-[#64748B] block">{call.timestamp}</span>
+                    </td>
+                    <td className="p-4">
+                      <span className="font-bold text-gray-900 block">{call.callerNumber}</span>
+                      <span className="text-[10px] text-gray-600 block">{call.recipient}</span>
+                    </td>
+                    <td className="p-4">
+                      <span className="text-gray-600 flex items-center gap-1.5">
+                        <Clock className="w-3.5 h-3.5 text-[#64748B]" />
+                        {call.duration}
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <span
+                        className={`font-bold font-mono ${
+                          call.riskScore >= 70
+                            ? 'text-[#EF4444]'
+                            : call.riskScore >= 40
+                            ? 'text-[#F59E0B]'
+                            : 'text-[#10B981]'
+                        }`}
+                      >
+                        {call.riskScore.toFixed(1)}%
+                      </span>
+                      <span className="text-[10px] text-[#64748B] block">
+                        Conf: {Math.round(call.confidence * 100)}%
+                      </span>
+                    </td>
+                    <td className="p-4">
+                      <span className="text-gray-900 font-semibold block">{call.threatType}</span>
+                    </td>
+                    <td className="p-4">
+                      <span
+                        className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold ${
+                          call.status === 'BLOCKED'
+                            ? 'bg-[rgba(239,68,68,0.15)] text-[#EF4444] border border-[rgba(239,68,68,0.3)]'
+                            : call.status === 'REVIEWED'
+                            ? 'bg-[rgba(245,158,11,0.15)] text-[#F59E0B] border border-[rgba(245,158,11,0.3)]'
+                            : 'bg-[rgba(16,185,129,0.15)] text-[#10B981] border border-[rgba(16,185,129,0.3)]'
+                        }`}
+                      >
+                        {call.status}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

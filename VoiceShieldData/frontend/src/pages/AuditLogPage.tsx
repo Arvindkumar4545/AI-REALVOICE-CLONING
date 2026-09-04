@@ -99,7 +99,7 @@ export const AuditLogPage: React.FC = () => {
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>SHA-256 Chain Verified</span>
           </div>
-          <button className="px-4 py-2 rounded-xl bg-white hover:bg-[#0F1C30] border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-mono font-semibold flex items-center gap-2 transition-all">
+          <button className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-mono font-semibold flex items-center gap-2 transition-all shadow-sm">
             <Download className="w-4 h-4 text-gray-900" /> Export Audit Log
           </button>
         </div>
@@ -133,9 +133,9 @@ export const AuditLogPage: React.FC = () => {
                 <th className="p-4">Cryptographic Hash</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#16324A]/60 text-gray-900 bg-white">
+            <tbody className="divide-y divide-gray-200 text-gray-900 bg-white">
               {filtered.map((entry) => (
-                <tr key={entry.id} className="hover:bg-[#0F1C30] transition-colors">
+                <tr key={entry.id} className="hover:bg-[#F8FAFC] transition-colors">
                   <td className="p-4">
                     <span className="font-bold text-gray-900 block">{entry.id}</span>
                     <span className="text-[10px] text-[#64748B] block">{entry.timestamp}</span>

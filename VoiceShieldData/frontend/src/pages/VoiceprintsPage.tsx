@@ -121,10 +121,19 @@ export const VoiceprintsPage: React.FC = () => {
                 <div
                   key={speaker.id}
                   onClick={() => setSelectedSpeaker(speaker)}
-                  className={`p-4 rounded-2xl cursor-pointer transition-all border ${
+                  role="button"
+                  tabIndex={0}
+                  aria-pressed={isSelected}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      setSelectedSpeaker(speaker);
+                    }
+                  }}
+                  className={`p-4 rounded-2xl cursor-pointer transition-all border outline-none ${
                     isSelected
-                      ? 'bg-[#0F1C30] border-[#3B82F6] shadow-[0_0_20px_rgba(6,182,212,0.2)]'
-                      : 'bg-white border-gray-200 hover:border-[#3B82F6]/40 hover:bg-[#0F1C30]'
+                      ? 'bg-white border-blue-400 hover:bg-[#F8FAFF] shadow-[0_0_0_1px_rgba(96,165,250,0.6),0_8px_24px_rgba(59,130,246,0.12)] focus-visible:ring-2 focus-visible:ring-blue-400'
+                      : 'bg-white border-gray-200 hover:border-blue-300 hover:bg-[#F8FAFC] shadow-sm focus-visible:ring-2 focus-visible:ring-blue-400'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">

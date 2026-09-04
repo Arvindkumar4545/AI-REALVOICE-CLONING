@@ -310,7 +310,7 @@ export const ReportScamPage: React.FC = () => {
               type="button"
               onClick={requestGeolocation}
               disabled={locating}
-              className="px-3 py-1.5 rounded-lg bg-white hover:bg-[#0F1C30] border border-gray-200 text-xs font-mono text-gray-900 flex items-center gap-1.5 transition-all"
+              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 hover:border-blue-400 border border-gray-200 text-xs font-mono text-gray-900 flex items-center gap-1.5 transition-all shadow-sm"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${locating ? 'animate-spin' : ''}`} />
               <span>{locating ? 'Locating...' : 'Pin Current Coordinates'}</span>

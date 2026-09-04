@@ -62,11 +62,11 @@ export const InvestigationDashboardPage: React.FC = () => {
         </div>
 
         {/* Tab Selector */}
-        <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-gray-200">
+        <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-gray-200 shadow-sm">
           <button
             onClick={() => setActiveTab('cases')}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
-              activeTab === 'cases' ? 'bg-gray-900 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
+              activeTab === 'cases' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
             }`}
           >
             Case Dossiers ({cases.length})
@@ -74,7 +74,7 @@ export const InvestigationDashboardPage: React.FC = () => {
           <button
             onClick={() => setActiveTab('campaigns')}
             className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all ${
-              activeTab === 'campaigns' ? 'bg-gray-900 text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'
+              activeTab === 'campaigns' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
             }`}
           >
             <FolderGit2 className="w-3.5 h-3.5" /> Campaign Graph ({campaigns.length})
