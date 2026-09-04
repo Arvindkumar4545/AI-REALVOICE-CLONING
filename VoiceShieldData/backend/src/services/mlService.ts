@@ -125,8 +125,9 @@ export class MLService {
     }
 
     try {
+      const fileBuffer = await fs.promises.readFile(filePath);
       const form = new FormData();
-      form.append('file', fs.createReadStream(filePath), { filename });
+      form.append('file', fileBuffer, { filename });
 
       const response = await this.client.post<any>('/predict', form, {
         headers: {
