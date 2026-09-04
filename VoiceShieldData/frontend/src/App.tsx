@@ -47,7 +47,7 @@ export const App: React.FC = () => {
   });
 
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <AuthProvider>
         <AlertProvider>
           {/* 3D background disabled for white theme */}

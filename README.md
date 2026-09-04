@@ -1,69 +1,94 @@
-# VoiceShield - Real-Time AI Voice Deepfake Detection & Cloning Defense
+# VoiceShield - Real-Time AI Voice Deepfake Detection & Defense
 
-VoiceShield is an end-to-end platform for detecting synthetic audio, deepfakes, and voice clones in real-time and batch workflows. It provides an intuitive web interface, a robust API gateway, and high-performance ML inference models.
+VoiceShield is an end-to-end platform for detecting synthetic audio, deepfakes, and voice clones in real-time and batch workflows. It provides an intuitive web interface, a robust API gateway, and high-performance machine learning inference models.
 
 ---
 
-## 🏗 Architecture Overview
+## 🏗 Architecture (Local-First)
 
-The system is deployed using a modular 3-tier architecture:
+VoiceShield is built on a clean, decoupled local-first service architecture:
 
 ```
-[ Frontend: GitHub Pages ]  ──►  [ Backend API Gateway: Render ]  ──►  [ ML Inference: Render ]
-                                                │
-                                                ▼
-                                    [ Managed PostgreSQL: Render ]
+                    LOCAL WORKSTATION
+                    
+┌───────────────────────────────────────────────────────┐
+│                 React / Vite Frontend                 │
+│                 http://localhost:3000                 │
+└──────────────────────────┬────────────────────────────┘
+                           │ API Requests & WebSocket
+                           ▼
+┌───────────────────────────────────────────────────────┐
+│            Node.js / Express API Gateway              │
+│                 http://localhost:4000                 │
+└──────────────┬─────────────────────────┬──────────────┘
+               │                         │
+               ▼                         ▼
+┌──────────────────────────────┐  ┌─────────────────────┐
+│  Python / FastAPI ML Service │  │  Local PostgreSQL   │
+│     http://127.0.0.1:8000    │  │ (or Embedded Store) │
+└──────────────────────────────┘  └─────────────────────┘
 ```
 
 1. **Frontend (`VoiceShieldData/frontend`)**:
-   - Modern Single Page Application built with React, Vite, TypeScript, and Tailwind CSS.
-   - Continuous deployment via GitHub Actions to GitHub Pages.
+   - Single Page Application built with React, Vite, TypeScript, Tailwind CSS, and Lucide icons.
+   - Interactive forensic dashboards, live threat map, and audio analysis visualizers.
 2. **Backend API Gateway (`VoiceShieldData/backend`)**:
-   - Express & TypeScript API gateway managing authentication, history, telemetry, and request orchestration.
-   - Deployed on Render with automated database connections.
+   - Express & TypeScript service managing authentication, detection queues, telemetry, and forensic analysis.
+   - Real-time WebSocket notifications and embedded resilient data storage fallback.
 3. **ML Service (`VoiceShieldData/ml-service`)**:
-   - Python 3.12 FastAPI microservice serving deepfake detection models, feature extractors, and streaming forensics.
-4. **Resilience & Keep-Awake**:
-   - Automated periodic monitoring via UptimeRobot to keep free-tier instances warm.
-
-For an in-depth breakdown of the deployment topology and configuration, see [DEPLOYMENT_AUDIT.md](DEPLOYMENT_AUDIT.md).
+   - High-performance Python 3.12 FastAPI microservice serving the AudioSpoofNet deepfake detection model and physical signal forensics.
+4. **Database**:
+   - Local PostgreSQL on port `5432` with automatic fallback to an embedded in-memory resilient store when PostgreSQL is offline.
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## 🚀 Quick Start (Local Setup)
 
 ### Prerequisites
-- Node.js 20+
-- Python 3.12+
-- PostgreSQL (optional, embedded fallback mode supported)
+- **Node.js**: v20 or higher
+- **Python**: v3.12 or higher
+- **Git**: For version control
 
-### 1. ML Service
+### One-Command Local Startup (PowerShell)
+```powershell
+.\start-local.ps1
+```
+
+Or start the services individually across separate terminal windows:
+
+### Terminal 1: ML Inference Service
 ```bash
 cd VoiceShieldData/ml-service
 pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-### 2. Backend API
+### Terminal 2: Backend API Gateway
 ```bash
 cd VoiceShieldData/backend
 npm install
 npm run dev
 ```
 
-### 3. Frontend App
+### Terminal 3: Frontend Web Application
 ```bash
 cd VoiceShieldData/frontend
 npm install
 npm run dev
 ```
 
+The application will be available at: **[http://localhost:3000](http://localhost:3000)**
+
 ---
 
-## 🌐 Production Deployment
+## 🔍 Health & Diagnostics Endpoints
 
-- **Blueprint Deployment**: Deploy the backend, ML service, and database in one click using Render's Blueprint with [`render.yaml`](render.yaml).
-- **Frontend Deployment**: Automatic deployment via GitHub Actions defined in [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
-- **Keep-Awake Setup**: Run [`setup_deployment.py`](setup_deployment.py) to automatically provision UptimeRobot pings.
+All services expose independent health endpoints for diagnostics:
 
-Detailed operations and secrets configuration: [DEPLOYMENT_AUDIT.md](DEPLOYMENT_AUDIT.md).
+- **Frontend**: `http://localhost:3000`
+- **Backend API Live**: `http://localhost:4000/api/v1/health/live`
+- **Backend API Full Health**: `http://localhost:4000/api/v1/health`
+- **ML Service Live**: `http://127.0.0.1:8000/live`
+- **ML Service System Health**: `http://127.0.0.1:8000/health`
+
+For complete configuration instructions, testing guides, and environment variables, see [LOCAL_DEVELOPMENT_GUIDE.md](LOCAL_DEVELOPMENT_GUIDE.md).

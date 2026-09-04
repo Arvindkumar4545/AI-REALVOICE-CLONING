@@ -7,7 +7,26 @@ import fs from 'fs';
 
 vi.mock('../src/services/mlService.js', () => ({
   mlService: {
-    getHealth: vi.fn().mockResolvedValue({ status: 'healthy', version: '1.0' })
+    getHealth: vi.fn().mockResolvedValue({ status: 'healthy', version: '1.0' }),
+    predict: vi.fn().mockResolvedValue({
+      success: true,
+      request_id: 'req_mock',
+      filename: 'test.wav',
+      file_size_bytes: 1000,
+      prediction: 'BONA_FIDE',
+      confidence: 95,
+      risk_score: 10,
+      fraud_risk: 10,
+      spoof_probability: 5,
+      bona_fide_probability: 95,
+      raw_probability: 0.05,
+      processing_time_ms: 100,
+      model_name: 'AudioSpoofNet',
+      model_version: 'v1.0.0',
+      checkpoint_hash: 'mockhash',
+      forensics: {},
+      explainability: [],
+    }),
   }
 }));
 

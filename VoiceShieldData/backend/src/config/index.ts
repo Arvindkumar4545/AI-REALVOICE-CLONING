@@ -28,7 +28,7 @@ export const config = {
   },
   
   mlService: {
-    url: process.env.ML_SERVICE_URL || (process.env.NODE_ENV === 'production' ? 'https://voiceshield-ml.onrender.com' : 'http://127.0.0.1:8000'),
+    url: process.env.ML_SERVICE_URL || 'http://127.0.0.1:8000',
     timeoutMs: parseInt(process.env.ML_TIMEOUT_MS || '30000', 10),
     retries: 2,
   },

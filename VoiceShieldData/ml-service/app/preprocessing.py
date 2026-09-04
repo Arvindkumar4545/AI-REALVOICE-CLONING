@@ -81,6 +81,14 @@ def validate_audio_file(file_bytes: bytes, filename: str) -> Dict[str, Any]:
     detected_format = detect_audio_format_from_header(file_bytes)
     use_format = detected_format or (ext if ext in ALLOWED_EXTENSIONS else None)
     
+    if ext and ext not in ALLOWED_EXTENSIONS and not detected_format:
+        return {
+            "valid": False,
+            "error": f"Unsupported extension: .{ext}. Allowed formats: {sorted(list(ALLOWED_EXTENSIONS))}",
+            "file_size": len(file_bytes),
+            "format": None,
+        }
+
     if not use_format:
         return {
             "valid": False,
