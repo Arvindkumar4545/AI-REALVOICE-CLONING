@@ -37,14 +37,14 @@ function delay(time) {
 
     // 2. Load Homepage
     console.log('\n3. Loading Frontend...');
-    const response = await page.goto('http://localhost:4173/', { waitUntil: 'networkidle0' });
+    const response = await page.goto('http://localhost:3000/', { waitUntil: 'networkidle0' });
     if (!response.ok()) throw new Error(`Frontend failed to load: ${response.status()}`);
     await page.screenshot({ path: path.join(RESULTS_DIR, '01_homepage.png') });
     console.log('Frontend loaded successfully. Screenshot saved.');
 
     // 3. Navigate to Signup
     console.log('\n4. Testing Signup Flow...');
-    await page.goto('http://localhost:4173/signup', { waitUntil: 'networkidle0' });
+    await page.goto('http://localhost:3000/signup', { waitUntil: 'networkidle0' });
     const inputs = await page.$$('input');
     await inputs[0].type('E2E Tester');
     await inputs[1].type(`e2e_${Date.now()}@test.com`);
@@ -61,7 +61,7 @@ function delay(time) {
 
     // 4. Test Investigation Access (Should fail unless admin)
     console.log('\n5. Testing Protected Route (Investigation Dashboard)...');
-    await page.goto('http://localhost:4173/investigation', { waitUntil: 'networkidle0' });
+    await page.goto('http://localhost:3000/investigation', { waitUntil: 'networkidle0' });
     await delay(2000);
     await page.screenshot({ path: path.join(RESULTS_DIR, '04_investigation_access.png') });
     

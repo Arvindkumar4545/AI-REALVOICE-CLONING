@@ -16,16 +16,16 @@ import requests
 # Usage:
 #   export RENDER_API_KEY=...
 #   export UPTIMEROBOT_API_KEY=...
-#   export BACKEND_URL=https://voiceshield-backend.onrender.com/api/v1/health
-#   export ML_URL=https://voiceshield-ml.onrender.com/health
+#   export BACKEND_URL=https://voiceshield-backend.onrender.com/api/v1/health/live
+#   export ML_URL=https://voiceshield-ml.onrender.com/live
 #   python setup_deployment.py
 #
 # If keys are not provided, the script prints the exact deployment instructions but
 # exits safely without making changes.
 
 GITHUB_REPO_URL = "https://github.com/Arvindkumar4545/AI-REALVOICE-CLONING"
-DEFAULT_BACKEND_URL = "https://ai-realvoice-cloning.onrender.com/api/v1/health"
-DEFAULT_ML_URL = "https://voiceshield-ml.onrender.com/health"
+DEFAULT_BACKEND_URL = "https://ai-realvoice-cloning.onrender.com/api/v1/health/live"
+DEFAULT_ML_URL = "https://voiceshield-ml.onrender.com/live"
 RENDER_API_URL = "https://api.render.com/v1/services"
 UPTIMEROBOT_API_URL = "https://api.uptimerobot.com/v2/newMonitor"
 
@@ -50,8 +50,8 @@ def print_missing_key_instructions():
     print("\nSet the variables below before running this script:")
     print("  export RENDER_API_KEY=your_render_api_key")
     print("  export UPTIMEROBOT_API_KEY=your_uptimerobot_api_key")
-    print("  export BACKEND_URL=https://voiceshield-backend.onrender.com/api/v1/health")
-    print("  export ML_URL=https://voiceshield-ml.onrender.com/health")
+    print("  export BACKEND_URL=https://voiceshield-backend.onrender.com/api/v1/health/live")
+    print("  export ML_URL=https://voiceshield-ml.onrender.com/live")
     print("\nThen run:")
     print("  python setup_deployment.py")
     print("\nRender API keys: https://dashboard.render.com/user/settings#api-keys")
