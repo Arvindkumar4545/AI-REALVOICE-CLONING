@@ -107,9 +107,9 @@ export const AudioWaveform: React.FC<AudioWaveformProps> = ({ audioUrl, audioBlo
       const y = (height - barHeight) / 2;
 
       if (normalizedI <= progress) {
-        ctx.fillStyle = '#06B6D4'; // Cyan active
+        ctx.fillStyle = '#0284C7'; // Cyan/Blue active
       } else {
-        ctx.fillStyle = '#334155'; // Dark slate unplayed
+        ctx.fillStyle = '#CBD5E1'; // Slate unplayed
       }
 
       ctx.beginPath();
@@ -146,7 +146,7 @@ export const AudioWaveform: React.FC<AudioWaveformProps> = ({ audioUrl, audioBlo
   };
 
   return (
-    <div className={`glass-card p-4 rounded-xl space-y-3 ${className}`}>
+    <div className={`glass-panel p-4 rounded-2xl border border-gray-200 bg-white space-y-3 shadow-sm ${className}`}>
       {sourceUrl && <audio ref={audioRef} src={sourceUrl} preload="metadata" />}
 
       {/* Visualizer Canvas */}
@@ -154,35 +154,35 @@ export const AudioWaveform: React.FC<AudioWaveformProps> = ({ audioUrl, audioBlo
         ref={canvasRef}
         width={480}
         height={64}
-        className="w-full h-16 rounded-lg bg-slate-950/60"
+        className="w-full h-16 rounded-xl bg-slate-50 border border-gray-200"
       />
 
       {/* Audio Controls */}
-      <div className="flex items-center justify-between pt-1 text-xs text-slate-400 font-mono">
+      <div className="flex items-center justify-between pt-1 text-xs text-gray-600">
         <div className="flex items-center gap-2">
           <button
             onClick={togglePlay}
             disabled={!sourceUrl}
-            className="w-8 h-8 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-black flex items-center justify-center transition-all disabled:opacity-40"
+            className="w-8 h-8 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white flex items-center justify-center transition-all disabled:opacity-40 shadow-sm"
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 ml-0.5" />}
           </button>
           <button
             onClick={handleRestart}
             disabled={!sourceUrl}
-            className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors disabled:opacity-40"
+            className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors disabled:opacity-40 border border-gray-200"
           >
             <RotateCcw className="w-3.5 h-3.5" />
           </button>
-          <div className="flex items-center gap-1 text-slate-300 ml-2">
-            <Volume2 className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="flex items-center gap-1 text-gray-800 font-mono font-medium text-xs ml-2">
+            <Volume2 className="w-3.5 h-3.5 text-cyan-600" />
             <span>
               {formatTime(currentTime)} / {formatTime(duration)}
             </span>
           </div>
         </div>
 
-        <span className="text-[11px] text-cyan-400/80 uppercase font-mono">
+        <span className="text-[11px] text-cyan-700 font-semibold uppercase tracking-wider font-sans">
           {isPlaying ? 'Playing Audio' : 'Audio Ready'}
         </span>
       </div>

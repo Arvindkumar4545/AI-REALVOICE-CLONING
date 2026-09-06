@@ -124,7 +124,8 @@ export default {
       },
       
       fontFamily: {
-        sans: ['Inter', 'Manrope', 'Segoe UI', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Fira Code', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       
       transitionDuration: {

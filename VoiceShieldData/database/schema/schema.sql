@@ -210,3 +210,93 @@ CREATE TABLE IF NOT EXISTS audit_logs (
 CREATE INDEX IF NOT EXISTS idx_audit_logs_user_id ON audit_logs(user_id);
 CREATE INDEX IF NOT EXISTS idx_audit_logs_action ON audit_logs(action);
 CREATE INDEX IF NOT EXISTS idx_audit_logs_created_at ON audit_logs(created_at DESC);
+
+-- ----------------------------------------------------------------------------
+-- 10. TELEPHONY TRUNKS TABLE (EPABX / SIPREC Ingestion)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS telephony_trunks (
+    id VARCHAR(64) PRIMARY KEY,
+    trunk_name VARCHAR(150) NOT NULL,
+    protocol VARCHAR(32) NOT NULL DEFAULT 'SIPREC', -- 'SIPREC' | 'SIP' | 'WEBSOCKET' | 'RTP'
+    host_address VARCHAR(255) NOT NULL,
+    port INT NOT NULL DEFAULT 5060,
+    transport VARCHAR(16) NOT NULL DEFAULT 'TLS', -- 'UDP' | 'TCP' | 'TLS'
+    codec VARCHAR(32) NOT NULL DEFAULT 'G.711u',
+    status VARCHAR(32) NOT NULL DEFAULT 'ACTIVE', -- 'ACTIVE' | 'STANDBY' | 'DEGRADED' | 'OFFLINE'
+    active_channels INT NOT NULL DEFAULT 0,
+    max_channels INT NOT NULL DEFAULT 100,
+    carrier VARCHAR(100) DEFAULT 'Tata Teleservices / Enterprise SIP',
+    last_ping TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_telephony_trunks_status ON telephony_trunks(status);
+CREATE INDEX IF NOT EXISTS idx_telephony_trunks_protocol ON telephony_trunks(protocol);
+
+-- ----------------------------------------------------------------------------
+-- 11. CALLER THREAT PROFILES TABLE
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS caller_threat_profiles (
+    id VARCHAR(64) PRIMARY KEY,
+    phone_number VARCHAR(32) UNIQUE NOT NULL,
+    display_name VARCHAR(255) NOT NULL,
+    trust_score NUMERIC(5, 2) NOT NULL DEFAULT 50.00,
+    risk_level VARCHAR(32) NOT NULL DEFAULT 'WATCH', -- 'CRITICAL' | 'DANGER' | 'WATCH' | 'SAFE'
+    voice_dna_match NUMERIC(5, 2),
+    total_reports INT NOT NULL DEFAULT 0,
+    carrier VARCHAR(150),
+    network_type VARCHAR(64),
+    origin_country VARCHAR(100),
+    origin_city VARCHAR(100),
+    is_spoofed BOOLEAN NOT NULL DEFAULT FALSE,
+    stir_shaken_status VARCHAR(64) DEFAULT 'NOT_CHECKED',
+    is_blocked BOOLEAN NOT NULL DEFAULT FALSE,
+    categories JSONB DEFAULT '[]'::jsonb,
+    community_tags JSONB DEFAULT '[]'::jsonb,
+    telemetry_json JSONB DEFAULT '{}'::jsonb,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_caller_phone ON caller_threat_profiles(phone_number);
+CREATE INDEX IF NOT EXISTS idx_caller_risk ON caller_threat_profiles(risk_level);
+CREATE INDEX IF NOT EXISTS idx_caller_blocked ON caller_threat_profiles(is_blocked);
+
+-- ----------------------------------------------------------------------------
+-- 12. VISHING THREAT TRIGGERS TABLE
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS vishing_threat_triggers (
+    id VARCHAR(64) PRIMARY KEY,
+    session_id VARCHAR(64) NOT NULL,
+    caller_phone VARCHAR(32),
+    trigger_keyword VARCHAR(100) NOT NULL,
+    category VARCHAR(64) NOT NULL, -- 'OTP_DEMAND' | 'DIGITAL_ARREST' | 'BANK_IMPERSONATION' | 'URGENCY'
+    confidence NUMERIC(5, 2) NOT NULL,
+    transcript_snippet TEXT,
+    timestamp_offset_ms INT,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_vishing_session ON vishing_threat_triggers(session_id);
+CREATE INDEX IF NOT EXISTS idx_vishing_category ON vishing_threat_triggers(category);
+
+-- ----------------------------------------------------------------------------
+-- 13. EVIDENCE VAULT HASHES TABLE (Tamper-Evident Judicial Custody)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS evidence_vault_hashes (
+    id VARCHAR(64) PRIMARY KEY,
+    evidence_id VARCHAR(64) UNIQUE NOT NULL,
+    sha256_hash VARCHAR(64) NOT NULL,
+    file_name VARCHAR(255) NOT NULL,
+    file_size_bytes BIGINT NOT NULL,
+    mime_type VARCHAR(100) NOT NULL,
+    uploaded_by VARCHAR(64) REFERENCES users(id) ON DELETE SET NULL,
+    digital_signature TEXT,
+    blockchain_tx_receipt VARCHAR(128),
+    chain_of_custody_log JSONB DEFAULT '[]'::jsonb,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_evidence_hash ON evidence_vault_hashes(sha256_hash);
+CREATE INDEX IF NOT EXISTS idx_evidence_id ON evidence_vault_hashes(evidence_id);

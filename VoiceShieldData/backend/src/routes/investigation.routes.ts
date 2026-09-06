@@ -10,6 +10,7 @@ import {
   escalateToCybercrime,
   verifyEvidenceIntegrity,
   getCampaignIntelligence,
+  getTelephonyTrunks,
 } from '../controllers/investigation.controller.js';
 
 const router = Router();
@@ -18,6 +19,7 @@ const router = Router();
 router.use(authenticate, requireInvestigator);
 
 router.get('/', getCases);
+router.get('/trunks', getTelephonyTrunks);
 router.get('/campaigns', getCampaignIntelligence);
 router.get('/:id', getCaseDetails);
 router.post('/location', getAuthorizedLocation);

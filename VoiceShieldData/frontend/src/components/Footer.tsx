@@ -17,66 +17,66 @@ export const Footer: React.FC = () => {
                   <Shield className="w-4 h-4 text-[#E2E8F0]" />
                 </div>
               </div>
-              <span className="text-sm font-black tracking-wider text-[#F8FAFC]">VOICE SHIELD AI</span>
+              <span className="text-sm font-bold tracking-tight text-white font-sans">VoiceShield AI</span>
             </div>
-            <p className="text-[#CBD5E1] text-xs leading-relaxed max-w-sm">
+            <p className="text-[#CBD5E1] text-xs leading-relaxed max-w-sm font-sans">
               Enterprise-grade real-time voice authenticity verification. Detects deepfakes, voice clones, and synthetic speech across mission-critical communications.
             </p>
-            <div className="flex items-center gap-3 text-[11px] font-mono text-[#94A3B8]">
-              <span className="flex items-center gap-1 text-[#CBD5E1]"><Lock className="w-3 h-3 text-[#10B981]" /> AES-256</span>
+            <div className="flex items-center gap-3 text-xs font-sans text-slate-400">
+              <span className="flex items-center gap-1 text-slate-200 font-medium"><Lock className="w-3.5 h-3.5 text-[#10B981]" /> AES-256</span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-[#CBD5E1]"><Terminal className="w-3 h-3 text-[#22D3EE]" /> Zero Logs</span>
+              <span className="flex items-center gap-1 text-slate-200 font-medium"><Terminal className="w-3.5 h-3.5 text-[#22D3EE]" /> Zero Logs</span>
               <span>•</span>
-              <span className="flex items-center gap-1 text-[#CBD5E1]"><Activity className="w-3 h-3 text-[#10B981]" /> 99.2% AUC</span>
+              <span className="flex items-center gap-1 text-slate-200 font-medium"><Activity className="w-3.5 h-3.5 text-[#10B981]" /> 99.2% AUC</span>
             </div>
           </div>
 
           {/* Product Col */}
           <div className="space-y-3">
-            <h5 className="text-[#E2E8F0] font-mono font-bold text-xs uppercase tracking-wider">Product</h5>
-            <ul className="space-y-2">
-              <li><Link to="/detect" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Voice Inspector</Link></li>
-              <li><Link to="/voiceprints" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Voiceprints</Link></li>
-              <li><Link to="/calls" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Calls</Link></li>
-              <li><Link to="/threats" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Threats</Link></li>
-              <li><Link to="/models" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Models</Link></li>
-              <li><Link to="/policies" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Policies</Link></li>
+            <h5 className="text-slate-200 font-sans font-semibold text-xs uppercase tracking-wider">Product</h5>
+            <ul className="space-y-2 text-xs font-sans">
+              <li><Link to="/detect" className="text-slate-400 hover:text-white transition-colors">Voice Inspector</Link></li>
+              <li><Link to="/voiceprints" className="text-slate-400 hover:text-white transition-colors">Voiceprints</Link></li>
+              <li><Link to="/calls" className="text-slate-400 hover:text-white transition-colors">Calls</Link></li>
+              <li><Link to="/threats" className="text-slate-400 hover:text-white transition-colors">Threats</Link></li>
+              <li><Link to="/models" className="text-slate-400 hover:text-white transition-colors">Models</Link></li>
+              <li><Link to="/policies" className="text-slate-400 hover:text-white transition-colors">Policies</Link></li>
             </ul>
           </div>
 
           {/* Solutions & Resources Col */}
           <div className="space-y-3">
-            <h5 className="text-[#E2E8F0] font-mono font-bold text-xs uppercase tracking-wider">Resources</h5>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">About</Link></li>
-              <li><Link to="/how-it-works" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">How It Works</Link></li>
-              <li><Link to="/features" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Features</Link></li>
-              <li><Link to="/security" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Security</Link></li>
-              <li><Link to="/use-cases" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Use Cases</Link></li>
-              <li><Link to="/audit-log" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Audit Log</Link></li>
+            <h5 className="text-slate-200 font-sans font-semibold text-xs uppercase tracking-wider">Resources</h5>
+            <ul className="space-y-2 text-xs font-sans">
+              <li><Link to="/about" className="text-slate-400 hover:text-white transition-colors">About</Link></li>
+              <li><Link to="/how-it-works" className="text-slate-400 hover:text-white transition-colors">How It Works</Link></li>
+              <li><Link to="/features" className="text-slate-400 hover:text-white transition-colors">Features</Link></li>
+              <li><Link to="/security" className="text-slate-400 hover:text-white transition-colors">Security</Link></li>
+              <li><Link to="/use-cases" className="text-slate-400 hover:text-white transition-colors">Use Cases</Link></li>
+              <li><Link to="/audit-log" className="text-slate-400 hover:text-white transition-colors">Audit Log</Link></li>
             </ul>
           </div>
 
           {/* Company & Legal Col */}
           <div className="space-y-3">
-            <h5 className="text-[#E2E8F0] font-mono font-bold text-xs uppercase tracking-wider">Company</h5>
-            <ul className="space-y-2">
-              <li><Link to="/privacy" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Privacy</Link></li>
-              <li><Link to="/report" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Report Scam</Link></li>
-              <li><Link to="/dashboard" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Dashboard</Link></li>
-              <li><Link to="/signin" className="text-[#94A3B8] hover:text-[#E2E8F0] transition-colors">Portal</Link></li>
+            <h5 className="text-slate-200 font-sans font-semibold text-xs uppercase tracking-wider">Company</h5>
+            <ul className="space-y-2 text-xs font-sans">
+              <li><Link to="/privacy" className="text-slate-400 hover:text-white transition-colors">Privacy</Link></li>
+              <li><Link to="/report" className="text-slate-400 hover:text-white transition-colors">Report Scam</Link></li>
+              <li><Link to="/dashboard" className="text-slate-400 hover:text-white transition-colors">Dashboard</Link></li>
+              <li><Link to="/signin" className="text-slate-400 hover:text-white transition-colors">Portal</Link></li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[rgba(226,232,240,0.08)] flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] font-mono text-[#94A3B8] relative z-10">
+        <div className="pt-8 border-t border-[rgba(226,232,240,0.08)] flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans text-slate-400 relative z-10">
           <p>© {new Date().getFullYear()} VoiceShield AI. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            <span className="text-[#CBD5E1]">SOC 2 Type II</span>
+            <span className="text-slate-300">SOC 2 Type II</span>
             <span>•</span>
-            <span className="text-[#CBD5E1]">GDPR / HIPAA</span>
+            <span className="text-slate-300">GDPR / HIPAA</span>
             <span>•</span>
-            <span className="text-[#10B981] font-semibold flex items-center gap-1.5">
+            <span className="text-[#10B981] font-medium flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
               24/7 Operations
             </span>

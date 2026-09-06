@@ -19,14 +19,14 @@ export const SecurityPage: React.FC = () => {
       {/* Header with 3D Shield */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.30)] text-xs font-mono text-[#10B981] font-semibold shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.30)] text-xs font-sans text-[#10B981] font-semibold shadow-[0_0_15px_rgba(16,185,129,0.15)]">
             <ShieldCheck className="w-3.5 h-3.5 text-[#10B981]" />
             <span>Enterprise Security & Trust</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-sans">
             Security by Design. Zero Voice Retention.
           </h1>
-          <p className="text-sm text-gray-600 leading-relaxed max-w-xl">
+          <p className="text-sm text-gray-600 leading-relaxed max-w-xl font-sans">
             VoiceShield AI is built from the ground up for strict enterprise data sovereignty, privacy compliance, and impenetrable cryptographic assurance.
           </p>
         </div>
@@ -44,8 +44,8 @@ export const SecurityPage: React.FC = () => {
           <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 w-fit">
             <EyeOff className="w-6 h-6" />
           </div>
-          <h4 className="text-base font-bold text-gray-900">Zero Raw Audio Storage</h4>
-          <p className="text-xs text-gray-600 leading-relaxed">
+          <h4 className="text-base font-bold text-gray-900 font-sans">Zero Raw Audio Storage</h4>
+          <p className="text-xs text-gray-600 leading-relaxed font-sans">
             Audio tensors are extracted into memory, evaluated across neural models, and discarded immediately. No voice recording or PII is ever persisted to disk.
           </p>
         </div>
@@ -54,8 +54,8 @@ export const SecurityPage: React.FC = () => {
           <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-[#3B82F6] w-fit">
             <Key className="w-6 h-6" />
           </div>
-          <h4 className="text-base font-bold text-gray-900">AES-256-GCM & TLS 1.3</h4>
-          <p className="text-xs text-gray-600 leading-relaxed">
+          <h4 className="text-base font-bold text-gray-900 font-sans">AES-256-GCM & TLS 1.3</h4>
+          <p className="text-xs text-gray-600 leading-relaxed font-sans">
             All telemetry, API communications, and WebRTC streaming buffers utilize enterprise-grade encryption in transit and cryptographic authentication.
           </p>
         </div>
@@ -64,8 +64,8 @@ export const SecurityPage: React.FC = () => {
           <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-[#6366F1] w-fit">
             <Server className="w-6 h-6" />
           </div>
-          <h4 className="text-base font-bold text-gray-900">On-Prem Air-Gapped</h4>
-          <p className="text-xs text-gray-600 leading-relaxed">
+          <h4 className="text-base font-bold text-gray-900 font-sans">On-Prem Air-Gapped</h4>
+          <p className="text-xs text-gray-600 leading-relaxed font-sans">
             Deployable via self-contained Docker/Kubernetes clusters inside completely isolated, air-gapped financial banking data centers.
           </p>
         </div>
@@ -74,8 +74,8 @@ export const SecurityPage: React.FC = () => {
           <div className="p-3 rounded-xl bg-gray-50 border border-gray-200 text-[#10B981] w-fit">
             <FileCheck className="w-6 h-6" />
           </div>
-          <h4 className="text-base font-bold text-gray-900">SOC 2 & GDPR Aligned</h4>
-          <p className="text-xs text-gray-600 leading-relaxed">
+          <h4 className="text-base font-bold text-gray-900 font-sans">SOC 2 & GDPR Aligned</h4>
+          <p className="text-xs text-gray-600 leading-relaxed font-sans">
             Meets stringent regulatory frameworks for voice privacy, auditability, role-based access control (RBAC), and compliance logging.
           </p>
         </div>
@@ -83,11 +83,11 @@ export const SecurityPage: React.FC = () => {
 
       {/* Compliance Checklist */}
       <div className="glass-panel p-8 rounded-3xl border border-gray-200 space-y-6">
-        <h3 className="text-lg font-bold text-gray-900 font-mono uppercase tracking-wider">
+        <h3 className="text-lg font-bold text-gray-900 font-sans tracking-tight">
           Enterprise Security Verification Checklist
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-sans">
           {[
             'Ephemeral memory-only audio buffer processing with instant memory purge',
             'Granular Role-Based Access Control (RBAC) with MFA enforcement',

@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { statisticsApi, historyApi } from '../services/api';
 import { SystemStatistics } from '../types';
@@ -90,14 +90,14 @@ export const DashboardPage: React.FC = () => {
       {/* Top Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 text-[11px] font-mono text-gray-700 font-semibold shadow-sm mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 border border-gray-300 text-xs font-sans text-gray-700 font-medium shadow-sm mb-2">
             <Activity className="w-3.5 h-3.5 text-green-600" />
             <span>SOC Telemetry Overview</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-            SYSTEM TELEMETRY DASHBOARD
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-sans">
+            System Telemetry Dashboard
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             Real-time inference counters, threat classification breakdown, and cluster health metrics.
           </p>
         </div>
@@ -105,7 +105,7 @@ export const DashboardPage: React.FC = () => {
         <button
           onClick={fetchDashboardData}
           disabled={loading}
-          className="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-300 hover:border-green-600 text-xs text-white flex items-center gap-2 transition-all font-mono font-semibold self-start sm:self-auto"
+          className="px-4 py-2 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-300 hover:border-green-600 text-xs text-white flex items-center gap-2 transition-all font-sans font-medium self-start sm:self-auto"
         >
           <RefreshCw className={`w-3.5 h-3.5 text-green-600 ${loading ? 'animate-spin' : ''}`} />
           <span>Refresh Data</span>
@@ -115,47 +115,47 @@ export const DashboardPage: React.FC = () => {
       {/* Top Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white p-5 space-y-2 rounded-xl border border-gray-200 shadow-sm">
-          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold">
+          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold font-sans">
             <span>Total Analyses</span>
             <Activity className="w-4 h-4 text-green-600" />
           </div>
           <div className="text-2xl font-bold font-mono text-gray-900">
             {total}
           </div>
-          <div className="text-[11px] text-green-600 font-mono">Live database records</div>
+          <div className="text-xs text-green-600 font-sans">Live database records</div>
         </div>
 
         <div className="bg-white p-5 space-y-2 rounded-xl border border-gray-200 shadow-sm">
-          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold">
+          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold font-sans">
             <span>Detected Scams</span>
             <ShieldAlert className="w-4 h-4 text-red-600" />
           </div>
           <div className="text-2xl font-bold font-mono text-red-600">
             {spoofs}
           </div>
-          <div className="text-[11px] text-red-600 font-mono">High-risk audio triggers</div>
+          <div className="text-xs text-red-600 font-sans">High-risk audio triggers</div>
         </div>
 
         <div className="bg-white p-5 space-y-2 rounded-xl border border-gray-200 shadow-sm">
-          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold">
+          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold font-sans">
             <span>Verified Authentic</span>
             <ShieldCheck className="w-4 h-4 text-green-600" />
           </div>
           <div className="text-2xl font-bold font-mono text-green-600">
             {bonafides}
           </div>
-          <div className="text-[11px] text-green-600 font-mono">Human acoustic dynamics</div>
+          <div className="text-xs text-green-600 font-sans">Human acoustic dynamics</div>
         </div>
 
         <div className="bg-white p-5 space-y-2 rounded-xl border border-gray-200 shadow-sm">
-          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold">
+          <div className="flex justify-between items-center text-xs text-gray-600 font-semibold font-sans">
             <span>Average Latency</span>
             <Clock className="w-4 h-4 text-blue-600" />
           </div>
           <div className="text-2xl font-bold font-mono text-blue-600">
             {stats && stats.average_processing_time_ms > 0 ? `${stats.average_processing_time_ms} ms` : '78 ms'}
           </div>
-          <div className="text-[11px] text-blue-600 font-mono">Sub-100ms warm speed</div>
+          <div className="text-xs text-blue-600 font-sans">Sub-100ms warm speed</div>
         </div>
       </div>
 
@@ -164,10 +164,10 @@ export const DashboardPage: React.FC = () => {
         {/* Threat Trends Line Chart */}
         <div className="lg:col-span-12 bg-white p-6 space-y-4 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-            <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="text-sm font-semibold text-gray-900 font-sans flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-green-600" /> Threat Detection Timeline
             </h3>
-            <span className="text-[11px] font-mono text-gray-600">Last 24 Hours</span>
+            <span className="text-xs font-sans text-gray-500">Last 24 Hours</span>
           </div>
 
           <div className="h-72 w-full pt-4">
@@ -190,10 +190,10 @@ export const DashboardPage: React.FC = () => {
         {/* Risk Distribution Bar Chart */}
         <div className="lg:col-span-7 bg-white p-6 space-y-4 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-            <h3 className="text-sm font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="text-sm font-semibold text-gray-900 font-sans flex items-center gap-2">
               <TrendingUp className="w-4 h-4 text-green-600" /> Risk Distribution
             </h3>
-            <span className="text-[11px] font-mono text-gray-600">VoiceShield Telemetry</span>
+            <span className="text-xs font-sans text-gray-500">VoiceShield Telemetry</span>
           </div>
 
           <div className="h-64 w-full pt-4">
@@ -213,8 +213,8 @@ export const DashboardPage: React.FC = () => {
         {/* Classification Breakdown Pie Chart */}
         <div className="lg:col-span-5 bg-white p-6 space-y-4 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-            <h3 className="text-sm font-bold text-gray-900">Classification Ratio</h3>
-            <span className="text-[11px] font-mono text-gray-600">Genuine vs Synthetic</span>
+            <h3 className="text-sm font-semibold text-gray-900 font-sans">Classification Ratio</h3>
+            <span className="text-xs font-sans text-gray-500">Genuine vs Synthetic</span>
           </div>
 
           <div className="h-56 w-full flex items-center justify-center">
@@ -240,14 +240,14 @@ export const DashboardPage: React.FC = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="flex justify-center gap-6 text-xs font-mono font-semibold">
+          <div className="flex justify-center gap-6 text-xs font-sans font-medium">
             <div className="flex items-center gap-1.5 text-green-600">
               <span className="w-2.5 h-2.5 rounded-full bg-green-600" />
-              <span>Authentic ({bonafides})</span>
+              <span>Authentic (<span className="font-mono">{bonafides}</span>)</span>
             </div>
             <div className="flex items-center gap-1.5 text-red-600">
               <span className="w-2.5 h-2.5 rounded-full bg-red-600" />
-              <span>Deepfake ({spoofs})</span>
+              <span>Deepfake (<span className="font-mono">{spoofs}</span>)</span>
             </div>
           </div>
         </div>
@@ -256,10 +256,10 @@ export const DashboardPage: React.FC = () => {
       {/* Recent Analyses Feed */}
       <div className="bg-white p-6 space-y-4 rounded-xl border border-gray-200 shadow-sm">
         <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-          <h3 className="text-sm font-bold text-gray-900 font-mono">Recent Audio Analyses</h3>
+          <h3 className="text-sm font-semibold text-gray-900 font-sans">Recent Audio Analyses</h3>
           <Link
             to="/history"
-            className="text-xs text-green-600 hover:text-green-700 flex items-center gap-1 font-semibold"
+            className="text-xs text-green-600 hover:text-green-700 flex items-center gap-1 font-medium font-sans"
           >
             View Full History <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -268,7 +268,7 @@ export const DashboardPage: React.FC = () => {
         {recentAnalyses.length > 0 ? (
           <div className="divide-y divide-gray-200">
             {recentAnalyses.map((item) => (
-              <div key={item.id || item.request_id} className="py-3 flex items-center justify-between text-xs font-mono">
+              <div key={item.id || item.request_id} className="py-3 flex items-center justify-between text-xs font-sans">
                 <div className="flex items-center gap-3">
                   <span
                     className={`w-2 h-2 rounded-full ${
@@ -276,10 +276,10 @@ export const DashboardPage: React.FC = () => {
                     }`}
                   />
                   <div>
-                    <div className="font-semibold text-gray-900">
-                      Request ID: {item.request_id}
+                    <div className="font-semibold text-gray-900 font-sans">
+                      Request ID: <span className="font-mono font-normal text-gray-800">{item.request_id}</span>
                     </div>
-                    <div className="text-[11px] text-gray-600 mt-0.5">
+                    <div className="text-xs text-gray-500 mt-0.5 font-sans">
                       {item.created_at ? new Date(item.created_at).toLocaleString() : 'Just now'} • Model: {item.model_name || 'LCNN + BiLSTM'}
                     </div>
                   </div>

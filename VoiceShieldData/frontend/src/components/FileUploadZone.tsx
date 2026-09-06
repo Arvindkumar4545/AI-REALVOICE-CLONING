@@ -95,7 +95,7 @@ export const FileUploadZone: React.FC<FileUploadZoneProps> = ({ onFileSelected, 
         </div>
 
         {selectedFile && (
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-800 text-cyan-300 text-xs font-mono">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-800 text-cyan-300 text-xs font-sans font-medium">
             <CheckCircle2 className="w-4 h-4 text-cyan-400" />
             <span>{(selectedFile.size / (1024 * 1024)).toFixed(2)} MB • Ready for Analysis</span>
           </div>

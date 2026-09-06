@@ -20,20 +20,20 @@ export const ThreatMapPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[11px] font-mono text-[#EF4444] font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[11px] font-sans text-[#EF4444] font-semibold">
             <Flame className="w-3.5 h-3.5 text-[#EF4444] animate-pulse" />
             <span>Global Cyber Threat Operations</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight font-sans">
             GLOBAL VOICE FRAUD THREAT MAP
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             Real-time geospatial telemetry tracking AI voice cloning attacks, neural vocoder signatures, and spoof campaigns.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-gray-200 text-xs font-mono text-[#EF4444] font-semibold shadow-[0_0_15px_rgba(239,68,68,0.15)]">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-gray-200 text-xs font-sans text-[#EF4444] font-semibold shadow-[0_0_15px_rgba(239,68,68,0.15)]">
             <span className="w-2 h-2 rounded-full bg-[#EF4444] animate-ping" />
             <span>5 Active Incidents Blocked</span>
           </div>
@@ -46,16 +46,16 @@ export const ThreatMapPage: React.FC = () => {
           <div className="flex items-center justify-between border-b border-gray-200 pb-3">
             <div className="flex items-center gap-2">
               <Globe className="w-4 h-4 text-gray-900" />
-              <h3 className="text-xs font-mono font-bold text-gray-900 uppercase">3D Global Threat Radar</h3>
+              <h3 className="text-xs font-sans font-bold text-gray-900 uppercase tracking-tight">3D Global Threat Radar</h3>
             </div>
-            <span className="text-[10px] font-mono text-gray-600">Live Orbit Visualization</span>
+            <span className="text-[10px] font-sans text-gray-600 font-medium">Live Orbit Visualization</span>
           </div>
 
           <div className="rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
             <ThreatGlobe3D className="w-full h-80 sm:h-96" />
           </div>
 
-          <div className="flex items-center justify-between text-[11px] font-mono text-gray-600 pt-1">
+          <div className="flex items-center justify-between text-[11px] font-sans text-gray-600 pt-1">
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#EF4444]" /> Critical Attack (&gt;85% Risk)</span>
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-[#F59E0B]" /> Suspicious Vishing</span>
           </div>
@@ -63,7 +63,7 @@ export const ThreatMapPage: React.FC = () => {
 
         {/* Real-time Threat Stream */}
         <div className="lg:col-span-5 space-y-4">
-          <h3 className="text-sm font-bold text-gray-900 font-mono uppercase tracking-wider flex items-center gap-2">
+          <h3 className="text-sm font-bold text-gray-900 font-sans tracking-tight flex items-center gap-2">
             <Activity className="w-4 h-4 text-gray-900" /> Live Threat Stream
           </h3>
 
@@ -72,15 +72,15 @@ export const ThreatMapPage: React.FC = () => {
               <div key={inc.id} className="glass-card p-4 space-y-2 glass-card-hover">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold text-[#EF4444]">{inc.id}</span>
-                  <span className="text-[10px] font-mono text-[#64748B]">{inc.time}</span>
+                  <span className="text-[10px] font-sans text-[#64748B]">{inc.time}</span>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-gray-900">{inc.type}</h4>
-                  <p className="text-[11px] text-gray-600 font-mono">{inc.target}</p>
+                  <h4 className="text-xs font-bold text-gray-900 font-sans">{inc.type}</h4>
+                  <p className="text-[11px] text-gray-600 font-sans">{inc.target}</p>
                 </div>
-                <div className="flex items-center justify-between text-[10px] font-mono pt-1 border-t border-gray-200">
+                <div className="flex items-center justify-between text-[10px] font-sans pt-1 border-t border-gray-200">
                   <span className="text-gray-600">{inc.location}</span>
-                  <span className="font-bold text-[#EF4444]">Risk: {inc.risk}% (BLOCKED)</span>
+                  <span className="font-semibold text-[#EF4444]">Risk: <span className="font-mono font-bold">{inc.risk}%</span> (BLOCKED)</span>
                 </div>
               </div>
             ))}

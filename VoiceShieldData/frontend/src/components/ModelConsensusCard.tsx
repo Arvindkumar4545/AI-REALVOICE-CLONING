@@ -70,11 +70,11 @@ export const ModelConsensusCard: React.FC<ModelConsensusCardProps> = ({
       <div className="flex items-center justify-between border-b border-gray-200 pb-3">
         <div className="flex items-center gap-2">
           <Cpu className="w-4 h-4 text-blue-600" />
-          <h4 className="text-xs font-bold text-gray-900 font-mono uppercase tracking-wider">
+          <h4 className="text-sm font-semibold text-gray-900">
             Multi-Model Consensus & Voting
           </h4>
         </div>
-        <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-semibold border border-blue-200">
+        <span className="text-[11px] font-sans px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 font-semibold border border-blue-200">
           Agreement: {Math.round(modelAgreement * 100)}%
         </span>
       </div>
@@ -85,13 +85,13 @@ export const ModelConsensusCard: React.FC<ModelConsensusCardProps> = ({
           const isMedium = m.score >= 35 && m.score < 60;
           return (
             <div key={m.id} className="space-y-1">
-              <div className="flex items-center justify-between text-xs font-mono">
+              <div className="flex items-center justify-between text-xs font-sans">
                 <div>
-                  <span className="font-bold text-gray-900 mr-2">{m.name}</span>
-                  <span className="text-[10px] text-gray-500">({m.weight})</span>
+                  <span className="font-semibold text-gray-900 mr-2">{m.name}</span>
+                  <span className="text-[11px] text-gray-500 font-mono">({m.weight})</span>
                 </div>
-                <span className={`font-bold ${isHigh ? 'text-red-600' : isMedium ? 'text-amber-600' : 'text-emerald-600'}`}>
-                  {m.score.toFixed(1)}% Spoof Risk
+                <span className={`font-semibold ${isHigh ? 'text-red-600' : isMedium ? 'text-amber-600' : 'text-emerald-600'}`}>
+                  <span className="font-mono">{m.score.toFixed(1)}%</span> Spoof Risk
                 </span>
               </div>
               <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">
@@ -107,9 +107,9 @@ export const ModelConsensusCard: React.FC<ModelConsensusCardProps> = ({
         })}
       </div>
 
-      <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-[11px] font-mono text-gray-600">
-        <span>Uncertainty Margin: ±{(uncertainty * 100).toFixed(1)}%</span>
-        <span className="font-bold text-gray-900">Verdict: {classification}</span>
+      <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs font-sans text-gray-600">
+        <span>Uncertainty Margin: <span className="font-mono font-medium">±{(uncertainty * 100).toFixed(1)}%</span></span>
+        <span className="font-semibold text-gray-900">Verdict: <span className="text-blue-700">{classification}</span></span>
       </div>
     </div>
   );

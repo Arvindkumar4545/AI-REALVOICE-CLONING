@@ -57,24 +57,24 @@ export const SignInPage: React.FC = () => {
               <Shield className="w-6 h-6 text-gray-900" />
             </div>
           </div>
-          <h1 className="text-2xl font-black text-gray-900 tracking-tight">
+          <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight font-sans">
             Enterprise Sign In
           </h1>
-          <p className="text-xs text-gray-600 font-mono">
+          <p className="text-xs text-gray-600 font-sans">
             Access calibrated SOC telemetry & voice security controls
           </p>
         </div>
 
         {error && (
-          <div className="p-3.5 rounded-xl bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[#EF4444] text-xs flex items-center gap-2">
+          <div className="p-3.5 rounded-xl bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[#EF4444] text-xs flex items-center gap-2 font-sans">
             <AlertTriangle className="w-4 h-4 flex-shrink-0 text-[#EF4444]" />
             <span>{error}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 font-sans">
           <div className="flex items-center justify-between bg-gray-50 p-3 rounded-xl border border-gray-200">
-            <span className="text-xs font-mono font-semibold text-gray-700">Law Enforcement / Admin Access</span>
+            <span className="text-xs font-sans font-semibold text-gray-700">Law Enforcement / Admin Access</span>
             <label className="relative inline-flex items-center cursor-pointer">
               <input type="checkbox" className="sr-only peer" checked={isAdminAccess} onChange={(e) => setIsAdminAccess(e.target.checked)} />
               <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#3B82F6]"></div>
@@ -82,7 +82,7 @@ export const SignInPage: React.FC = () => {
           </div>
 
           <div className="space-y-1">
-            <label className="text-xs font-mono text-gray-600 font-semibold block">Email Address</label>
+            <label className="text-xs font-sans text-gray-600 font-semibold block">Email Address</label>
             <div className="relative">
               <Mail className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
               <input
@@ -91,13 +91,13 @@ export const SignInPage: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="analyst@enterprise.com"
-                className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+                className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
               />
             </div>
           </div>
 
           <div className="space-y-1">
-            <div className="flex items-center justify-between text-xs font-mono">
+            <div className="flex items-center justify-between text-xs font-sans">
               <label className="text-gray-600 font-semibold">Password</label>
               <Link to="/forgot-password" className="text-gray-900 hover:text-[#38BDF8]">
                 Forgot password?
@@ -110,15 +110,15 @@ export const SignInPage: React.FC = () => {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="������������"
-                className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+                placeholder="••••••••••••"
+                className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
               />
             </div>
           </div>
 
           {isAdminAccess && (
             <div className="space-y-1 animate-in fade-in slide-in-from-top-2 duration-300">
-              <label className="text-xs font-mono text-gray-600 font-semibold block">Authorization OTP</label>
+              <label className="text-xs font-sans text-gray-600 font-semibold block">Authorization OTP</label>
               <div className="relative">
                 <Shield className="w-4 h-4 text-[#64748B] absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
@@ -127,7 +127,7 @@ export const SignInPage: React.FC = () => {
                   value={adminOtp}
                   onChange={(e) => setAdminOtp(e.target.value)}
                   placeholder="Enter 6-digit code (Demo: 123456)"
-                  className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+                  className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
                 />
               </div>
             </div>
@@ -136,7 +136,7 @@ export const SignInPage: React.FC = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] hover:from-[#2563EB] hover:to-[#2563EB] text-white font-bold font-mono text-xs flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.25)] transition-all hover:scale-[1.01]"
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] hover:from-[#2563EB] hover:to-[#2563EB] text-white font-semibold font-sans text-xs flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.25)] transition-all hover:scale-[1.01]"
           >
             {loading ? (
               <div className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />

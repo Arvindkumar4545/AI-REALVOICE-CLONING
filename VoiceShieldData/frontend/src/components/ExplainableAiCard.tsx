@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ExplainableSignal } from '../types';
 import { HelpCircle, AlertTriangle, CheckCircle, Info, ShieldAlert } from 'lucide-react';
 
@@ -22,10 +22,10 @@ export const ExplainableAiCard: React.FC<ExplainableAiCardProps> = ({ signals, n
 
   if (normalizedSignals.length === 0) {
     return (
-      <div className={`glass-card p-6 space-y-2 text-center ${className}`}>
-        <HelpCircle className="w-8 h-8 text-[#64748B] mx-auto" />
-        <h4 className="text-sm font-semibold text-[#F8FAFC]">Explainable AI Analysis</h4>
-        <p className="text-xs text-[#94A3B8]">
+      <div className={`glass-panel p-6 rounded-2xl border border-gray-200 bg-white space-y-2 text-center ${className}`}>
+        <HelpCircle className="w-8 h-8 text-gray-400 mx-auto" />
+        <h4 className="text-sm font-semibold text-gray-900">Explainable AI Analysis</h4>
+        <p className="text-xs text-gray-500">
           Model-level explanation verified across neural acoustic layers.
         </p>
       </div>
@@ -36,33 +36,42 @@ export const ExplainableAiCard: React.FC<ExplainableAiCardProps> = ({ signals, n
     switch (severity) {
       case 'high_anomaly':
         return {
-          badge: 'bg-[rgba(239,68,68,0.15)] text-[#EF4444] border-[rgba(239,68,68,0.35)]',
+          badge: 'bg-red-100 text-red-700 border-red-200',
           icon: ShieldAlert,
-          card: 'border-[rgba(239,68,68,0.25)] bg-[rgba(239,68,68,0.06)]',
+          iconColor: 'text-red-600',
+          card: 'border-red-200 bg-red-50/60',
+          titleColor: 'text-red-950 font-semibold',
+          descColor: 'text-red-800',
         };
       case 'suspicious':
         return {
-          badge: 'bg-[rgba(245,158,11,0.15)] text-[#F59E0B] border-[rgba(245,158,11,0.35)]',
+          badge: 'bg-amber-100 text-amber-800 border-amber-200',
           icon: AlertTriangle,
-          card: 'border-[rgba(245,158,11,0.25)] bg-[rgba(245,158,11,0.06)]',
+          iconColor: 'text-amber-600',
+          card: 'border-amber-200 bg-amber-50/60',
+          titleColor: 'text-amber-950 font-semibold',
+          descColor: 'text-amber-800',
         };
       default:
         return {
-          badge: 'bg-[rgba(16,185,129,0.15)] text-[#10B981] border-[rgba(16,185,129,0.35)]',
+          badge: 'bg-emerald-100 text-emerald-800 border-emerald-200',
           icon: CheckCircle,
-          card: 'border-[#16324A] bg-[#071426]',
+          iconColor: 'text-emerald-600',
+          card: 'border-gray-200 bg-gray-50',
+          titleColor: 'text-gray-900 font-semibold',
+          descColor: 'text-gray-600',
         };
     }
   };
 
   return (
-    <div className={`glass-card p-6 space-y-4 ${className}`}>
-      <div className="flex items-center justify-between border-b border-[#16324A] pb-3">
+    <div className={`glass-panel p-6 rounded-2xl border border-gray-200 bg-white space-y-4 shadow-sm ${className}`}>
+      <div className="flex items-center justify-between border-b border-gray-200 pb-3">
         <div className="flex items-center gap-2">
-          <HelpCircle className="w-4 h-4 text-[#06B6D4]" />
-          <h4 className="text-sm font-semibold text-[#F8FAFC] font-mono uppercase">Why Was This Detected?</h4>
+          <HelpCircle className="w-4 h-4 text-cyan-600" />
+          <h4 className="text-sm font-semibold text-gray-900">Why Was This Detected?</h4>
         </div>
-        <span className="text-[11px] font-mono text-[#06B6D4] font-bold uppercase">
+        <span className="text-[11px] font-sans px-2.5 py-0.5 rounded-full bg-cyan-50 text-cyan-700 font-medium border border-cyan-200 uppercase tracking-wider">
           Signal Analysis
         </span>
       </div>
@@ -80,16 +89,16 @@ export const ExplainableAiCard: React.FC<ExplainableAiCardProps> = ({ signals, n
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-[#F8FAFC]" />
-                  <span className="text-xs font-semibold text-[#F8FAFC]">{sig.indicator || 'Anomaly Signal'}</span>
+                  <Icon className={`w-4 h-4 ${style.iconColor}`} />
+                  <span className={`text-xs ${style.titleColor}`}>{sig.indicator || 'Anomaly Signal'}</span>
                 </div>
                 <span
-                  className={`text-[10px] uppercase font-mono px-2 py-0.5 rounded-full border font-bold ${style.badge}`}
+                  className={`text-[10px] uppercase font-sans px-2 py-0.5 rounded-full border font-semibold ${style.badge}`}
                 >
                   {sev.replace('_', ' ')}
                 </span>
               </div>
-              <p className="text-xs text-[#94A3B8] leading-relaxed pl-6">
+              <p className={`text-xs ${style.descColor} leading-relaxed pl-6`}>
                 {sig.description || 'Acoustic indicator analyzed.'}
               </p>
             </div>
@@ -98,8 +107,8 @@ export const ExplainableAiCard: React.FC<ExplainableAiCardProps> = ({ signals, n
       </div>
 
       {note && (
-        <div className="flex items-start gap-2 pt-2 text-[11px] text-[#64748B] border-t border-[#16324A] font-mono">
-          <Info className="w-3.5 h-3.5 text-[#06B6D4] mt-0.5 flex-shrink-0" />
+        <div className="flex items-start gap-2 pt-2 text-xs text-gray-500 border-t border-gray-100 font-sans">
+          <Info className="w-3.5 h-3.5 text-cyan-600 mt-0.5 flex-shrink-0" />
           <span>{note}</span>
         </div>
       )}

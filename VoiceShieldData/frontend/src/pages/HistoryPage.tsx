@@ -83,10 +83,10 @@ export const HistoryPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 flex items-center gap-2.5 font-mono">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 flex items-center gap-2.5 font-sans tracking-tight">
             <History className="w-7 h-7 text-gray-900" /> Detection Audit History
           </h1>
-          <p className="text-xs text-gray-600 mt-1">
+          <p className="text-xs text-gray-600 mt-1 font-sans">
             Paginated logs of all cryptographic AI classifications, risk scores, and forensic metadata.
           </p>
         </div>
@@ -94,7 +94,7 @@ export const HistoryPage: React.FC = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={handleExportCsv}
-            className="px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-[#3B82F6] text-xs text-gray-900 flex items-center gap-1.5 transition-all font-mono"
+            className="px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:border-[#3B82F6] text-xs text-gray-900 flex items-center gap-1.5 transition-all font-sans font-medium"
           >
             <Download className="w-3.5 h-3.5 text-gray-900" /> Export CSV
           </button>
@@ -110,7 +110,7 @@ export const HistoryPage: React.FC = () => {
             placeholder="Search Request ID or Model..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+            className="w-full pl-9 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
           />
         </div>
 
@@ -122,7 +122,7 @@ export const HistoryPage: React.FC = () => {
               setFilterPrediction(e.target.value);
               setPage(1);
             }}
-            className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-mono"
+            className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-sans"
           >
             <option value="">All Classifications</option>
             <option value="SPOOF">Spoof / Deepfake Only</option>
@@ -132,10 +132,10 @@ export const HistoryPage: React.FC = () => {
       </div>
 
       {/* Table of Records */}
-      <div className="glass-card overflow-hidden">
+      <div className="glass-card overflow-hidden font-sans">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-gray-50 border-b border-gray-200 text-gray-600 font-mono uppercase text-[11px]">
+            <thead className="bg-gray-50 border-b border-gray-200 text-gray-600 font-sans uppercase text-[11px] font-semibold tracking-wider">
               <tr>
                 <th className="py-3.5 px-4">Request ID</th>
                 <th className="py-3.5 px-4">Status & Prediction</th>
@@ -146,11 +146,11 @@ export const HistoryPage: React.FC = () => {
                 <th className="py-3.5 px-4 text-right">Details</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 font-mono">
+            <tbody className="divide-y divide-gray-200 font-sans">
               {filtered.length > 0 ? (
                 filtered.map((row) => (
                   <tr key={row.id || row.request_id} className="hover:bg-[#F8FAFC] transition-colors">
-                    <td className="py-3 px-4 font-semibold text-gray-900 truncate max-w-[140px]">
+                    <td className="py-3 px-4 font-semibold font-mono text-gray-900 truncate max-w-[140px]">
                       {row.request_id || 'N/A'}
                     </td>
                     <td className="py-3 px-4">
@@ -169,12 +169,12 @@ export const HistoryPage: React.FC = () => {
                         {row.prediction}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-gray-900">
+                    <td className="py-3 px-4 font-mono text-gray-900 font-medium">
                       {Math.round((row.confidence || 0) * 100)}%
                     </td>
                     <td className="py-3 px-4">
                       <span
-                        className={`font-bold ${
+                        className={`font-bold font-mono ${
                           row.risk_score >= 70
                             ? 'text-[#EF4444]'
                             : row.risk_score >= 35
@@ -185,8 +185,8 @@ export const HistoryPage: React.FC = () => {
                         {row.risk_score}/100
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-gray-600">{row.processing_time_ms || 466} ms</td>
-                    <td className="py-3 px-4 text-gray-600">
+                    <td className="py-3 px-4 text-gray-600 font-mono text-xs">{row.processing_time_ms || 466} ms</td>
+                    <td className="py-3 px-4 text-gray-600 text-xs">
                       {row.created_at ? new Date(row.created_at).toLocaleString() : 'Just now'}
                     </td>
                     <td className="py-3 px-4 text-right">
@@ -211,7 +211,7 @@ export const HistoryPage: React.FC = () => {
         </div>
 
         {/* Pagination Bar */}
-        <div className="p-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-600">
+        <div className="p-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-600 font-sans">
           <div>
             Total Records: <span className="font-mono font-bold text-gray-900">{totalCount}</span>
           </div>
@@ -223,8 +223,8 @@ export const HistoryPage: React.FC = () => {
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
-            <span className="font-mono text-gray-900">
-              Page {page} of {totalPages}
+            <span className="font-sans text-gray-900 font-medium">
+              Page <span className="font-mono">{page}</span> of <span className="font-mono">{totalPages}</span>
             </span>
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
@@ -243,7 +243,7 @@ export const HistoryPage: React.FC = () => {
           <div className="glass-panel p-6 rounded-3xl border border-[#3B82F6]/40 max-w-2xl w-full max-h-[85vh] overflow-y-auto space-y-6">
             <div className="flex items-center justify-between border-b border-gray-200 pb-3">
               <div>
-                <h3 className="text-base font-bold text-gray-900 font-mono">Detection Audit Details</h3>
+                <h3 className="text-base font-bold text-gray-900 font-sans tracking-tight">Detection Audit Details</h3>
                 <p className="text-xs font-mono text-gray-900 mt-0.5">{selectedRecord.request_id}</p>
               </div>
               <button
@@ -255,24 +255,24 @@ export const HistoryPage: React.FC = () => {
             </div>
 
             {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs">
               <div className="glass-card p-3">
-                <div className="text-[10px] text-[#64748B]">Prediction</div>
-                <div className="font-bold text-gray-900 mt-0.5">{selectedRecord.prediction}</div>
+                <div className="text-[10px] font-sans text-[#64748B]">Prediction</div>
+                <div className="font-bold font-sans text-gray-900 mt-0.5">{selectedRecord.prediction}</div>
               </div>
               <div className="glass-card p-3">
-                <div className="text-[10px] text-[#64748B]">Confidence</div>
-                <div className="font-bold text-gray-900 mt-0.5">
+                <div className="text-[10px] font-sans text-[#64748B]">Confidence</div>
+                <div className="font-bold font-mono text-gray-900 mt-0.5">
                   {Math.round((selectedRecord.confidence || 0) * 100)}%
                 </div>
               </div>
               <div className="glass-card p-3">
-                <div className="text-[10px] text-[#64748B]">Risk Score</div>
-                <div className="font-bold text-[#EF4444] mt-0.5">{selectedRecord.risk_score}/100</div>
+                <div className="text-[10px] font-sans text-[#64748B]">Risk Score</div>
+                <div className="font-bold font-mono text-[#EF4444] mt-0.5">{selectedRecord.risk_score}/100</div>
               </div>
               <div className="glass-card p-3">
-                <div className="text-[10px] text-[#64748B]">Model Version</div>
-                <div className="font-bold text-[#6366F1] mt-0.5">{selectedRecord.model_version || 'v2.0'}</div>
+                <div className="text-[10px] font-sans text-[#64748B]">Model Version</div>
+                <div className="font-bold font-mono text-[#6366F1] mt-0.5">{selectedRecord.model_version || 'v2.0'}</div>
               </div>
             </div>
 

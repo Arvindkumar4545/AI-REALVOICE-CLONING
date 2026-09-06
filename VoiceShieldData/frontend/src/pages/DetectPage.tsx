@@ -30,6 +30,7 @@ import { ForensicRadar } from '../components/ForensicRadar';
 import { ExplainableAiCard } from '../components/ExplainableAiCard';
 import { ModelConsensusCard } from '../components/ModelConsensusCard';
 import { VoiceContinuityTimeline } from '../components/VoiceContinuityTimeline';
+import { CallGuardWidget } from '../components/CallGuardWidget';
 import { Button } from '../components/ui/Button';
 import { Card, CardBody, CardHeader } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
@@ -306,12 +307,12 @@ export const DetectPage: React.FC = () => {
         <div className="space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200">
             <Activity className="w-4 h-4 text-emerald-600 animate-pulse" />
-            <span className="text-sm font-semibold text-emerald-700 font-mono">FORENSIC WORKSTATION</span>
+            <span className="text-xs font-semibold text-emerald-700 tracking-wide uppercase font-sans">Forensic Workstation</span>
           </div>
           <h1 className="heading-hero text-slate-900">
             Voice Inspector
           </h1>
-          <p className="text-lg text-slate-600 max-w-2xl">
+          <p className="text-lg text-slate-600 max-w-2xl font-sans">
             Real-time AI analysis for deepfake detection, synthetic speech identification, and voice authenticity verification.
           </p>
         </div>
@@ -334,10 +335,10 @@ export const DetectPage: React.FC = () => {
             <span className="label-technical text-amber-700">LIVENESS VERIFICATION</span>
             <button onClick={() => setLivenessPhrase(null)} className="text-slate-400 hover:text-slate-600 font-bold">✕</button>
           </div>
-          <p className="text-lg font-semibold text-slate-900 bg-white p-4 rounded-lg border border-amber-200 mb-3">
+          <p className="text-lg font-semibold text-slate-900 bg-white p-4 rounded-lg border border-amber-200 mb-3 font-sans">
             "{livenessPhrase}"
           </p>
-          <p className="text-sm text-slate-600 font-mono">
+          <p className="text-sm text-slate-600 font-sans leading-relaxed">
             Read this prompt aloud during recording to verify liveness and defeat replay attacks.
           </p>
         </div>
@@ -356,10 +357,10 @@ export const DetectPage: React.FC = () => {
 
             {/* 3D Waveform Visualization */}
             <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-slate-900/5 to-slate-900/2 border border-slate-200 p-4">
-              <div className="flex items-center justify-between mb-3 text-xs font-mono text-slate-600">
-                <span>3D Frequency Analysis</span>
-                <span className={`font-bold ${isRecording ? 'text-red-600 animate-pulse' : selectedFile ? 'text-slate-900' : 'text-slate-400'}`}>
-                  {isRecording ? '● RECORDING' : selectedFile ? selectedFile.name.substring(0, 30) : '○ STANDBY'}
+              <div className="flex items-center justify-between mb-3 text-xs font-sans text-slate-600">
+                <span className="font-medium">3D Frequency Analysis</span>
+                <span className={`font-semibold ${isRecording ? 'text-red-600 animate-pulse' : selectedFile ? 'text-slate-900' : 'text-slate-400'}`}>
+                  {isRecording ? '● Recording' : selectedFile ? selectedFile.name.substring(0, 30) : '○ Standby'}
                 </span>
               </div>
               <AudioWaveform3D isRecording={isRecording} isPlaying={isPlayingAudio} />
@@ -404,7 +405,7 @@ export const DetectPage: React.FC = () => {
                     <Mic className="w-5 h-5 text-slate-900" />
                   )}
                 </div>
-                <span className="text-sm text-slate-600 font-mono">
+                <span className="text-sm text-slate-600 font-sans">
                   {isRecording ? `Recording: ${recordingDuration}s` : 'Capture live voice'}
                 </span>
               </button>
@@ -416,7 +417,7 @@ export const DetectPage: React.FC = () => {
                   <span className="label-technical text-slate-900">Upload File</span>
                   <Upload className="w-5 h-5 text-slate-900 group-hover:scale-110 transition-transform" />
                 </div>
-                <span className="text-sm text-slate-600 font-mono truncate">
+                <span className="text-sm text-slate-600 font-sans truncate">
                   {selectedFile ? selectedFile.name.substring(0, 25) : 'MP3, WAV, FLAC, M4A'}
                 </span>
               </label>
@@ -448,19 +449,19 @@ export const DetectPage: React.FC = () => {
           {/* Progressive Analysis Pipeline Animation during Loading */}
           {loading && (
             <div className="bg-white p-6 rounded-2xl border border-gray-200 space-y-4 animate-fade-in">
-              <div className="flex items-center justify-between text-xs font-mono text-gray-700 font-bold">
-                <span>ANALYSIS IN PROGRESS</span>
-                <span>Stage {analysisStageIndex + 1} of {FORENSIC_STAGES.length}</span>
+              <div className="flex items-center justify-between text-xs font-sans text-gray-700 font-semibold">
+                <span>Analysis in Progress</span>
+                <span className="font-mono text-gray-500">Stage {analysisStageIndex + 1} of {FORENSIC_STAGES.length}</span>
               </div>
               <div className="space-y-2">
                 {FORENSIC_STAGES.map((stage, idx) => (
                   <div
                     key={idx}
-                    className={`p-2.5 rounded-xl text-xs font-mono flex items-center gap-3 transition-all ${
+                    className={`p-2.5 rounded-xl text-xs font-sans flex items-center gap-3 transition-all ${
                       idx < analysisStageIndex
                         ? 'bg-green-50 border border-green-200 text-green-700'
                         : idx === analysisStageIndex
-                        ? 'bg-blue-50 border border-blue-300 text-blue-700 shadow-sm font-bold'
+                        ? 'bg-blue-50 border border-blue-300 text-blue-700 shadow-sm font-semibold'
                         : 'bg-gray-100 text-gray-500 border border-gray-200'
                     }`}
                   >
@@ -469,7 +470,7 @@ export const DetectPage: React.FC = () => {
                     ) : idx === analysisStageIndex ? (
                       <div className="w-3.5 h-3.5 rounded-full border-2 border-blue-500 border-t-transparent animate-spin flex-shrink-0" />
                     ) : (
-                      <span className="w-4 h-4 rounded-full bg-gray-300 text-[10px] flex items-center justify-center text-gray-600 flex-shrink-0 font-bold">
+                      <span className="w-4 h-4 rounded-full bg-gray-300 text-[10px] flex items-center justify-center text-gray-600 flex-shrink-0 font-bold font-mono">
                         {idx + 1}
                       </span>
                     )}
@@ -481,7 +482,7 @@ export const DetectPage: React.FC = () => {
           )}
 
           {error && (
-            <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-600 text-xs flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-600 text-xs flex items-center gap-3 font-sans">
               <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0" />
               <span>{error}</span>
             </div>
@@ -504,39 +505,39 @@ export const DetectPage: React.FC = () => {
                 <div className="flex items-center justify-between border-b border-gray-200 pb-3">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-gray-900" />
-                    <h4 className="text-xs font-bold text-gray-900 font-mono uppercase tracking-wider">
+                    <h4 className="text-sm font-semibold text-gray-900 font-sans">
                       Voice Authenticity Breakdown
                     </h4>
                   </div>
-                  <span className="text-[11px] font-mono font-bold text-gray-900">
-                    {Math.round(result.confidence * 100)}% Confidence
+                  <span className="text-xs font-sans font-medium text-gray-700">
+                    <span className="font-mono font-semibold">{Math.round(result.confidence * 100)}%</span> Confidence
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs">
+                <div className="space-y-2 text-xs font-sans">
                   <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200">
                     <span className="text-gray-600">Natural Speech Pattern & Formants</span>
-                    <span className={`font-mono font-bold ${result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
+                    <span className={`font-semibold ${result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
                       {result.risk_score > 60 ? '✗ Synthetic Micro-Tremors' : '✓ Verified Natural'}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200">
                     <span className="text-gray-600">Spectral Phase Continuity (LFCC)</span>
-                    <span className={`font-mono font-bold ${result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
+                    <span className={`font-semibold ${result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
                       {result.risk_score > 60 ? '✗ Phase Artifact Detected' : '✓ Authentic Phase'}
                     </span>
                   </div>
 
                   <div className="flex items-center justify-between p-3 rounded-xl bg-gray-50 border border-gray-200">
                     <span className="text-gray-600">Neural Sub-Model Consensus</span>
-                    <span className="text-blue-600 font-mono font-bold">
+                    <span className="text-blue-600 font-semibold">
                       {result.model_agreement ? `${Math.round(result.model_agreement * 100)}% Strong Agreement` : 'Consensus Verified'}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-[11px] text-gray-600 font-mono leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-600 font-sans leading-relaxed">
                   {isReviewRequired(result.prediction, result.risk_score)
                     ? 'Review required: evidence is borderline and manual verification is recommended before trusting the caller.'
                     : (result.decision_reason || 'Forensic evaluation across all neural sub-models completed.')}
@@ -546,49 +547,66 @@ export const DetectPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="rounded-2xl border border-gray-200 bg-white p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-mono">Voice authenticity</span>
-                    <span className={`text-xs font-bold ${isReviewRequired(result.prediction, result.risk_score) ? 'text-amber-600' : result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
-                      {isReviewRequired(result.prediction, result.risk_score) ? 'REVIEW REQUIRED' : normalizePrediction(result.prediction)}
+                    <span className="text-[10px] uppercase tracking-wider text-gray-500 font-sans font-semibold">Voice authenticity</span>
+                    <span className={`text-xs font-semibold font-sans ${isReviewRequired(result.prediction, result.risk_score) ? 'text-amber-600' : result.risk_score > 60 ? 'text-red-600' : 'text-green-600'}`}>
+                      {isReviewRequired(result.prediction, result.risk_score) ? 'Review Required' : normalizePrediction(result.prediction)}
                     </span>
                   </div>
-                  <div className="mt-3 text-2xl font-black text-gray-900">{Math.round(result.risk_score)} / 100</div>
+                  <div className="mt-3 text-2xl font-black text-gray-900 font-sans">
+                    <span className="font-mono">{Math.round(result.risk_score)}</span> / 100
+                  </div>
                 </div>
 
                 <div className="rounded-2xl border border-gray-200 bg-white p-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-mono">Fraud risk</span>
-                    <span className="text-xs font-bold text-gray-600">
-                      {result.fraud_risk !== undefined ? 'SEPARATE LAYER' : 'NOT EVALUATED'}
+                    <span className="text-[10px] uppercase tracking-wider text-gray-500 font-sans font-semibold">Fraud risk</span>
+                    <span className="text-xs font-semibold text-gray-600 font-sans">
+                      {result.fraud_risk !== undefined ? 'Separate Layer' : 'Not Evaluated'}
                     </span>
                   </div>
-                  <div className="mt-3 text-2xl font-black text-gray-900">
-                    {result.fraud_risk !== undefined ? `${Math.round(result.fraud_risk)} / 100` : '—'}
+                  <div className="mt-3 text-2xl font-black text-gray-900 font-sans">
+                    {result.fraud_risk !== undefined ? <><span className="font-mono">{Math.round(result.fraud_risk)}</span> / 100</> : '—'}
                   </div>
-                  <p className="mt-2 text-[11px] text-gray-600 font-mono">
+                  <p className="mt-2 text-xs text-gray-600 font-sans leading-relaxed">
                     {result.fraud_risk !== undefined ? getFraudRecommendation(result.fraud_risk) : 'Voice authenticity and fraud intent are assessed independently.'}
                   </p>
                 </div>
               </div>
 
               {/* Metadata telemetry strip */}
-              <div className="grid grid-cols-3 gap-3 text-center text-xs font-mono">
+              <div className="grid grid-cols-3 gap-3 text-center text-xs font-sans">
                 <div className="glass-card p-3 bg-white border border-gray-200 rounded-xl">
-                  <span className="text-[10px] text-gray-500 block">Latency</span>
-                  <span className="font-bold text-gray-900 mt-1 block">
+                  <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Latency</span>
+                  <span className="font-semibold text-gray-900 mt-1 block font-mono">
                     {result.processing_time_ms ? `${Math.round(result.processing_time_ms)} ms` : '466 ms'}
                   </span>
                 </div>
                 <div className="glass-card p-3 bg-white border border-gray-200 rounded-xl">
-                  <span className="text-[10px] text-gray-500 block">Windows Analyzed</span>
-                  <span className="font-bold text-blue-600 mt-1 block">
+                  <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Windows Analyzed</span>
+                  <span className="font-semibold text-blue-600 mt-1 block font-mono">
                     {result.windows_analyzed || 1} ({result.suspicious_windows || 0} flagged)
                   </span>
                 </div>
                 <div className="glass-card p-3 bg-white border border-gray-200 rounded-xl">
-                  <span className="text-[10px] text-gray-500 block">Engine Arch</span>
-                  <span className="font-bold text-green-600 mt-1 block">v2.0 Champion</span>
+                  <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Engine Arch</span>
+                  <span className="font-semibold text-emerald-600 mt-1 block">v2.0 Champion</span>
                 </div>
               </div>
+
+              {/* VoiceShield Live Call Guard (Outcome 2 & 3 Early Warning & Containment) */}
+              <CallGuardWidget
+                voiceAuthenticity={(result.prediction || '').toUpperCase().includes('SPOOF') ? 'SYNTHETIC_SUSPECTED' : 'LIKELY_HUMAN'}
+                voiceConfidence={Math.round(result.confidence * 100)}
+                conversationRisk={result.risk_score >= 70 ? 'CRITICAL' : result.risk_score >= 50 ? 'HIGH' : 'LOW'}
+                conversationRiskScore={Math.round(result.fraud_risk !== undefined ? result.fraud_risk : result.risk_score)}
+                activeStage={result.risk_score >= 70 ? 4 : result.risk_score >= 50 ? 3 : 1}
+                callerId={selectedFile ? selectedFile.name : '+91 98721 00412'}
+                onAction={(action) => {
+                  if (action === 'LOG_INCIDENT') {
+                    navigate('/investigation');
+                  }
+                }}
+              />
 
               {/* Acoustic Forensics Radar */}
               {result.forensics_json && <ForensicRadar forensics={result.forensics_json as any} />}
@@ -619,12 +637,12 @@ export const DetectPage: React.FC = () => {
               {result.risk_score >= 60 && (
                 <div className="p-4 rounded-2xl bg-red-50 border border-red-200 flex items-center justify-between">
                   <div className="space-y-0.5">
-                    <span className="text-xs font-bold text-red-600">Suspicious Fraud Attack?</span>
-                    <p className="text-[11px] text-red-700">Submit an incident report to the threat intelligence registry.</p>
+                    <span className="text-xs font-semibold text-red-700 font-sans">Suspicious Fraud Attack?</span>
+                    <p className="text-xs text-red-600 font-sans">Submit an incident report to the threat intelligence registry.</p>
                   </div>
                   <button
                     onClick={() => navigate('/report', { state: { requestId: result.request_id } })}
-                    className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-semibold font-mono flex items-center gap-1.5 shadow-md"
+                    className="px-3.5 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-medium font-sans flex items-center gap-1.5 shadow-sm"
                   >
                     <FileWarning className="w-4 h-4" /> Report Threat
                   </button>
@@ -638,8 +656,8 @@ export const DetectPage: React.FC = () => {
                 <SecurityCore3D isAnalyzing={false} riskScore={0} />
               </div>
               <div className="space-y-1">
-                <h4 className="text-base font-bold text-gray-900 font-mono">AWAITING AUDIO STREAM</h4>
-                <p className="text-xs text-gray-600 max-w-sm">
+                <h4 className="text-base font-semibold text-gray-900 font-sans">Awaiting Audio Stream</h4>
+                <p className="text-xs text-gray-600 max-w-sm font-sans">
                   Record speech or upload a recording to execute calibrated multi-model forensic deepfake verification.
                 </p>
               </div>

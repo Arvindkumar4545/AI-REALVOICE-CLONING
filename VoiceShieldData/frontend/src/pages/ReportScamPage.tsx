@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { reportsApi } from '../services/api';
+import { downloadPoliceComplaintPDF, PoliceComplaintData } from '../utils/PoliceComplaintPDFGenerator';
 import {
   FileWarning,
   MapPin,
@@ -13,7 +14,11 @@ import {
   Send,
   Upload,
   Camera,
-  FileCheck
+  FileCheck,
+  Download,
+  ExternalLink,
+  Scale,
+  Banknote,
 } from 'lucide-react';
 
 export const ReportScamPage: React.FC = () => {
@@ -119,10 +124,6 @@ export const ReportScamPage: React.FC = () => {
 
       await reportsApi.submitReport(payload);
       setSuccessMsg('Incident report successfully dispatched to Threat Intelligence registry.');
-      setDescription('');
-      setPhoneNumber('');
-      setEvidenceFiles([]);
-      setConsentGiven(false);
     } catch (err: any) {
       const msg =
         err.response?.data?.error?.message ||
@@ -134,47 +135,74 @@ export const ReportScamPage: React.FC = () => {
     }
   };
 
+  const handleGeneratePDF = () => {
+    const complaintData: PoliceComplaintData = {
+      incident_id: `VS-${Date.now()}`,
+      incident_date: new Date().toLocaleDateString('en-IN'),
+      incident_time: new Date().toLocaleTimeString('en-IN'),
+      category: category,
+      severity: threatSeverity,
+      description: description,
+      victim_name: 'Complainant Name (To Be Filled)',
+      victim_phone: 'Victim Phone (To Be Filled)',
+      victim_email: 'Victim Email (To Be Filled)',
+      suspect_phone: phoneNumber || undefined,
+      evidence_items: evidenceFiles.map((ev) => ({
+        type: 'SCREENSHOT',
+        filename: ev.name,
+        sha256_hash: ev.hash,
+        timestamp: ev.timestamp,
+      })),
+      latitude: latitude ?? undefined,
+      longitude: longitude ?? undefined,
+      accuracy_meters: accuracy ?? undefined,
+      consent_given: consentGiven,
+      consent_timestamp: new Date().toISOString(),
+    };
+    downloadPoliceComplaintPDF(complaintData);
+  };
+
   return (
     <div className="min-h-screen pt-10 pb-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 cyber-grid-bg">
       {/* Header */}
       <div className="border-b border-gray-200 pb-6 space-y-1">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-xs font-mono text-[#EF4444] font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-xs font-sans text-[#EF4444] font-semibold">
           <FileWarning className="w-3.5 h-3.5 text-[#EF4444]" />
           <span>Threat Intelligence Intake</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight font-sans">
           REPORT VOICE SCAM & IMPERSONATION
         </h1>
-        <p className="text-xs sm:text-sm text-gray-600">
+        <p className="text-xs sm:text-sm text-gray-600 font-sans">
           Contribute verified deepfake audio incidents to the decentralized VoiceShield global defense registry.
         </p>
       </div>
 
       {/* Success / Error Alerts */}
       {successMsg && (
-        <div className="p-4 rounded-2xl bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.3)] text-[#10B981] text-xs flex items-center gap-3">
+        <div className="p-4 rounded-2xl bg-[rgba(16,185,129,0.1)] border border-[rgba(16,185,129,0.3)] text-[#10B981] text-xs flex items-center gap-3 font-sans">
           <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
           <span>{successMsg}</span>
         </div>
       )}
 
       {errorMsg && (
-        <div className="p-4 rounded-2xl bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[#EF4444] text-xs flex items-center gap-3">
+        <div className="p-4 rounded-2xl bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.3)] text-[#EF4444] text-xs flex items-center gap-3 font-sans">
           <AlertTriangle className="w-5 h-5 flex-shrink-0" />
           <span>{errorMsg}</span>
         </div>
       )}
 
       {/* Form Container */}
-      <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8 rounded-3xl border border-gray-200 space-y-6">
+      <form onSubmit={handleSubmit} className="glass-panel p-6 sm:p-8 rounded-3xl border border-gray-200 space-y-6 font-sans">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Category */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-gray-600 font-semibold block">Scam Category</label>
+            <label className="text-xs font-sans text-gray-600 font-semibold block">Scam Category</label>
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-mono"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-sans"
             >
               <option value="IRS_TAX">IRS / Tax Authority Threat</option>
               <option value="BANK_IMPERSONATION">Bank & Wire Authorization Scam</option>
@@ -188,11 +216,11 @@ export const ReportScamPage: React.FC = () => {
 
           {/* Severity */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-gray-600 font-semibold block">Observed Severity</label>
+            <label className="text-xs font-sans text-gray-600 font-semibold block">Observed Severity</label>
             <select
               value={threatSeverity}
               onChange={(e) => setThreatSeverity(e.target.value as any)}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-mono"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 focus:outline-none focus:border-[#3B82F6] font-sans"
             >
               <option value="low">Low (Nuisance Robocall)</option>
               <option value="medium">Medium (Unverified Caller Attempt)</option>
@@ -205,7 +233,7 @@ export const ReportScamPage: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Caller Phone */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-gray-600 font-semibold block">Originating Caller Number (Optional)</label>
+            <label className="text-xs font-sans text-gray-600 font-semibold block">Originating Caller Number (Optional)</label>
             <div className="relative">
               <Phone className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
@@ -220,7 +248,7 @@ export const ReportScamPage: React.FC = () => {
 
           {/* Linked Detection ID */}
           <div className="space-y-1.5">
-            <label className="text-xs font-mono text-gray-600 font-semibold block">Associated Request ID (Optional)</label>
+            <label className="text-xs font-sans text-gray-600 font-semibold block">Associated Request ID (Optional)</label>
             <div className="relative">
               <Shield className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
@@ -238,15 +266,15 @@ export const ReportScamPage: React.FC = () => {
         <div className="p-4 rounded-2xl bg-white border border-gray-200 space-y-4 shadow-sm">
           <div className="flex items-center gap-2 border-b border-gray-100 pb-2">
             <Lock className="w-4 h-4 text-gray-900" />
-            <span className="text-xs font-mono text-gray-900 font-bold">Consented Evidence Capture</span>
+            <span className="text-xs font-sans text-gray-900 font-bold">Consented Evidence Capture</span>
           </div>
           
           <div className="flex flex-wrap gap-3">
-             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors">
+             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors font-sans">
                 <Upload className="w-4 h-4" /> Attach Screenshot
                 <input type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
              </label>
-             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors">
+             <label className="cursor-pointer px-4 py-2 bg-gray-50 hover:bg-gray-100 border border-gray-300 text-gray-800 rounded text-xs font-bold flex items-center gap-2 transition-colors font-sans">
                 <Camera className="w-4 h-4" /> Take Photo
                 <input type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileChange} />
              </label>
@@ -258,7 +286,7 @@ export const ReportScamPage: React.FC = () => {
                   <div key={idx} className="bg-gray-50 border border-gray-200 p-3 rounded-lg flex flex-col gap-1">
                      <div className="flex items-center gap-2">
                        <FileCheck className="w-4 h-4 text-green-600" />
-                       <span className="text-xs font-bold text-gray-900">{ev.name}</span>
+                       <span className="text-xs font-bold text-gray-900 font-sans">{ev.name}</span>
                      </div>
                      <div className="text-[10px] font-mono text-gray-500 truncate mt-1 bg-gray-900 text-gray-300 p-1.5 rounded">
                        SHA-256: {ev.hash}
@@ -278,7 +306,7 @@ export const ReportScamPage: React.FC = () => {
                     onChange={(e) => setConsentGiven(e.target.checked)}
                     className="mt-1 flex-shrink-0" 
                   />
-                 <span className="text-[11px] text-gray-600 leading-relaxed font-mono">
+                 <span className="text-[11px] text-gray-600 leading-relaxed font-sans">
                    <strong>Recording Consent & Authorization:</strong> I voluntarily submit this evidence from my own device. I confirm I have the legal right to share this recording/screenshot, and grant authorization per local wiretap and electronic communication laws to utilize this for fraud investigation.
                  </span>
                </label>
@@ -288,29 +316,29 @@ export const ReportScamPage: React.FC = () => {
 
         {/* Incident Narrative */}
         <div className="space-y-1.5">
-          <label className="text-xs font-mono text-gray-600 font-semibold block">Incident Forensic Narrative</label>
+          <label className="text-xs font-sans text-gray-600 font-semibold block">Incident Forensic Narrative</label>
           <textarea
             required
             rows={4}
             placeholder="Describe caller demands, vocal characteristics, spoofed identity, and any wire instructions provided..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono leading-relaxed"
+            className="w-full p-3.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans leading-relaxed"
           />
         </div>
 
         {/* Geolocation Telemetry */}
-        <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-3">
+        <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 space-y-3 font-sans">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-gray-900" />
-              <span className="text-xs font-mono text-gray-900 font-semibold">Incident Threat Geolocation</span>
+              <span className="text-xs font-sans text-gray-900 font-semibold">Incident Threat Geolocation</span>
             </div>
             <button
               type="button"
               onClick={requestGeolocation}
               disabled={locating}
-              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 hover:border-blue-400 border border-gray-200 text-xs font-mono text-gray-900 flex items-center gap-1.5 transition-all shadow-sm"
+              className="px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 hover:border-blue-400 border border-gray-200 text-xs font-sans text-gray-900 flex items-center gap-1.5 transition-all shadow-sm font-medium"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${locating ? 'animate-spin' : ''}`} />
               <span>{locating ? 'Locating...' : 'Pin Current Coordinates'}</span>
@@ -319,24 +347,24 @@ export const ReportScamPage: React.FC = () => {
 
           {locationEnabled && latitude && longitude ? (
             <div className="flex items-center gap-4 text-xs font-mono text-[#10B981]">
-              <span>Lat: {latitude.toFixed(4)}�</span>
-              <span>Long: {longitude.toFixed(4)}�</span>
-              <span className="text-[#64748B]">Acc: �{accuracy ? Math.round(accuracy) : 10}m</span>
+              <span>Lat: {latitude.toFixed(4)}°</span>
+              <span>Long: {longitude.toFixed(4)}°</span>
+              <span className="text-[#64748B]">Acc: ±{accuracy ? Math.round(accuracy) : 10}m</span>
             </div>
           ) : (
-            <p className="text-[11px] text-[#64748B] font-mono">
+            <p className="text-[11px] text-[#64748B] font-sans">
               Attaching GPS coordinates correlates threats with regional VoIP scam outbreaks on the global Threat Map.
             </p>
           )}
 
-          {locError && <p className="text-[11px] text-[#EF4444] font-mono">{locError}</p>}
+          {locError && <p className="text-[11px] text-[#EF4444] font-sans">{locError}</p>}
         </div>
 
         {/* Submit CTA */}
         <button
           type="submit"
           disabled={submitting}
-          className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] hover:from-[#2563EB] hover:to-[#2563EB] text-white font-bold font-mono text-xs flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.25)] transition-all hover:scale-[1.01]"
+          className="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] hover:from-[#2563EB] hover:to-[#2563EB] text-white font-semibold font-sans text-xs flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(6,182,212,0.25)] transition-all hover:scale-[1.01]"
         >
           {submitting ? (
             <div className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin" />
@@ -348,6 +376,63 @@ export const ReportScamPage: React.FC = () => {
           )}
         </button>
       </form>
+
+      {/* One-Click Police Complaint & PDF Generation */}
+      <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-gray-200 space-y-5 font-sans">
+        <div className="flex items-center gap-2 border-b border-gray-200 pb-3">
+          <Scale className="w-4 h-4 text-gray-900" />
+          <span className="text-xs font-sans text-gray-900 font-bold">One-Click Police Complaint & Legal Actions</span>
+        </div>
+
+        <p className="text-[11px] text-gray-600 font-sans leading-relaxed">
+          Generate a professional, tamper-evident incident report PDF for filing with law enforcement, financial institutions, or cyber crime authorities.
+        </p>
+
+        <button
+          onClick={handleGeneratePDF}
+          disabled={!description.trim()}
+          className="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <Download className="w-4 h-4" />
+          Generate Police Complaint PDF
+        </button>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <a
+            href="https://cybercrime.gov.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-center transition-colors group"
+          >
+            <ExternalLink className="w-4 h-4 text-blue-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-blue-700 block">Cyber Crime Portal</span>
+            <span className="text-[9px] text-blue-500">cybercrime.gov.in</span>
+          </a>
+          <a
+            href="tel:1930"
+            className="p-3 rounded-xl bg-red-50 hover:bg-red-100 border border-red-200 text-center transition-colors group"
+          >
+            <Phone className="w-4 h-4 text-red-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-red-700 block">Helpline 1930</span>
+            <span className="text-[9px] text-red-500">National Cyber Crime</span>
+          </a>
+          <a
+            href="tel:14440"
+            className="p-3 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-200 text-center transition-colors group"
+          >
+            <Banknote className="w-4 h-4 text-amber-600 mx-auto mb-1 group-hover:scale-110 transition-transform" />
+            <span className="text-[10px] font-bold text-amber-700 block">RBI Helpline</span>
+            <span className="text-[9px] text-amber-500">Banking Fraud — 14440</span>
+          </a>
+        </div>
+
+        {successMsg && (
+          <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-700 font-sans flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+            Report submitted. You can now generate the PDF and file with authorities above.
+          </div>
+        )}
+      </div>
     </div>
   );
 };

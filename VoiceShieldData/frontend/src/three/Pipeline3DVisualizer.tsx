@@ -79,11 +79,11 @@ export const Pipeline3DVisualizer: React.FC = () => {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[10px] font-mono font-bold uppercase text-[#64748B]">Step 0{item.step}</span>
+                <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-[#64748B]">Step 0{item.step}</span>
                 <Icon className={`w-4 h-4 ${isSelected ? 'text-blue-500' : 'text-[#64748B]'}`} />
               </div>
-              <h5 className="text-xs font-bold text-gray-900 mb-0.5">{item.title.split('. ')[1]}</h5>
-              <p className="text-[10px] font-mono text-gray-600 truncate">{item.subtitle}</p>
+              <h5 className="text-xs font-bold text-gray-900 mb-0.5 font-sans">{item.title.split('. ')[1]}</h5>
+              <p className="text-[10px] font-sans text-gray-600 truncate">{item.subtitle}</p>
             </button>
           );
         })}
@@ -94,19 +94,19 @@ export const Pipeline3DVisualizer: React.FC = () => {
         const current = PIPELINE_STEPS.find((s) => s.step === activeStep) || PIPELINE_STEPS[0];
         const Icon = current.icon;
         return (
-          <div className="glass-panel p-6 rounded-2xl border border-gray-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+          <div className="glass-panel p-6 rounded-2xl border border-gray-200 bg-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm font-sans">
             <div className="space-y-2 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.30)] text-[11px] font-mono text-blue-600 font-semibold">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(59,130,246,0.08)] border border-[rgba(59,130,246,0.30)] text-[11px] font-sans text-blue-600 font-semibold">
                 <Icon className="w-3.5 h-3.5 text-blue-600" />
                 <span>Forensic Architecture Flow — {current.title}</span>
               </div>
-              <h4 className="text-lg font-bold text-gray-900">{current.subtitle}</h4>
-              <p className="text-xs text-gray-600 leading-relaxed">{current.desc}</p>
+              <h4 className="text-lg font-bold text-gray-900 font-sans tracking-tight">{current.subtitle}</h4>
+              <p className="text-xs text-gray-600 leading-relaxed font-sans">{current.desc}</p>
             </div>
 
-            <div className="px-5 py-3 rounded-xl bg-gray-50 border border-gray-200 font-mono text-xs text-right space-y-1">
+            <div className="px-5 py-3 rounded-xl bg-gray-50 border border-gray-200 text-xs text-right space-y-1 font-sans">
               <span className="text-[10px] uppercase text-[#64748B] block font-semibold">Subsystem Stack</span>
-              <span className="text-blue-600 font-bold block">{current.tech}</span>
+              <span className="text-blue-600 font-mono font-bold block">{current.tech}</span>
             </div>
           </div>
         );

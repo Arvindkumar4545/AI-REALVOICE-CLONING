@@ -37,6 +37,12 @@ import { VerifyEmailPage } from './pages/VerifyEmailPage';
 import { InvestigationDashboardPage } from './pages/InvestigationDashboardPage';
 import { CaseDetailsPage } from './pages/CaseDetailsPage';
 import { RedTeamLabPage } from './pages/RedTeamLabPage';
+import { ImpactDashboardPage } from './pages/ImpactDashboardPage';
+import { TelephonyTrunksPage } from './pages/TelephonyTrunksPage';
+import { AudioAnalysisReportPage } from './pages/AudioAnalysisReportPage';
+import { CallerIntelligencePage } from './pages/CallerIntelligencePage';
+import { FraudDetectionDashboardPage } from './pages/FraudDetectionDashboardPage';
+import { FraudPreventionCenterPage } from './pages/FraudPreventionCenterPage';
 
 export const App: React.FC = () => {
   const [showOnboarding, setShowOnboarding] = useState(() => {
@@ -74,6 +80,12 @@ export const App: React.FC = () => {
                 <Route path="/security" element={<SecurityPage />} />
                 <Route path="/use-cases" element={<UseCasesPage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/impact" element={<ImpactDashboardPage />} />
+                <Route path="/trunks" element={<TelephonyTrunksPage />} />
+                <Route path="/audio-report" element={<AudioAnalysisReportPage />} />
+                <Route path="/caller-intelligence" element={<CallerIntelligencePage />} />
+                <Route path="/fraud-detection" element={<FraudDetectionDashboardPage />} />
+                <Route path="/fraud-prevention" element={<FraudPreventionCenterPage />} />
 
                 {/* Operations & User History */}
                 <Route path="/dashboard" element={<DashboardPage />} />

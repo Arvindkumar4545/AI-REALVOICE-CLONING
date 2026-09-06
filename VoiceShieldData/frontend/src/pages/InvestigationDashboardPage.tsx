@@ -49,14 +49,14 @@ export const InvestigationDashboardPage: React.FC = () => {
     <div className="min-h-screen pt-10 pb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 bg-gray-50">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-[11px] font-mono text-red-700 font-semibold shadow-sm mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-xs font-sans text-red-700 font-semibold shadow-sm mb-2">
             <ShieldAlert className="w-3.5 h-3.5" />
-            <span>LAW ENFORCEMENT & INVESTIGATION MODE</span>
+            <span>Law Enforcement & Investigation Mode</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-            INVESTIGATION & CAMPAIGN INTELLIGENCE
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-sans">
+            Investigation & Campaign Intelligence
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             Cryptographic evidence vault, legal escalation protocols, and syndication campaign correlation.
           </p>
         </div>
@@ -65,16 +65,16 @@ export const InvestigationDashboardPage: React.FC = () => {
         <div className="flex items-center gap-2 bg-white p-1 rounded-xl border border-gray-200 shadow-sm">
           <button
             onClick={() => setActiveTab('cases')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all ${
-              activeTab === 'cases' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-sans font-medium transition-all ${
+              activeTab === 'cases' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
             }`}
           >
             Case Dossiers ({cases.length})
           </button>
           <button
             onClick={() => setActiveTab('campaigns')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all ${
-              activeTab === 'campaigns' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-sans font-medium flex items-center gap-1.5 transition-all ${
+              activeTab === 'campaigns' ? 'bg-blue-50 text-blue-700 border border-blue-200 shadow-sm font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-slate-50 border border-transparent'
             }`}
           >
             <FolderGit2 className="w-3.5 h-3.5" /> Campaign Graph ({campaigns.length})
@@ -85,10 +85,10 @@ export const InvestigationDashboardPage: React.FC = () => {
       {activeTab === 'campaigns' && (
         <div className="bg-white p-6 space-y-6 rounded-xl border border-gray-200 shadow-sm">
           <div className="border-b border-gray-200 pb-3">
-            <h3 className="text-sm font-bold text-gray-900 font-mono flex items-center gap-2">
-              <Network className="w-4 h-4 text-purple-600" /> Fraud Syndicate Campaign Graph (Feature 24)
+            <h3 className="text-sm font-semibold text-gray-900 font-sans flex items-center gap-2">
+              <Network className="w-4 h-4 text-purple-600" /> Fraud Syndicate Campaign Graph
             </h3>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-500 mt-1 font-sans">
               Correlated clusters across incidents sharing caller trunks, common synthetic voice models, and phishing scripts.
             </p>
           </div>
@@ -101,34 +101,34 @@ export const InvestigationDashboardPage: React.FC = () => {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="p-2 rounded-lg bg-purple-100 text-purple-700 font-mono font-bold text-xs">
+                    <span className="p-2 rounded-lg bg-purple-100 text-purple-700 font-mono font-semibold text-xs">
                       {camp.campaign_id}
                     </span>
-                    <h4 className="text-xs font-bold text-gray-900 font-mono">{camp.name}</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 font-sans">{camp.name}</h4>
                   </div>
-                  <span className="px-2 py-0.5 rounded-full text-[10px] font-bold font-mono bg-red-100 text-red-700 border border-red-200">
+                  <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold font-sans uppercase tracking-wider bg-red-100 text-red-700 border border-red-200">
                     {camp.active_status}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 text-center text-xs font-mono">
+                <div className="grid grid-cols-3 gap-2 text-center text-xs font-sans">
                   <div className="p-2 rounded bg-white border border-gray-200">
-                    <span className="text-[10px] text-gray-500 block">Incidents</span>
-                    <span className="font-bold text-gray-900">{camp.total_incidents}</span>
+                    <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Incidents</span>
+                    <span className="font-semibold text-gray-900 font-mono">{camp.total_incidents}</span>
                   </div>
                   <div className="p-2 rounded bg-white border border-gray-200">
-                    <span className="text-[10px] text-gray-500 block">Avg Risk</span>
-                    <span className="font-bold text-red-600">{camp.average_risk_score}</span>
+                    <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Avg Risk</span>
+                    <span className="font-semibold text-red-600 font-mono">{camp.average_risk_score}</span>
                   </div>
                   <div className="p-2 rounded bg-white border border-gray-200">
-                    <span className="text-[10px] text-gray-500 block">Carrier</span>
-                    <span className="font-bold text-gray-700 text-[10px] truncate block">Tier-1</span>
+                    <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Carrier</span>
+                    <span className="font-semibold text-gray-700 text-xs truncate block">Tier-1</span>
                   </div>
                 </div>
 
-                <div className="text-[11px] font-mono text-gray-600">
-                  <span className="font-bold">Linked Cases: </span>
-                  {camp.case_ids.join(', ')}
+                <div className="text-xs text-gray-600 font-sans">
+                  <span className="font-semibold">Linked Cases: </span>
+                  <span className="font-mono text-xs">{camp.case_ids.join(', ')}</span>
                 </div>
               </div>
             ))}
@@ -139,13 +139,13 @@ export const InvestigationDashboardPage: React.FC = () => {
       {activeTab === 'cases' && (
         <div className="bg-white p-6 space-y-4 rounded-xl border border-gray-200 shadow-sm">
           <div className="flex items-center justify-between border-b border-gray-200 pb-3">
-            <h3 className="text-sm font-bold text-gray-900 font-mono flex items-center gap-2">
+            <h3 className="text-sm font-semibold text-gray-900 font-sans flex items-center gap-2">
               <Search className="w-4 h-4 text-blue-600" /> Active Investigation Cases
             </h3>
           </div>
 
           {loading ? (
-            <div className="py-8 text-center text-xs text-gray-600 flex justify-center items-center gap-2">
+            <div className="py-8 text-center text-xs text-gray-600 flex justify-center items-center gap-2 font-sans">
               <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
               Loading Cases...
             </div>
@@ -154,7 +154,7 @@ export const InvestigationDashboardPage: React.FC = () => {
               {cases.map((c) => (
                 <div
                   key={c.case_id}
-                  className="py-4 flex items-center justify-between text-xs font-mono hover:bg-gray-50 transition-colors px-2 rounded-lg"
+                  className="py-4 flex items-center justify-between text-xs font-sans hover:bg-gray-50 transition-colors px-2 rounded-lg"
                 >
                   <div className="flex items-center gap-4">
                     <span
@@ -163,18 +163,18 @@ export const InvestigationDashboardPage: React.FC = () => {
                       }`}
                     />
                     <div>
-                      <div className="font-semibold text-gray-900 text-sm">
-                        Case ID: <span className="font-bold">{c.case_id}</span>
+                      <div className="font-semibold text-gray-900 text-sm font-sans">
+                        Case ID: <span className="font-mono font-bold text-gray-900">{c.case_id}</span>
                       </div>
-                      <div className="text-[11px] text-gray-600 mt-1 flex gap-3">
+                      <div className="text-xs text-gray-600 mt-1 flex gap-3 font-sans">
                         <span>{new Date(c.timestamp).toLocaleString()}</span>
-                        <span className="font-bold text-gray-800">Status: {c.status}</span>
+                        <span className="font-semibold text-gray-800">Status: {c.status}</span>
                       </div>
                       <div className="mt-1.5 flex gap-2">
                         {c.fraud_indicators?.map((ind: string) => (
                           <span
                             key={ind}
-                            className="px-1.5 py-0.5 bg-red-100 text-red-700 rounded text-[10px] font-bold border border-red-200"
+                            className="px-2 py-0.5 bg-red-100 text-red-700 rounded text-[10px] font-semibold uppercase tracking-wider border border-red-200 font-sans"
                           >
                             {ind.replace(/_/g, ' ')}
                           </span>

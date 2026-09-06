@@ -78,19 +78,19 @@ export const ModelsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-[11px] font-mono text-gray-900 font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-[11px] font-sans text-gray-900 font-semibold">
             <Cpu className="w-3.5 h-3.5 text-gray-900" />
             <span>AI Model Registry & Performance Telemetry</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight font-sans">
             NEURAL SUB-MODEL ENSEMBLE REGISTRY
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             Empirically benchmarked deep learning models powering VoiceShield AI multi-model consensus fusion.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.30)] text-[#10B981] text-xs font-mono font-semibold shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.30)] text-[#10B981] text-xs font-sans font-semibold shadow-[0_0_15px_rgba(16,185,129,0.15)]">
           <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
           <span>Champion Checkpoint v2.0 Active</span>
         </div>
@@ -102,41 +102,41 @@ export const ModelsPage: React.FC = () => {
           <div key={idx} className="glass-card p-6 space-y-5 glass-card-hover">
             <div className="flex items-start justify-between">
               <div>
-                <span className="text-[10px] font-mono text-gray-900 font-bold uppercase tracking-widest block">{m.type}</span>
-                <h3 className="text-lg font-bold text-gray-900 mt-0.5">{m.name}</h3>
+                <span className="text-[10px] font-sans text-gray-900 font-bold uppercase tracking-wider block">{m.type}</span>
+                <h3 className="text-lg font-bold text-gray-900 mt-0.5 font-sans">{m.name}</h3>
                 <span className="text-xs text-[#64748B] font-mono">{m.version}</span>
               </div>
 
-              <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-900 font-bold">
+              <span className="text-[10px] font-sans px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-900 font-bold">
                 {m.status}
               </span>
             </div>
 
-            <p className="text-xs text-gray-600 leading-relaxed">{m.desc}</p>
+            <p className="text-xs text-gray-600 leading-relaxed font-sans">{m.desc}</p>
 
             {/* Metrics Strip */}
-            <div className="grid grid-cols-4 gap-2 text-center text-xs font-mono">
+            <div className="grid grid-cols-4 gap-2 text-center text-xs">
               <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[9px] text-[#64748B] uppercase block font-semibold">AUC Score</span>
-                <span className="font-bold text-[#10B981] mt-0.5 block">{m.auc}</span>
+                <span className="text-[9px] font-sans text-[#64748B] uppercase block font-semibold">AUC Score</span>
+                <span className="font-bold font-mono text-[#10B981] mt-0.5 block">{m.auc}</span>
               </div>
               <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[9px] text-[#64748B] uppercase block font-semibold">Equal Error</span>
-                <span className="font-bold text-gray-900 mt-0.5 block">{m.eer}</span>
+                <span className="text-[9px] font-sans text-[#64748B] uppercase block font-semibold">Equal Error</span>
+                <span className="font-bold font-mono text-gray-900 mt-0.5 block">{m.eer}</span>
               </div>
               <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[9px] text-[#64748B] uppercase block font-semibold">Stack Weight</span>
-                <span className="font-bold text-gray-900 mt-0.5 block">{m.stackingWeight}</span>
+                <span className="text-[9px] font-sans text-[#64748B] uppercase block font-semibold">Stack Weight</span>
+                <span className="font-bold font-mono text-gray-900 mt-0.5 block">{m.stackingWeight}</span>
               </div>
               <div className="p-2.5 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[9px] text-[#64748B] uppercase block font-semibold">Latency</span>
-                <span className="font-bold text-gray-900 mt-0.5 block">{m.latency}</span>
+                <span className="text-[9px] font-sans text-[#64748B] uppercase block font-semibold">Latency</span>
+                <span className="font-bold font-mono text-gray-900 mt-0.5 block">{m.latency}</span>
               </div>
             </div>
 
             <div className="pt-2 border-t border-gray-200 space-y-1">
               {m.features.map((f, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] font-mono text-gray-600">
+                <div key={i} className="flex items-center gap-2 text-[11px] font-sans text-gray-600">
                   <CheckCircle className="w-3.5 h-3.5 text-gray-900" />
                   <span>{f}</span>
                 </div>

@@ -33,12 +33,12 @@ export const StatsCard: React.FC<StatsCardProps> = ({
       transition={{ duration: 0.4 }}
       className={`glass-card p-6 space-y-2 border border-[rgba(226,232,240,0.10)] ${className}`}
     >
-      <div className="text-[11px] font-mono text-[#94A3B8] uppercase font-semibold">{label}</div>
+      <div className="text-xs font-sans text-slate-500 font-medium tracking-wide uppercase">{label}</div>
       <div className="flex items-baseline gap-1.5">
         <span className={`text-3xl font-black font-mono ${accentColors[accentColor]}`}>{value}</span>
-        {unit && <span className="text-xs font-mono text-[#64748B]">{unit}</span>}
+        {unit && <span className="text-xs font-sans font-medium text-slate-500">{unit}</span>}
       </div>
-      {description && <p className="text-[11px] text-[#64748B] pt-1">{description}</p>}
+      {description && <p className="text-xs text-slate-500 pt-1 font-sans leading-relaxed">{description}</p>}
     </motion.div>
   );
 };

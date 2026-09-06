@@ -20,6 +20,10 @@ class FallbackStore {
   public investigation_cases: Map<string, any> = new Map();
   public evidence: Map<string, any> = new Map();
   public chain_of_custody: Map<string, any> = new Map();
+  public telephony_trunks: Map<string, any> = new Map();
+  public caller_threat_profiles: Map<string, any> = new Map();
+  public vishing_threat_triggers: Map<string, any> = new Map();
+  public evidence_vault_hashes: Map<string, any> = new Map();
 }
 
 export const fallbackDb = new FallbackStore();
@@ -133,6 +137,43 @@ function seedFallbackStore() {
       metadata_json: { verified: true },
       timestamp: new Date()
     });
+
+    // Seed initial telephony trunks
+    const trunk1Id = 'trk_siprec_cisco_01';
+    if (!fallbackDb.telephony_trunks.has(trunk1Id)) {
+      fallbackDb.telephony_trunks.set(trunk1Id, {
+        id: trunk1Id,
+        trunk_name: 'Cisco CUBE Core SBC-01',
+        protocol: 'SIPREC',
+        host_address: '198.51.100.12',
+        port: 5061,
+        transport: 'TLS',
+        codec: 'G.711u',
+        status: 'ACTIVE',
+        active_channels: 14,
+        max_channels: 250,
+        carrier: 'Tata Teleservices / Level 3 VoIP',
+        last_ping: new Date(),
+        created_at: new Date(),
+        updated_at: new Date()
+      });
+      fallbackDb.telephony_trunks.set('trk_asterisk_02', {
+        id: 'trk_asterisk_02',
+        trunk_name: 'Asterisk PBX MediaFork-02',
+        protocol: 'WEBSOCKET',
+        host_address: '127.0.0.1',
+        port: 8088,
+        transport: 'TLS',
+        codec: 'Opus 16kHz',
+        status: 'ACTIVE',
+        active_channels: 3,
+        max_channels: 50,
+        carrier: 'Internal EPABX Extension Pool',
+        last_ping: new Date(),
+        created_at: new Date(),
+        updated_at: new Date()
+      });
+    }
   }
 }
 
@@ -496,6 +537,11 @@ function executeFallbackQuery<T = any>(sql: string, params: any[] = []): any {
     };
     fallbackDb.api_usage.set(usageObj.id, usageObj);
     return mockResult([usageObj]);
+  }
+
+  // 9. TELEPHONY TRUNKS
+  if (normalized.startsWith('select * from telephony_trunks')) {
+    return mockResult(Array.from(fallbackDb.telephony_trunks.values()));
   }
 
   // Default empty result

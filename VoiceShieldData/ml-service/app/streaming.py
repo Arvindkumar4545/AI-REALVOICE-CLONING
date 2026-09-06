@@ -24,6 +24,7 @@ FAST_PATH_INTERVAL_CHUNKS = 1  # Run LCNN on every chunk
 SLOW_PATH_INTERVAL_CHUNKS = 5  # Run full consensus every 5 chunks (~7.5s at 1.5s/chunk)
 MAX_BUFFER_DURATION_SEC = 15
 BUFFER_SIZE_SAMPLES = SAMPLE_RATE * MAX_BUFFER_DURATION_SEC
+MAX_TIMELINE_RECORDS = 500  # Cap timeline memory to prevent unbounded growth during prolonged calls
 
 
 class StreamingSession:
@@ -36,9 +37,14 @@ class StreamingSession:
         # Audio buffer (rolling, keeps last 15 seconds)
         self.audio_buffer: deque = deque(maxlen=BUFFER_SIZE_SAMPLES)
         
-        # Chunk tracking
+        # Chunk tracking with bounded ring-buffer
         self.chunk_count = 0
-        self.score_timeline: list = []
+        self.score_timeline: deque = deque(maxlen=MAX_TIMELINE_RECORDS)
+        
+        # Running statistics for O(1) memory metrics
+        self.total_slow_scores = 0
+        self.sum_slow_scores = 0.0
+        self.max_slow_score = 0.0
         
         # Session metadata
         self.start_time = time.time()
@@ -88,6 +94,13 @@ class StreamingSession:
         
         self.score_timeline.append(record)
         
+        # Track running statistics for prolonged calls
+        if score_type == "slow":
+            self.total_slow_scores += 1
+            self.sum_slow_scores += risk_score
+            if risk_score > self.max_slow_score:
+                self.max_slow_score = risk_score
+
         # Check for flagging
         if risk_score > 0.70 and score_type == "slow":
             self.flagged_segments.append({
@@ -113,10 +126,15 @@ class StreamingSession:
                 }
             }
         
-        risk_scores = [s["risk_score"] for s in self.score_timeline if s["type"] == "slow"]
-        max_risk = max(risk_scores) if risk_scores else 0.0
-        avg_risk = sum(risk_scores) / len(risk_scores) if risk_scores else 0.0
+        max_risk = self.max_slow_score if self.total_slow_scores > 0 else 0.0
+        avg_risk = (self.sum_slow_scores / self.total_slow_scores) if self.total_slow_scores > 0 else 0.0
         
+        # Fallback to fast scores if no slow score was recorded
+        if self.total_slow_scores == 0:
+            fast_scores = [s["risk_score"] for s in self.score_timeline]
+            max_risk = max(fast_scores) if fast_scores else 0.0
+            avg_risk = sum(fast_scores) / len(fast_scores) if fast_scores else 0.0
+
         # Determine final classification
         if max_risk > 0.70:
             final_verdict = "SPOOF"
@@ -129,7 +147,7 @@ class StreamingSession:
             "sessionId": self.session_id,
             "finalVerdict": final_verdict,
             "durationMs": int(self.elapsed_seconds() * 1000),
-            "scoreTimeline": self.score_timeline,
+            "scoreTimeline": list(self.score_timeline),
             "summary": {
                 "maxRiskScore": round(max_risk, 4),
                 "avgRiskScore": round(avg_risk, 4),

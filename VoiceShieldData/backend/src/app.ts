@@ -16,6 +16,7 @@ import adminRoutes from './routes/admin.routes.js';
 import userRoutes from './routes/user.routes.js';
 import healthRoutes from './routes/health.routes.js';
 import investigationRoutes from './routes/investigation.routes.js';
+import callerIntelRoutes from './routes/callerIntel.routes.js';
 
 export function createApp(): Express {
   const app = express();
@@ -56,6 +57,7 @@ export function createApp(): Express {
   app.use('/api/v1/user', userRoutes);
   app.use('/api/v1/health', healthRoutes);
   app.use('/api/v1/investigation', investigationRoutes);
+  app.use('/api/v1/caller-intel', callerIntelRoutes);
 
   // Root & Health Probes
   app.use('/health', healthRoutes);

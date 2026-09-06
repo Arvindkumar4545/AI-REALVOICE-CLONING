@@ -82,25 +82,25 @@ export const AuditLogPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-[11px] font-mono text-gray-900 font-semibold">
-            <FileText className="w-3.5 h-3.5 text-gray-900" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-sans text-cyan-800 font-medium">
+            <FileText className="w-3.5 h-3.5 text-cyan-700" />
             <span>Compliance & Cryptographic Verification</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-            ENTERPRISE AUDIT LOG TRAIL
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-sans">
+            Enterprise Audit Log Trail
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             Cryptographically sealed, tamper-evident audit logs of all inspection decisions and administrative actions.
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-gray-200 text-[#10B981] text-xs font-mono font-semibold shadow-[0_0_15px_rgba(16,185,129,0.15)]">
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-white border border-gray-200 text-[#10B981] text-xs font-sans font-medium shadow-[0_0_15px_rgba(16,185,129,0.15)]">
             <ShieldCheck className="w-4 h-4 text-[#10B981]" />
             <span>SHA-256 Chain Verified</span>
           </div>
-          <button className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-mono font-semibold flex items-center gap-2 transition-all shadow-sm">
-            <Download className="w-4 h-4 text-gray-900" /> Export Audit Log
+          <button className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 border border-gray-200 hover:border-[#3B82F6] text-gray-900 text-xs font-sans font-medium flex items-center gap-2 transition-all shadow-sm">
+            <Download className="w-4 h-4 text-gray-700" /> Export Audit Log
           </button>
         </div>
       </div>
@@ -114,7 +114,7 @@ export const AuditLogPage: React.FC = () => {
             placeholder="Search Log ID, call ID, operator, hash..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+            className="w-full pl-10 pr-4 py-2 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
           />
         </div>
       </div>
@@ -122,8 +122,8 @@ export const AuditLogPage: React.FC = () => {
       {/* Audit Log Table */}
       <div className="glass-panel rounded-2xl border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono">
-            <thead className="bg-gray-50 text-gray-600 border-b border-gray-200 uppercase text-[10px] tracking-wider font-bold">
+          <table className="w-full text-left text-xs font-sans">
+            <thead className="bg-gray-50 text-gray-600 border-b border-gray-200 uppercase text-[10px] tracking-wider font-semibold font-sans">
               <tr>
                 <th className="p-4">Log ID & Timestamp</th>
                 <th className="p-4">Operator / Engine</th>
@@ -133,29 +133,29 @@ export const AuditLogPage: React.FC = () => {
                 <th className="p-4">Cryptographic Hash</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200 text-gray-900 bg-white">
+            <tbody className="divide-y divide-gray-200 text-gray-900 bg-white font-sans">
               {filtered.map((entry) => (
                 <tr key={entry.id} className="hover:bg-[#F8FAFC] transition-colors">
                   <td className="p-4">
-                    <span className="font-bold text-gray-900 block">{entry.id}</span>
-                    <span className="text-[10px] text-[#64748B] block">{entry.timestamp}</span>
+                    <span className="font-mono font-semibold text-gray-900 block">{entry.id}</span>
+                    <span className="text-xs text-[#64748B] block font-sans">{entry.timestamp}</span>
                   </td>
                   <td className="p-4">
-                    <span className="text-gray-900 font-semibold block">{entry.operator}</span>
+                    <span className="text-gray-900 font-medium block font-sans">{entry.operator}</span>
                   </td>
                   <td className="p-4">
-                    <span className="text-gray-900 font-semibold block">{entry.action}</span>
-                    <span className="text-[10px] text-gray-600 block">{entry.callId}</span>
+                    <span className="text-gray-900 font-semibold block font-sans">{entry.action}</span>
+                    <span className="text-xs text-gray-500 font-mono block">{entry.callId}</span>
                   </td>
                   <td className="p-4">
-                    <span className="font-bold text-gray-900 block">{entry.decision}</span>
-                    <span className="text-[10px] text-gray-600 block">Risk: {entry.riskScore}%</span>
+                    <span className="font-semibold text-gray-900 block font-sans">{entry.decision}</span>
+                    <span className="text-xs text-gray-500 block font-sans">Risk: <span className="font-mono">{entry.riskScore}%</span></span>
                   </td>
-                  <td className="p-4 text-gray-600">
+                  <td className="p-4 text-gray-600 font-mono text-xs">
                     {entry.ipAddress}
                   </td>
                   <td className="p-4">
-                    <span className="text-[10px] text-[#64748B] font-mono truncate max-w-xs block" title={entry.hash}>
+                    <span className="text-xs text-[#64748B] font-mono truncate max-w-xs block" title={entry.hash}>
                       {entry.hash.substring(0, 16)}...
                     </span>
                   </td>

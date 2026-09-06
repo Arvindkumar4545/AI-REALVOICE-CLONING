@@ -6,6 +6,7 @@ import {
   ChainOfCustodyRepository 
 } from '../models/investigation_repository.js';
 import { MockAuthorizedProvider } from '../integrations/law-enforcement/MockAuthorizedProvider.js';
+import { query } from '../database/index.js';
 
 const provider = new MockAuthorizedProvider();
 
@@ -291,6 +292,15 @@ export const getCampaignIntelligence = async (req: AuthenticatedRequest, res: Re
     }));
 
     res.json({ success: true, total_campaigns: campaigns.length, campaigns });
+  } catch (error: any) {
+    res.status(500).json({ success: false, error: { message: error.message } });
+  }
+};
+
+export const getTelephonyTrunks = async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const result = await query('SELECT * FROM telephony_trunks ORDER BY status ASC');
+    res.json({ success: true, trunks: result.rows });
   } catch (error: any) {
     res.status(500).json({ success: false, error: { message: error.message } });
   }

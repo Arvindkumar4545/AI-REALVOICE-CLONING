@@ -67,14 +67,14 @@ export const UseCasesPage: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16 cyber-grid-bg">
       <div className="text-center space-y-3 max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-xs font-mono text-gray-900 font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-xs font-sans text-gray-900 font-semibold">
           <Briefcase className="w-3.5 h-3.5 text-gray-900" />
           <span>Industry Solutions</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight font-sans">
           Enterprise Voice Security Use Cases
         </h1>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 font-sans">
           Tailored forensic defense protecting organizations from the financial and reputational fallout of AI voice fraud.
         </p>
       </div>
@@ -83,33 +83,33 @@ export const UseCasesPage: React.FC = () => {
         {USE_CASES.map((uc, idx) => {
           const Icon = uc.icon;
           return (
-            <div key={idx} className="glass-panel p-8 rounded-3xl border border-gray-200 space-y-6 glass-card-hover">
+            <div key={idx} className="glass-panel p-8 rounded-3xl border border-gray-200 space-y-6 glass-card-hover font-sans">
               <div className="flex items-center justify-between">
                 <div className="p-3.5 rounded-2xl bg-gray-50 border border-gray-200 text-gray-900">
                   <Icon className="w-6 h-6" />
                 </div>
-                <span className="text-[10px] font-mono px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-900 font-bold">
+                <span className="text-[10px] font-sans px-3 py-1 rounded-full bg-gray-50 border border-gray-200 text-gray-900 font-bold">
                   {uc.badge}
                 </span>
               </div>
 
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-gray-900">{uc.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 font-sans">{uc.title}</h3>
               </div>
 
               <div className="space-y-3 text-xs">
                 <div className="p-3.5 rounded-xl bg-[rgba(239,68,68,0.1)] border border-[rgba(239,68,68,0.25)] space-y-1">
-                  <span className="font-bold text-[#EF4444] font-mono uppercase text-[10px]">Threat Scenario:</span>
-                  <p className="text-gray-900 leading-relaxed">{uc.threat}</p>
+                  <span className="font-bold text-[#EF4444] font-sans uppercase text-[10px] tracking-wide">Threat Scenario:</span>
+                  <p className="text-gray-900 leading-relaxed font-sans">{uc.threat}</p>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.25)] space-y-1">
-                  <span className="font-bold text-gray-900 font-mono uppercase text-[10px]">VoiceShield Solution:</span>
-                  <p className="text-gray-900 leading-relaxed">{uc.solution}</p>
+                  <span className="font-bold text-gray-900 font-sans uppercase text-[10px] tracking-wide">VoiceShield Solution:</span>
+                  <p className="text-gray-900 leading-relaxed font-sans">{uc.solution}</p>
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-gray-200 flex items-center gap-2 text-[11px] font-mono text-[#10B981] font-semibold">
+              <div className="pt-2 border-t border-gray-200 flex items-center gap-2 text-[11px] font-sans text-[#10B981] font-semibold">
                 <CheckCircle2 className="w-4 h-4 text-[#10B981] flex-shrink-0" />
                 <span>{uc.impact}</span>
               </div>
@@ -118,11 +118,11 @@ export const UseCasesPage: React.FC = () => {
         })}
       </div>
 
-      <div className="glass-panel p-8 rounded-3xl border border-gray-200 text-center space-y-4 bg-gradient-to-r from-[#3B82F6]/10 via-[#0B1628] to-[#3B82F6]/10">
-        <h3 className="text-xl font-bold text-gray-900">Protect your organization against voice fraud today</h3>
+      <div className="glass-panel p-8 rounded-3xl border border-gray-200 text-center space-y-4 bg-gradient-to-r from-[#3B82F6]/10 via-[#0B1628] to-[#3B82F6]/10 font-sans">
+        <h3 className="text-xl font-bold text-gray-900 font-sans">Protect your organization against voice fraud today</h3>
         <Link
           to="/detect"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] text-white font-bold font-mono text-xs shadow-[0_0_30px_rgba(6,182,212,0.25)] hover:scale-[1.02] transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] text-white font-semibold font-sans text-xs shadow-[0_0_30px_rgba(6,182,212,0.25)] hover:scale-[1.02] transition-all"
         >
           <span>Launch Voice Inspector</span>
           <ArrowRight className="w-4 h-4" />

@@ -83,19 +83,19 @@ export const VoiceprintsPage: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-200 pb-6">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(6,182,212,0.08)] border border-[rgba(6,182,212,0.30)] text-[11px] font-mono text-gray-900 font-semibold">
-            <Fingerprint className="w-3.5 h-3.5 text-gray-900" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-50 border border-cyan-200 text-xs font-sans text-cyan-800 font-medium">
+            <Fingerprint className="w-3.5 h-3.5 text-cyan-700" />
             <span>Biometric Identity Registry</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">
-            VOICEPRINTS & SPEAKER VERIFICATION
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight font-sans">
+            Voiceprints & Speaker Verification
           </h1>
-          <p className="text-xs sm:text-sm text-gray-600">
+          <p className="text-xs sm:text-sm text-gray-600 font-sans">
             192-dimensional ECAPA-TDNN acoustic embeddings and biometric voice enrollment directory.
           </p>
         </div>
 
-        <button className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#3B82F6] to-[#3B82F6] hover:from-[#2563EB] hover:to-[#2563EB] text-white font-bold font-mono text-xs flex items-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all">
+        <button className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium font-sans text-xs flex items-center gap-2 shadow-sm transition-all">
           <Plus className="w-4 h-4" /> Enroll New Speaker
         </button>
       </div>
@@ -110,7 +110,7 @@ export const VoiceprintsPage: React.FC = () => {
               placeholder="Search speaker name, role, or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-mono"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-gray-50 border border-gray-200 text-xs text-gray-900 placeholder-[#64748B] focus:outline-none focus:border-[#3B82F6] font-sans"
             />
           </div>
 
@@ -137,17 +137,17 @@ export const VoiceprintsPage: React.FC = () => {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono text-gray-900 font-bold">{speaker.id}</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[rgba(16,185,129,0.08)] border border-[rgba(16,185,129,0.30)] text-[#10B981] font-semibold">
+                    <span className="text-xs font-mono text-gray-700 font-semibold">{speaker.id}</span>
+                    <span className="text-[10px] font-sans uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold">
                       {speaker.status}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-gray-900">{speaker.speakerName}</h4>
-                  <p className="text-xs text-gray-600 font-mono">{speaker.role}</p>
+                  <h4 className="text-sm font-semibold text-gray-900 font-sans">{speaker.speakerName}</h4>
+                  <p className="text-xs text-gray-600 font-sans">{speaker.role}</p>
 
-                  <div className="mt-3 pt-2 border-t border-gray-200 flex items-center justify-between text-[10px] font-mono text-[#64748B]">
-                    <span>Quality: {speaker.qualityScore}%</span>
-                    <span>Threshold: {speaker.similarityThreshold}</span>
+                  <div className="mt-3 pt-2 border-t border-gray-200 flex items-center justify-between text-xs font-sans text-gray-500">
+                    <span>Quality: <span className="font-mono font-medium">{speaker.qualityScore}%</span></span>
+                    <span>Threshold: <span className="font-mono font-medium">{speaker.similarityThreshold}</span></span>
                   </div>
                 </div>
               );
@@ -160,39 +160,39 @@ export const VoiceprintsPage: React.FC = () => {
           <div className="glass-panel p-6 rounded-3xl border border-gray-200 space-y-6">
             <div className="flex items-center justify-between border-b border-gray-200 pb-3">
               <div>
-                <span className="text-[10px] font-mono uppercase text-[#64748B] font-semibold">Selected Identity</span>
-                <h3 className="text-base font-bold text-gray-900">{selectedSpeaker.speakerName}</h3>
-                <span className="text-xs text-gray-900 font-mono font-semibold">{selectedSpeaker.role}</span>
+                <span className="text-[10px] font-sans uppercase tracking-wider text-gray-500 font-semibold">Selected Identity</span>
+                <h3 className="text-base font-semibold text-gray-900 font-sans">{selectedSpeaker.speakerName}</h3>
+                <span className="text-xs text-gray-600 font-sans">{selectedSpeaker.role}</span>
               </div>
 
               <div className="text-right">
-                <span className="text-[10px] font-mono uppercase text-[#64748B] block font-semibold">Enrollment Vector</span>
-                <span className="text-xs font-mono font-bold text-gray-900">192-D ECAPA-TDNN</span>
+                <span className="text-[10px] font-sans uppercase tracking-wider text-gray-500 block font-semibold">Enrollment Vector</span>
+                <span className="text-xs font-mono font-semibold text-gray-900">192-D ECAPA-TDNN</span>
               </div>
             </div>
 
             {/* 3D Embedding Cloud Canvas */}
             <div className="relative rounded-2xl bg-gray-50 border border-gray-200 overflow-hidden">
-              <div className="absolute top-3 left-3 z-10 text-[10px] font-mono text-gray-900 font-semibold flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-gray-900" />
+              <div className="absolute top-3 left-3 z-10 text-xs font-sans text-gray-700 font-medium flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-gray-700" />
                 <span>3D Acoustic Embedding Manifold (t-SNE / PCA)</span>
               </div>
               <VoiceprintVisualizer3D similarity={selectedSpeaker.qualityScore / 100} />
             </div>
 
             {/* Biometric Characteristics breakdown */}
-            <div className="grid grid-cols-3 gap-3 text-center text-xs font-mono">
+            <div className="grid grid-cols-3 gap-3 text-center text-xs font-sans">
               <div className="p-3 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[10px] text-[#64748B] block">Formant F1/F2</span>
-                <span className="font-bold text-gray-900 mt-1 block">540 Hz / 1780 Hz</span>
+                <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Formant F1/F2</span>
+                <span className="font-mono font-semibold text-gray-900 mt-1 block">540 Hz / 1780 Hz</span>
               </div>
               <div className="p-3 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[10px] text-[#64748B] block">Baseline F0</span>
-                <span className="font-bold text-gray-900 mt-1 block">132.4 Hz</span>
+                <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Baseline F0</span>
+                <span className="font-mono font-semibold text-gray-900 mt-1 block">132.4 Hz</span>
               </div>
               <div className="p-3 rounded-xl bg-gray-50 border border-gray-200">
-                <span className="text-[10px] text-[#64748B] block">Anti-Spoof Match</span>
-                <span className="font-bold text-[#10B981] mt-1 block">PASS (98.4%)</span>
+                <span className="text-[10px] text-gray-500 block uppercase tracking-wider">Anti-Spoof Match</span>
+                <span className="font-semibold text-emerald-600 mt-1 block">PASS (98.4%)</span>
               </div>
             </div>
           </div>
