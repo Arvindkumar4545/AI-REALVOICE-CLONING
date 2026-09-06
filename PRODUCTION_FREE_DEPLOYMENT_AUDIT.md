@@ -1,72 +1,66 @@
-# 🌐 VoiceShield AI — 100% Free Tier Production Deployment Audit & Blueprint
+# 🌐 VoiceShield AI — Alternative 100% Free Production Deployment Blueprint
 
-> **Zero-Cost ($0 / ₹0) Global Deployment Architecture**  
-> Deploy the entire VoiceShield AI Multi-Microservice Platform to live public URLs with free HTTPS, custom subdomains, serverless PostgreSQL, and zero domain or server purchase costs.
+> **Zero-Cost ($0 / ₹0) Deployment Without Render & Railway**  
+> Complete guide to deploying VoiceShield AI using **Koyeb**, **Hugging Face Spaces**, **Vercel**, **Oracle Cloud Always Free (24GB RAM)**, and **Cloudflare Zero Trust** with zero domain or server purchase costs.
 
 ---
 
-## 🏗️ 1. Free Cloud Infrastructure Topology
+## 🏆 Top Recommended Free Cloud Platforms (No Render / No Railway)
 
 ```mermaid
 flowchart TB
     User[🌍 Global Users / Judges] -->|HTTPS :443| Vercel[Frontend on Vercel\nvoiceshield.vercel.app\nFree Global CDN & SSL]
-    Vercel -->|REST API & WebSockets| RenderBackend[Backend on Render / Railway\nvoiceshield-api.onrender.com\nNode.js + Express Gateway]
-    RenderBackend -->|Internal REST| HF_ML[ML Service on Hugging Face Spaces\nvoiceshield-ml.hf.space\nFastAPI + PyTorch CPU 16GB RAM]
-    RenderBackend -->|TLS 5432| NeonDB[(PostgreSQL on Neon.tech\nServerless Postgres 0.5GB Free\npgcrypto & schema.sql)]
+    Vercel -->|REST & WebSockets| Koyeb[Backend Gateway on Koyeb / Fly.io\nvoiceshield-api.koyeb.app\nFree Micro Instance & Global Edge]
+    Koyeb -->|Internal AI REST| HF_ML[ML Microservice on Hugging Face Spaces\nvoiceshield-ml.hf.space\nFree 2 vCPU + 16GB RAM Container]
+    Koyeb -->|TLS 5432| NeonDB[(PostgreSQL on Neon.tech / Supabase\nServerless Postgres 0.5GB Free)]
 ```
 
 ---
 
-## 📊 2. Service Provider Matrix (100% Free Plan Breakdown)
+## 📊 Platform Comparison & Resource Allocation
 
-| Component | Free Platform | Free Specs / Limits | Free Public URL Example |
+| Layer | Provider | Free Specs & Limits | Why It Is Better |
 |---|---|---|---|
-| **Frontend UI** | **Vercel** | 100 GB Bandwidth/mo, Global Edge CDN, Free SSL | `https://voiceshield-ai.vercel.app` |
-| **Backend Gateway** | **Render** | 750 free instance hours/mo, TLS, WebSockets | `https://voiceshield-api.onrender.com` |
-| **ML Inference Service** | **Hugging Face Spaces** | **2 vCPU, 16 GB RAM**, Unlimited uptime, Docker | `https://username-voiceshield-ml.hf.space` |
-| **Relational Database** | **Neon.tech** / **Supabase** | 0.5 GB Storage, Serverless Branching, TLS 5432 | `postgresql://user:pass@ep-xyz.neon.tech/voiceshield` |
-| **Instant Hackathon Live Tunnel** | **Cloudflare Tunnel** | Unlimited bandwidth, instant HTTPS from local PC | `https://voiceshield-live.trycloudflare.com` |
+| **Frontend Workstation** | **Vercel** / **Cloudflare Pages** | Unlimited builds, Free SSL, Global Edge CDN | Instant deployments, 100% reliable uptime |
+| **Backend API Gateway** | **Koyeb** | Free nano/micro container, Global Edge, WebSockets | No 15-minute sleep like Render, fast boot |
+| **ML Inference Service** | **Hugging Face Spaces** | **2 vCPU, 16 GB RAM**, Docker, Zero Sleep | Handles PyTorch models with massive free memory |
+| **Relational Database** | **Neon.tech** / **Supabase** | 0.5 GB Serverless PostgreSQL 16, pooled connection | Direct PostgreSQL 5432 with SSL |
+| **Full-Stack Powerhouse VPS** | **Oracle Cloud Always Free** | **4 Core CPU, 24 GB RAM, 200 GB Disk** | Run ALL 3 services on 1 free VPS forever |
 
 ---
 
-## 🚀 3. Step-by-Step Deployment Instructions
+## 🚀 Architecture 1: The Modern Trio (Vercel + Koyeb + Hugging Face)
 
 ---
 
-### 🔹 STEP 1: Deploy Free PostgreSQL Database (Neon.tech)
+### 🔹 STEP 1: Deploy Database on Neon.tech (PostgreSQL)
 
-1. Go to **[https://neon.tech](https://neon.tech)** and sign up for a free account (using your GitHub account).
-2. Click **Create Project** → Name: `voiceshield-db` → Region: `Asia Pacific (Singapore)` or `AWS US East`.
-3. Copy the generated **Connection String**:
+1. Sign up for free at **[https://neon.tech](https://neon.tech)** with your GitHub.
+2. Click **Create Project** → Name: `voiceshield` → Select Region `Asia Pacific (Singapore)` or `US East`.
+3. Copy your pooled Connection String:
    ```text
    postgresql://voiceshield_owner:xyz123@ep-cool-snowflake-123456.ap-southeast-1.aws.neon.tech/voiceshield?sslmode=require
    ```
-4. **Push your Database Schema**:
-   - In Neon Dashboard, click on **SQL Editor**.
-   - Open [`VoiceShieldData/database/schema/schema.sql`](file:///f:/AI-REALVOICE-CLONING/VoiceShieldData/database/schema/schema.sql) in your editor.
-   - Copy and paste the entire SQL content into the Neon SQL Editor and click **Run**.
-   - All 13 tables (users, detection results, caller threat profiles, evidence vault) will be created instantly.
+4. Click **SQL Editor** in Neon, paste the contents of [`VoiceShieldData/database/schema/schema.sql`](file:///f:/AI-REALVOICE-CLONING/VoiceShieldData/database/schema/schema.sql), and click **Run**.
 
 ---
 
-### 🔹 STEP 2: Deploy ML Inference Service (Hugging Face Spaces — FREE 16GB RAM)
+### 🔹 STEP 2: Deploy ML Microservice on Hugging Face Spaces (FREE 16GB RAM)
 
-Hugging Face Spaces gives you **2 vCPUs and 16 GB RAM for free** without spinning down, which is ideal for PyTorch inference!
+Hugging Face Spaces is the premier free host for PyTorch and AI models because it offers **16 GB RAM for free** with no sleep timeouts.
 
-1. Go to **[https://huggingface.co/spaces](https://huggingface.co/spaces)** and sign up / log in.
-2. Click **Create new Space**:
+1. Go to **[https://huggingface.co/spaces](https://huggingface.co/spaces)** and click **Create new Space**.
+2. Settings:
    - **Space Name**: `voiceshield-ml-service`
-   - **License**: `mit`
-   - **Select SDK**: **Docker** (Blank)
-   - **Space Hardware**: **CPU Basic (Free - 2 vCPU · 16 GB RAM)**
-   - **Privacy**: `Public`
-3. In the created Space, create a `Dockerfile` with the following content:
+   - **SDK**: **Docker** (Blank)
+   - **Hardware**: **CPU Basic (Free - 2 vCPU · 16 GB RAM)**
+   - **Visibility**: `Public`
+3. Add a `Dockerfile` in the Space repository:
    ```dockerfile
    FROM python:3.10-slim
 
    WORKDIR /app
 
-   # Install libsndfile for audio decoding
    RUN apt-get update && apt-get install -y --no-install-recommends \
        build-essential \
        libsndfile1 \
@@ -74,8 +68,7 @@ Hugging Face Spaces gives you **2 vCPUs and 16 GB RAM for free** without spinnin
        && rm -rf /var/lib/apt/lists/*
 
    COPY VoiceShieldData/ml-service/requirements.txt /app/requirements.txt
-   RUN pip install --no-cache-dir --upgrade pip && \
-       pip install --no-cache-dir -r requirements.txt
+   RUN pip install --no-cache-dir -r requirements.txt
 
    COPY VoiceShieldData/ml-service /app/ml-service
    COPY VoiceShieldData/models /app/models
@@ -86,116 +79,102 @@ Hugging Face Spaces gives you **2 vCPUs and 16 GB RAM for free** without spinnin
 
    CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "7860"]
    ```
-4. Commit and push. Your ML Service will be live at:
+4. Your ML Microservice is immediately live at:
    ```text
-   https://YOUR_HF_USERNAME-voiceshield-ml-service.hf.space
+   https://YOUR_USERNAME-voiceshield-ml-service.hf.space
    ```
-   *Swagger Docs will be live at: `https://YOUR_HF_USERNAME-voiceshield-ml-service.hf.space/docs`*
 
 ---
 
-### 🔹 STEP 3: Deploy Backend API Gateway (Render.com)
+### 🔹 STEP 3: Deploy Backend Gateway on Koyeb (Free Container Hosting)
 
-1. Go to **[https://render.com](https://render.com)** and sign in with GitHub.
-2. Click **New +** → **Web Service**.
-3. Connect your GitHub Repository: `https://github.com/Arvindkumar4545/AI-REALVOICE-CLONING`.
-4. Configure the settings:
-   - **Name**: `voiceshield-api`
-   - **Region**: `Singapore` or `Oregon`
-   - **Root Directory**: `VoiceShieldData/backend`
-   - **Environment**: `Node`
+**[Koyeb](https://www.koyeb.com)** is a high-performance alternative to Render with global edge routing and native WebSocket support.
+
+1. Sign up at **[https://www.koyeb.com](https://www.koyeb.com)** using GitHub.
+2. Click **Create App** → **GitHub**.
+3. Select your repository: `Arvindkumar4545/AI-REALVOICE-CLONING`.
+4. Configure Build & Deployment Settings:
+   - **Work Directory**: `VoiceShieldData/backend`
    - **Build Command**: `npm install && npm run build`
-   - **Start Command**: `npm start`
-   - **Instance Type**: `Free`
-5. Under **Environment Variables**, add:
+   - **Run Command**: `npm start`
+   - **Instance Size**: `Free Nano` (or `Micro`)
+   - **Port**: `4000` (Protocol: `HTTP`)
+5. Add Environment Variables:
    ```env
    NODE_ENV=production
-   PORT=10000
+   PORT=4000
    DATABASE_URL=postgresql://voiceshield_owner:xyz123@ep-cool-snowflake-123456.ap-southeast-1.aws.neon.tech/voiceshield?sslmode=require
-   ML_SERVICE_URL=https://YOUR_HF_USERNAME-voiceshield-ml-service.hf.space
-   JWT_SECRET=super_secret_production_jwt_voiceshield_key_2026_xyz
+   ML_SERVICE_URL=https://YOUR_USERNAME-voiceshield-ml-service.hf.space
+   JWT_SECRET=super_secret_voiceshield_production_2026
    CORS_ORIGIN=*
-   RATE_LIMIT_MAX=200
    ```
-6. Click **Deploy Web Service**. Your backend will be live at:
+6. Click **Deploy**. Koyeb will give you a live domain:
    ```text
-   https://voiceshield-api.onrender.com
+   https://voiceshield-backend-yourname.koyeb.app
    ```
 
 ---
 
-### 🔹 STEP 4: Deploy Frontend Web Application (Vercel)
+### 🔹 STEP 4: Deploy Frontend on Vercel
 
-1. Go to **[https://vercel.com](https://vercel.com)** and sign in with GitHub.
-2. Click **Add New...** → **Project**.
-3. Import your GitHub repository: `Arvindkumar4545/AI-REALVOICE-CLONING`.
-4. Configure Project Settings:
+1. Go to **[https://vercel.com](https://vercel.com)** and click **Add New Project**.
+2. Select your repository: `Arvindkumar4545/AI-REALVOICE-CLONING`.
+3. Configure settings:
    - **Framework Preset**: `Vite`
-   - **Root Directory**: Click `Edit` and select `VoiceShieldData/frontend`.
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-   - **Install Command**: `npm install`
-5. Under **Environment Variables**, add:
+   - **Root Directory**: `VoiceShieldData/frontend`
+4. Add Environment Variables:
    ```env
-   VITE_API_URL=https://voiceshield-api.onrender.com/api/v1
-   VITE_WS_URL=wss://voiceshield-api.onrender.com/ws
-   VITE_APP_ENV=production
+   VITE_API_URL=https://voiceshield-backend-yourname.koyeb.app/api/v1
+   VITE_WS_URL=wss://voiceshield-backend-yourname.koyeb.app/ws
    ```
-6. Click **Deploy**.
-7. In under 60 seconds, Vercel will give you a live production URL:
+5. Click **Deploy**. Your frontend is live with free global CDN:
    ```text
    https://ai-realvoice-cloning.vercel.app
    ```
 
 ---
 
-## ⚡ 4. Instant 60-Second Live Share Alternative (Cloudflare Tunnel)
+## 🏛️ Architecture 2: Oracle Cloud "Always Free" (24GB RAM Dedicated Server)
 
-If you are presenting to judges in an interview/hackathon right now and want to make your local laptop services live to the whole world in 60 seconds for free:
+If you want a **real dedicated Linux cloud server for $0 forever**:
 
-1. Download the official Cloudflare tunnel binary (single `.exe`, zero install required):
+* **Oracle Cloud Always Free Tier** gives:
+  - **4 ARM Ampere Cores**
+  - **24 GB RAM**
+  - **200 GB Storage**
+  - **10 TB Free Bandwidth / Month**
+  - **Public Static IPv4 Address**
+
+### How to Deploy the Entire Project with 1 Command on Oracle Cloud:
+1. Create a free account at **[https://www.oracle.com/cloud/free/](https://www.oracle.com/cloud/free/)**.
+2. Spin up an **Ubuntu 24.04 ARM Compute Instance** (Select `VM.Standard.A1.Flex` with 4 OCPU, 24GB RAM - $0.00/month).
+3. SSH into your server:
+   ```bash
+   ssh ubuntu@YOUR_ORACLE_PUBLIC_IP
+   ```
+4. Clone and start with Docker Compose:
+   ```bash
+   git clone https://github.com/Arvindkumar4545/AI-REALVOICE-CLONING.git
+   cd AI-REALVOICE-CLONING/VoiceShieldData
+   docker compose -f docker-compose.prod.yml up -d
+   ```
+5. Everything (Frontend on `:3000`, Backend on `:4000`, ML Service on `:8000`, and Postgres on `:5432`) is online on your public IP with 24GB RAM and 0 limits!
+
+---
+
+## ⚡ Architecture 3: Instant 60-Second Live Public Tunnel (Cloudflare Zero Trust)
+
+To share your working project with judges in 1 minute directly from your PC without uploading any code to cloud hosts:
+
+1. Install Cloudflare Tunnel:
    ```powershell
    winget install Cloudflare.cloudflared
    ```
-2. Run a free instant HTTPS tunnel for port 3000:
+2. Start the tunnel:
    ```powershell
    cloudflared tunnel --url http://localhost:3000
    ```
-3. Cloudflare will print an instant public HTTPS URL:
+3. Cloudflare prints your instant live global HTTPS link:
    ```text
-   https://voiceshield-telecom-xyz.trycloudflare.com
+   https://your-custom-session.trycloudflare.com
    ```
-   Anyone in the world can immediately open this link on their mobile or desktop to test your live app!
-
----
-
-## 🔒 5. Production Environment Variables Reference Table
-
-### Backend (`VoiceShieldData/backend/.env`)
-| Variable | Value for Production |
-|---|---|
-| `PORT` | `10000` (Render default) |
-| `NODE_ENV` | `production` |
-| `DATABASE_URL` | Neon.tech PostgreSQL connection URI with `sslmode=require` |
-| `ML_SERVICE_URL` | Hugging Face Spaces URL (e.g. `https://user-voiceshield-ml.hf.space`) |
-| `JWT_SECRET` | 64-character random secure key |
-| `CORS_ORIGIN` | `*` (or your Vercel URL `https://ai-realvoice-cloning.vercel.app`) |
-
-### Frontend (`VoiceShieldData/frontend/.env.production`)
-| Variable | Value for Production |
-|---|---|
-| `VITE_API_URL` | `https://voiceshield-api.onrender.com/api/v1` |
-| `VITE_WS_URL` | `wss://voiceshield-api.onrender.com/ws` |
-
----
-
-## 🧪 6. Post-Deployment Verification Checklist
-
-Once your URLs are deployed, run this quick checklist:
-
-- [ ] **Frontend HTTPS**: Visit `https://your-app.vercel.app` — verify UI loads with dark/light navbar and fonts.
-- [ ] **Backend Probe**: Visit `https://voiceshield-api.onrender.com/health` — should return `{"status": "healthy"}`.
-- [ ] **ML Swagger Probe**: Visit `https://your-ml-space.hf.space/docs` — verify PyTorch model endpoints respond.
-- [ ] **End-to-End Deepfake Test**: Record a 3-second sample on `/detect` — verify real-time prediction and spectral graph render.
-- [ ] **Arrest Shield & Police PDF**: Visit `/digital-arrest-shield` — upload a sample notice and verify 1-click Section 63 BSA PDF generation.
-- [ ] **Caller Intel Lookup**: Visit `/caller-intelligence` — search any number and verify live carrier telemetry.
