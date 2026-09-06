@@ -22,6 +22,9 @@ import {
   ShieldAlert,
   AudioLines,
   Eye,
+  Siren,
+  Gavel,
+  ShieldCheck,
 } from 'lucide-react';
 import { useAuth } from '../store/AuthContext';
 
@@ -45,12 +48,12 @@ export const Navbar: React.FC = () => {
   const PRIMARY_NAV = [
     { label: 'Detection', path: '/detect', icon: Mic },
     { label: 'Caller Intel', path: '/caller-intelligence', icon: Fingerprint },
+    { label: 'Family Shield', path: '/citizen-suite', icon: ShieldCheck },
+    { label: 'Arrest Shield', path: '/digital-arrest-shield', icon: Siren },
     { label: 'Fraud Shield', path: '/fraud-prevention', icon: Shield },
     { label: 'Fraud Detect', path: '/fraud-detection', icon: Eye },
     { label: 'PBX Trunks', path: '/trunks', icon: PhoneCall },
     { label: 'Audio Report', path: '/audio-report', icon: AudioLines },
-    { label: 'Security', path: '/security', icon: Lock },
-    { label: 'Technology', path: '/features', icon: Cpu },
   ];
 
   const SECONDARY_NAV: { label: string; path: string; icon: any }[] = [];

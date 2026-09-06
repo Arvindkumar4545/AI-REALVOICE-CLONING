@@ -43,6 +43,8 @@ import { AudioAnalysisReportPage } from './pages/AudioAnalysisReportPage';
 import { CallerIntelligencePage } from './pages/CallerIntelligencePage';
 import { FraudDetectionDashboardPage } from './pages/FraudDetectionDashboardPage';
 import { FraudPreventionCenterPage } from './pages/FraudPreventionCenterPage';
+import { DigitalArrestShieldPage } from './pages/DigitalArrestShieldPage';
+import { CitizenProtectionSuitePage } from './pages/CitizenProtectionSuitePage';
 
 export const App: React.FC = () => {
   const [showOnboarding, setShowOnboarding] = useState(() => {
@@ -58,27 +60,35 @@ export const App: React.FC = () => {
         <AlertProvider>
           {/* 3D background disabled for white theme */}
           <OnboardingModal isOpen={showOnboarding} onClose={() => setShowOnboarding(false)} />
-          <div className="min-h-screen bg-white text-gray-900 flex flex-col justify-between selection:bg-gray-300 selection:text-gray-900">
-            <Navbar />
+          <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans antialiased selection:bg-slate-900 selection:text-white">
             <LiveAlertBanner />
+            <Navbar />
 
-            <main className="flex-grow">
+            <main className="flex-1 w-full">
               <Routes>
-                {/* Public & Feature Routes */}
+                {/* Core Threat Analysis */}
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/detect" element={<DetectPage />} />
+                <Route path="/threat-map" element={<ThreatMapPage />} />
                 <Route path="/voiceprints" element={<VoiceprintsPage />} />
                 <Route path="/calls" element={<CallsPage />} />
-                <Route path="/threats" element={<ThreatMapPage />} />
-                <Route path="/threat-map" element={<ThreatMapPage />} />
-                <Route path="/audit-log" element={<AuditLogPage />} />
-                <Route path="/policies" element={<PoliciesPage />} />
-                <Route path="/models" element={<ModelsPage />} />
+                <Route path="/audio-report" element={<AudioAnalysisReportPage />} />
+                <Route path="/caller-intelligence" element={<CallerIntelligencePage />} />
+                <Route path="/fraud-detection" element={<FraudDetectionDashboardPage />} />
+                <Route path="/fraud-prevention" element={<FraudPreventionCenterPage />} />
+                <Route path="/digital-arrest-shield" element={<DigitalArrestShieldPage />} />
+                <Route path="/arrest-shield" element={<DigitalArrestShieldPage />} />
+                <Route path="/citizen-suite" element={<CitizenProtectionSuitePage />} />
+                <Route path="/family-shield" element={<CitizenProtectionSuitePage />} />
+                <Route path="/honeypot" element={<CitizenProtectionSuitePage />} />
                 <Route path="/red-team" element={<RedTeamLabPage />} />
                 <Route path="/features" element={<FeaturesPage />} />
                 <Route path="/how-it-works" element={<HowItWorksPage />} />
                 <Route path="/security" element={<SecurityPage />} />
                 <Route path="/use-cases" element={<UseCasesPage />} />
+                <Route path="/audit-log" element={<AuditLogPage />} />
+                <Route path="/policies" element={<PoliciesPage />} />
+                <Route path="/models" element={<ModelsPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/impact" element={<ImpactDashboardPage />} />
                 <Route path="/trunks" element={<TelephonyTrunksPage />} />
